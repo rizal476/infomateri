@@ -1,0 +1,22 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class user extends CI_Model {
+    public function cek_login($data){
+        return $this->db->get_where('admin',$data); 
+    }
+
+    public function get_user($nidn){
+        $hasil = $this->db->select('*')->from('admin')->where('nidn',$nidn)->get();
+        return $hasil->result_array();
+    }
+
+    public function cek_mhs($nim){
+        return $this->db->get_where('mahasiswa',$nim); 
+    }
+
+    public function get_nilai($nim){
+        $hasil = $this->db->select('*')->from('mahasiswa')->where('nim',$nim)->get();
+        return $hasil->result_array();
+    }
+}
