@@ -80,7 +80,7 @@
                     </ul>
                     </li>
                     <li>
-                    <a href="<?php base_url()?>view_nilai" class="nav-link text-left">Nilai</a>
+                    <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                     <a href="courses.html" class="nav-link text-left">KP & TA</a>
@@ -89,12 +89,12 @@
                         <a href="contact.html" class="nav-link text-left">Kontak</a>
                     </li>
                     <li class="has-children">
-                    <a href="about.html" class="nav-link text-left">Profil</a>
-                    <ul class="dropdown">
-                        <li><a href=""><?php echo $this->session->userdata("name")?></a></li>
-                        <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                        <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
-                    </ul>
+                        <a href="" class="nav-link text-left">Profil</a>
+                        <ul class="dropdown">
+                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
+                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                        </ul>
                     </li>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
                 </nav>

@@ -83,12 +83,12 @@
 
                     <?php if ($this->session->userdata("name") != "") { ?>
                     <li class="has-children">
-                    <a href="about.html" class="nav-link text-left">Profil</a>
-                    <ul class="dropdown">
-                        <li><a href=""><?php echo $this->session->userdata("name")?></a></li>
-                        <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                        <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
-                    </ul>
+                        <a href="" class="nav-link text-left">Profil</a>
+                        <ul class="dropdown">
+                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
+                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                        </ul>
                     </li>
                     <?php } ?>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>

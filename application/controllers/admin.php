@@ -69,5 +69,35 @@ class admin extends CI_Controller {
         redirect('admin/view_admin_page');
     }
 
+    public function detail_kelas($id){
+        $data['kelas'] = $this->user->get_kelas_by_id($id);
+        $this->load->view('view_detail_kelas',$data);
+    }
+
+    public function add_mhs(){
+        $this->form_validation->set_rules('nama', 'Nama Mahasiswa', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('detail_kelas');
+        }
+        else{
+            $data = [
+                "kelas" => $this->input->post('kelas', true),
+                "nama" => $this->input->post('nama', true)
+            ];
+            $this->user->tambah_mhs($data);
+            redirect(base_url('admin/detail_kelas'));
+        }
+    }
+
+    public function view_tambah_mhs($id){
+        $this->load->view('tambah_mhs',$id);
+    }
+
+    public function total_mhs($id){
+        $data = $this->user->get_kelas_by_id($id);
+        $q = $this->user->get_total_mhs($data);
+        return $q;
+    }
 }
 ?>

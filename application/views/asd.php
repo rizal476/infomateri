@@ -26,10 +26,10 @@
         }
         
         .container-fluid{
-        height:100%;
-        display:table;
-        width: 100%;
-        padding: 0;
+            height:100%;
+            display:table;
+            width: 100%;
+            padding: 0;
         }
   
         .row-fluid{
@@ -40,6 +40,7 @@
             float:none;
             margin:0 auto;
         }
+
     </style>
 </head>
 
@@ -58,7 +59,7 @@
 
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
-        <div class="container">
+        <div class="container" >
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
@@ -79,7 +80,7 @@
                     </ul>
                     </li>
                     <li>
-                    <a href="<?php base_url()?>view_nilai" class="nav-link text-left">Nilai</a>
+                    <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                     <a href="courses.html" class="nav-link text-left">KP & TA</a>
@@ -87,8 +88,6 @@
                     <li>
                         <a href="contact.html" class="nav-link text-left">Kontak</a>
                     </li>
-
-                    <?php if ($this->session->userdata("name") != "") { ?>
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
@@ -97,41 +96,81 @@
                             <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
                         </ul>
                     </li>
-                    <?php } ?>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
                 </nav>
-
             </div>
-            <?php if ($this->session->userdata("name") == "") { ?>
             <div class="ml-auto">
                 <div class="social-wrap">
-                <a href="#"><span class="icon-facebook"></span></a>
-                <a href="#"><span class="icon-twitter"></span></a>
-                <a href="#"><span class="icon-linkedin"></span></a>
 
                 <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
                     class="icon-menu h3"></span></a>
                 </div>
             </div>
-            <?php } ?>
-            
             </div>
         </div>
+        <div class="body" style="margin-top: 100px;"></div>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col">
+                        <h3 class="text-center">Daftar Mahasiswa</h3>
+                        <!-- <h3 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
+                        <a href="<?php echo base_url()?>admin/view_tambah_mhs<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Mahasiswa</div></a>
+                        <?php if (empty($kelas)) : ?>
+                            <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
+                                Data tidak ditemukan
+                            </div>
+                        <?php endif; ?> -->
 
+                        <table class="table mt-5">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">NIM</th>
+                                    <th class="text-center" scope="col">NAMA</th>
+                                    <th class="text-center" scope="col">TP</th>
+                                    <th class="text-center" scope="col" colspan="10">TM</th>
+                                    <th class="text-center" scope="col" colspan="10">Praktikum</th>
+                                    <th class="text-center" scope="col">Kehadiran</th>
+                                    <th class="text-center" scope="col">Presentasi</th>
+                                    <th class="text-center" scope="col" colspan="2">Kuis</th>
+                                    <th class="text-center" scope="col">UTS</th>
+                                    <th class="text-center" scope="col">UAS</th>
+                                    <th class="text-center" scope="col">Pembicara</th>
+                                    <th class="text-center" scope="col">Diskusi</th>
+                                    <th class="text-center" scope="col">Total</th>
+                                    <th class="text-center" scope="col">Indeks Sementara</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr><?php foreach ($kelas as $kls) :  ?>
+                                    <td class="text-center"><?= $kls['id']; ?></td>
+                                    <td class="text-center"><?= $kls['kelas']; ?></td>
+                                    <td class="text-center"><?= $kls['jumlah']; ?></td>
+                                    <td class="text-center">
+                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                        <a href="" class="badge badge-success float-center" ?>detail</a>
+                                </td>
+                                    </td>
+                                </tr>
+                                <?php endforeach ?> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </header>
+        
     </div>
     <!-- .site-wrap -->
-
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row-fluid">
             <div class="centering text-center">
-            <div class="limiter">
+                <div class="limiter">
                     <div class="container-login100">
                         <div class="wrap-login100 p-t-85 p-b-20">
                             <form method="post" action="<?php echo base_url()?>admin/aksi_login" class="login100-form validate-form">
                                 <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
                                     <input class="input100" type="text" name="nidn">
-                                    <span class="focus-input100" data-placeholder="Username"></span>
+                                    <span class="focus-input100" data-placeholder="NIDN"></span>
                                 </div>
 
                                 <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
@@ -150,7 +189,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">test</div>
+            <div class="col-4">test</div>
+            <div class="col-4">test</div>
+        </div>        
+    </div> -->
+    
 
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>

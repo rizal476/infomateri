@@ -138,8 +138,8 @@
                 <thead>
                     <tr>
                         <th scope="col">TP</th>
-                        <th scope="col" colspan="9">TM</th>
-                        <th scope="col" colspan="9">Praktikum</th>
+                        <th scope="col" colspan="10">TM</th>
+                        <th scope="col" colspan="10">Praktikum</th>
                         <th scope="col">Kehadiran</th>
                         <th scope="col">Presentasi</th>
                         <th scope="col" colspan="2">Kuis</th>
@@ -153,6 +153,8 @@
                 </thead>    
                 <tbody>
                     <tr>
+                        <td>0</td>
+                        <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>

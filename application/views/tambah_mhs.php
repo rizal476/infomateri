@@ -26,10 +26,10 @@
         }
         
         .container-fluid{
-        height:100%;
-        display:table;
-        width: 100%;
-        padding: 0;
+            height:100%;
+            display:table;
+            width: 100%;
+            padding: 0;
         }
   
         .row-fluid{
@@ -40,6 +40,7 @@
             float:none;
             margin:0 auto;
         }
+
     </style>
 </head>
 
@@ -58,7 +59,7 @@
 
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
-        <div class="container">
+        <div class="container" >
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
@@ -79,7 +80,7 @@
                     </ul>
                     </li>
                     <li>
-                    <a href="<?php base_url()?>view_nilai" class="nav-link text-left">Nilai</a>
+                    <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                     <a href="courses.html" class="nav-link text-left">KP & TA</a>
@@ -87,8 +88,6 @@
                     <li>
                         <a href="contact.html" class="nav-link text-left">Kontak</a>
                     </li>
-
-                    <?php if ($this->session->userdata("name") != "") { ?>
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
@@ -97,61 +96,44 @@
                             <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
                         </ul>
                     </li>
-                    <?php } ?>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
                 </nav>
-
             </div>
-            <?php if ($this->session->userdata("name") == "") { ?>
             <div class="ml-auto">
                 <div class="social-wrap">
-                <a href="#"><span class="icon-facebook"></span></a>
-                <a href="#"><span class="icon-twitter"></span></a>
-                <a href="#"><span class="icon-linkedin"></span></a>
 
                 <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
                     class="icon-menu h3"></span></a>
                 </div>
             </div>
-            <?php } ?>
-            
             </div>
         </div>
-
-        </header>
-    </div>
-    <!-- .site-wrap -->
-
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="centering text-center">
-            <div class="limiter">
-                    <div class="container-login100">
-                        <div class="wrap-login100 p-t-85 p-b-20">
-                            <form method="post" action="<?php echo base_url()?>admin/aksi_login" class="login100-form validate-form">
-                                <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-                                    <input class="input100" type="text" name="nidn">
-                                    <span class="focus-input100" data-placeholder="Username"></span>
-                                </div>
-
-                                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-                                    <input class="input100" type="password" name="password">
-                                    <span class="focus-input100" data-placeholder="Password"></span>
-                                </div>
-
-                                <div class="container-login100-form-btn">
-                                    <button class="login100-form-btn" style="margin-top: 30px;">
-                                        Login
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+        <div class="body" style="margin-top: 100px;"></div>
+            <h3 class="text-center">Tambah Mahasiswa</h3>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <form method="post" action="<?php echo base_url()?>admin/add_kelas">
+                            <div class="form-group">
+                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;" type="text" value="<?php echo $kelas['nama']?>" class="input" name="kelas">
+                            </div>
+                            <div class="form-group">
+                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;" type="text" placeholder="Jumlah Mahasiswa" class="input" name="nama">
+                            </div>
+                            <br/><br />
+                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
+                            <button type="submit" name="tambah" class="btn btn-secondary" style="background-color: #51be78; border: #51be78; float:left;">Kembali</button>
+                        </form>  
+                    </div>
+                    <div class="col-2"></div>                        
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
+        
     </div>
-
+    
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
 

@@ -6,19 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="../assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../assets/css/aos.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
-    <link href="../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 
     <style>
         html, body{
@@ -63,7 +63,7 @@
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
-                <img src="../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
+                <img src="../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
             <div class="mr-auto">
@@ -112,36 +112,46 @@
             <div class="container">
                 <div class="row mt-5">
                     <div class="col">
-                        <h3 class="text-center">Daftar Kelas</h3>
-                        <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
-                        <?php if (empty($kelas)) : ?>
+                        <h3 class="text-center">Daftar Mahasiswa</h3>
+                        <h3 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
+                        <a href="<?php echo base_url()?>admin/view_tambah_mhs<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Mahasiswa</div></a>
+                        <?php if (intval($kelas[0]['jumlah']) != 0) { ?>
                             <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
                                 Data tidak ditemukan
                             </div>
-                        <?php endif; ?>
-
+                        <?php } ?>
+                        <?php echo $admin->total_mhs($id);?>
                         <table class="table mt-5">
                             <thead>
                                 <tr>
-                                    <th class="text-center" scope="col">ID</th>
-                                    <th class="text-center" scope="col">NAMA KELAS</th>
-                                    <th class="text-center" scope="col">JUMLAH MAHASISWA</th>
+                                    <th class="text-center" scope="col">NIM</th>
+                                    <th class="text-center" scope="col">NAMA</th>
+                                    <th class="text-center" scope="col">TP</th>
+                                    <th class="text-center" scope="col" colspan="10">TM</th>
+                                    <th class="text-center" scope="col" colspan="10">Praktikum</th>
+                                    <th class="text-center" scope="col">Kehadiran</th>
+                                    <th class="text-center" scope="col">Presentasi</th>
+                                    <th class="text-center" scope="col" colspan="2">Kuis</th>
+                                    <th class="text-center" scope="col">UTS</th>
+                                    <th class="text-center" scope="col">UAS</th>
+                                    <th class="text-center" scope="col">Pembicara</th>
+                                    <th class="text-center" scope="col">Diskusi</th>
+                                    <th class="text-center" scope="col">Total</th>
+                                    <th class="text-center" scope="col">Indeks Sementara</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><?php foreach ($kelas as $kls) :  ?>
+                                <!-- <tr><?php foreach ($kelas as $kls) :  ?>
                                     <td class="text-center"><?= $kls['id']; ?></td>
                                     <td class="text-center"><?= $kls['kelas']; ?></td>
                                     <td class="text-center"><?= $kls['jumlah']; ?></td>
                                     <td class="text-center">
                                         <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
-                                        <!-- <a href="<?php echo base_url(). 'admin/detail_kelas/' . $kls['id']; ?>" class="badge badge-success float-center" ?>detail</a> -->
-                                        <a href="<?php echo base_url(); ?>admin/detail_kelas/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
-                                        <!-- <a href="<?php echo site_url("admin/detail_kelas/".$kls['id'])?>" class="badge badge-success float-center" ?>detail</a> -->
+                                        <a href="" class="badge badge-success float-center" ?>detail</a>
                                 </td>
                                     </td>
                                 </tr>
-                                <?php endforeach ?>
+                                <?php endforeach ?> -->
                             </tbody>
                         </table>
                     </div>
@@ -192,21 +202,21 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
 
-    <script src="../assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../assets/js/jquery-ui.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/owl.carousel.min.js"></script>
-    <script src="../assets/js/jquery.stellar.min.js"></script>
-    <script src="../assets/js/jquery.countdown.min.js"></script>
-    <script src="../assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="../assets/js/jquery.easing.1.3.js"></script>
-    <script src="../assets/js/aos.js"></script>
-    <script src="../assets/js/jquery.fancybox.min.js"></script>
-    <script src="../assets/js/jquery.sticky.js"></script>
-    <script src="../assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../../assets/js/jquery-ui.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/owl.carousel.min.js"></script>
+    <script src="../../assets/js/jquery.stellar.min.js"></script>
+    <script src="../../assets/js/jquery.countdown.min.js"></script>
+    <script src="../../assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../../assets/js/aos.js"></script>
+    <script src="../../assets/js/jquery.fancybox.min.js"></script>
+    <script src="../../assets/js/jquery.sticky.js"></script>
+    <script src="../../assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 
 </html>

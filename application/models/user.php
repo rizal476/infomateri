@@ -38,4 +38,18 @@ class user extends CI_Model {
         $this->db->where('id',$id);
 		return $this->db->delete('kelas');
     }
+
+    public function tambah_mhs($data){
+        $this->db->insert('mahasiswa',$data);
+    }
+
+    public function get_kelas_by_id($id){
+        $q = $this->db->select('*')->from('kelas')->where('id',$id)->get();
+        return $q->result_array();
+    }
+
+    public function get_total_mhs($kelas){
+        $q = $this->db->count_all('mahasiswa')->where('kelas',$kelas[0]['kelas']);
+        return $q->result_array();
+    }
 }
