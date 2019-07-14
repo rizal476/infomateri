@@ -114,7 +114,7 @@
                 <div class="row mt-5">
                     <div class="col-2"></div>
                     <div class="col-8">
-                        <form method="post" action="">
+                        <form method="post" action="<?php echo base_url()?>admin/add_kelas">
                             <div class="form-group">
                                 <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;" type="text" placeholder="Nama Kelas" class="input" name="kelas">
                             </div>

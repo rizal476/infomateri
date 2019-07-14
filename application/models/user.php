@@ -24,4 +24,18 @@ class user extends CI_Model {
         $data = $this->db->get('mahasiswa');
         return $data->result_array();
     }
+
+    public function tambah_kelas($data){
+        $this->db->insert('kelas',$data);
+    }
+
+    public function get_all_kelas(){
+        $data = $this->db->get('kelas');
+        return $data->result_array();
+    }
+
+    public function hapus_kelas($id){
+        $this->db->where('id',$id);
+		return $this->db->delete('kelas');
+    }
 }

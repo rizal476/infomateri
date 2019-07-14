@@ -4,11 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class admin extends CI_Controller {
     public function __construct(){
 		parent::__construct();
-		$this->load->model('user');
+        $this->load->model('user');
+        $this->load->library('form_validation');
 	}
 
     public function view_admin_page(){
-        $data['mahasiswa'] = $this->user->get_all_mhs();
+        $data['kelas'] = $this->user->get_all_kelas();
         $this->load->view('admin_page', $data);
     }
 
@@ -42,8 +43,31 @@ class admin extends CI_Controller {
         redirect('welcome');
     }
 
-    public function tambah_kelas(){
+    public function view_tambah_kelas(){
         $this->load->view('tambah_kelas');
     }
+
+    public function add_kelas(){
+        $this->form_validation->set_rules('kelas', 'Nama Kelas', 'required');
+        $this->form_validation->set_rules('jumlah', 'Jumlah Mahasiswa', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('view_tambah_kelas');
+        }
+        else{
+            $data = [
+                "kelas" => $this->input->post('kelas', true),
+                "jumlah" => $this->input->post('jumlah', true)
+            ];
+            $this->user->tambah_kelas($data);
+            redirect(base_url('admin/view_admin_page'));
+        }
+    }
+
+    public function hapus_kelas($id){
+        $this->user->hapus_kelas($id);
+        redirect('admin/view_admin_page');
+    }
+
 }
 ?>

@@ -113,8 +113,8 @@
                 <div class="row mt-5">
                     <div class="col">
                         <h3 class="text-center">List Kelas</h3>
-                        <a href="<?php echo base_url()?>admin/tambah_kelas" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
-                        <?php if (empty($mahasiswa)) : ?>
+                        <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
+                        <?php if (empty($kelas)) : ?>
                             <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
                                 Data tidak ditemukan
                             </div>
@@ -123,23 +123,23 @@
                         <table class="table mt-5">
                             <thead>
                                 <tr>
-                                    <th class="text-center" scope="col">NIM</th>
-                                    <th class="text-center" scope="col">NAMA</th>
-                                    <th class="text-center" scope="col">NILAI</th>
+                                    <th class="text-center" scope="col">ID</th>
+                                    <th class="text-center" scope="col">NAMA KELAS</th>
+                                    <th class="text-center" scope="col">JUMLAH MAHASISWA</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr><?php foreach ($customer as $cust) :  ?>
-                                    <?php if ($cust['email'] != 'admin@admin.com') :?>
-                                    <td class="text-center"><?= $cust['nama_depan']; ?></td>
-                                    <td class="text-center"><?= $cust['nama_belakang']; ?></td>
-                                    <td class="text-center"><?= $cust['email']; ?></td>
+                                <tr><?php foreach ($kelas as $kls) :  ?>
+                                    <td class="text-center"><?= $kls['id']; ?></td>
+                                    <td class="text-center"><?= $kls['kelas']; ?></td>
+                                    <td class="text-center"><?= $kls['jumlah']; ?></td>
                                     <td class="text-center">
-                                        <a href="<?= base_url(); ?>loggedHome/hapusUser/<?= $cust['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                        <a href="" class="badge badge-success float-center" ?>detail</a>
+                                </td>
                                     </td>
                                 </tr>
-                                    <?php endif;?>
-                                <?php endforeach ?> -->
+                                <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>
