@@ -41,5 +41,9 @@ class admin extends CI_Controller {
         $this->session->sess_destroy();
         redirect('welcome');
     }
+
+    public function tambah_kelas(){
+        $this->load->view('tambah_kelas');
+    }
 }
 ?>

@@ -26,10 +26,10 @@
         }
         
         .container-fluid{
-        height:100%;
-        display:table;
-        width: 100%;
-        padding: 0;
+            height:100%;
+            display:table;
+            width: 100%;
+            padding: 0;
         }
   
         .row-fluid{
@@ -40,6 +40,7 @@
             float:none;
             margin:0 auto;
         }
+
     </style>
 </head>
 
@@ -112,8 +113,9 @@
                 <div class="row mt-5">
                     <div class="col">
                         <h3 class="text-center">List Kelas</h3>
+                        <a href="<?php echo base_url()?>admin/tambah_kelas" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
                         <?php if (empty($mahasiswa)) : ?>
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
                                 Data tidak ditemukan
                             </div>
                         <?php endif; ?>
