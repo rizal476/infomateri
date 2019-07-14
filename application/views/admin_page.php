@@ -107,8 +107,42 @@
             </div>
             </div>
         </div>
-        <div class="body" style="margin-top: 50px; background-color: grey; width: 100%; height: 800px;"></div>
+        <div class="body" style="margin-top: 100px;"></div>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col">
+                        <h3 class="text-center">List Kelas</h3>
+                        <?php if (empty($mahasiswa)) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                Data tidak ditemukan
+                            </div>
+                        <?php endif; ?>
 
+                        <table class="table mt-5">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">NIM</th>
+                                    <th class="text-center" scope="col">NAMA</th>
+                                    <th class="text-center" scope="col">NILAI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr><?php foreach ($customer as $cust) :  ?>
+                                    <?php if ($cust['email'] != 'admin@admin.com') :?>
+                                    <td class="text-center"><?= $cust['nama_depan']; ?></td>
+                                    <td class="text-center"><?= $cust['nama_belakang']; ?></td>
+                                    <td class="text-center"><?= $cust['email']; ?></td>
+                                    <td class="text-center">
+                                        <a href="<?= base_url(); ?>loggedHome/hapusUser/<?= $cust['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                    </td>
+                                </tr>
+                                    <?php endif;?>
+                                <?php endforeach ?> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </header>
         
     </div>

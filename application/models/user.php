@@ -19,4 +19,9 @@ class user extends CI_Model {
         $hasil = $this->db->select('*')->from('mahasiswa')->where('nim',$nim)->get();
         return $hasil->result_array();
     }
+
+    public function get_all_mhs(){
+        $data = $this->db->get('mahasiswa');
+        return $data->result_array();
+    }
 }

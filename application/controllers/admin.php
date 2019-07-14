@@ -8,7 +8,8 @@ class admin extends CI_Controller {
 	}
 
     public function view_admin_page(){
-        $this->load->view('admin_page');
+        $data['mahasiswa'] = $this->user->get_all_mhs();
+        $this->load->view('admin_page', $data);
     }
 
     public function aksi_login(){
