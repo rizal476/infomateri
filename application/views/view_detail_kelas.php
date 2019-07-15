@@ -44,7 +44,7 @@
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" style="margin-left: -300px;">
 
     <div class="site-wrap">
 
@@ -57,7 +57,7 @@
             <div class="site-mobile-menu-body"></div>
         </div>
 
-        <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+        <header class="site-navbar py-4 site-navbar-target" role="banner" style="width: 2000px;">
 
         <div class="container" >
             <div class="d-flex align-items-center">
@@ -114,44 +114,146 @@
                     <div class="col">
                         <h3 class="text-center">Daftar Mahasiswa</h3>
                         <h3 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                        <a href="<?php echo base_url()?>admin/view_tambah_mhs<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Mahasiswa</div></a>
-                        <?php if (intval($kelas[0]['jumlah']) != 0) { ?>
-                            <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
-                                Data tidak ditemukan
-                            </div>
-                        <?php } ?>
-                        <?php echo $admin->total_mhs($id);?>
-                        <table class="table mt-5">
+                        <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Mahasiswa</div></a>
+                        
+                        <table class="table table-bordered mt-5">
                             <thead>
                                 <tr>
-                                    <th class="text-center" scope="col">NIM</th>
-                                    <th class="text-center" scope="col">NAMA</th>
-                                    <th class="text-center" scope="col">TP</th>
-                                    <th class="text-center" scope="col" colspan="10">TM</th>
-                                    <th class="text-center" scope="col" colspan="10">Praktikum</th>
-                                    <th class="text-center" scope="col">Kehadiran</th>
-                                    <th class="text-center" scope="col">Presentasi</th>
-                                    <th class="text-center" scope="col" colspan="2">Kuis</th>
-                                    <th class="text-center" scope="col">UTS</th>
-                                    <th class="text-center" scope="col">UAS</th>
-                                    <th class="text-center" scope="col">Pembicara</th>
-                                    <th class="text-center" scope="col">Diskusi</th>
-                                    <th class="text-center" scope="col">Total</th>
-                                    <th class="text-center" scope="col">Indeks Sementara</th>
+                                    <th class="text-center align-middle" scope="col">NIM</th>
+                                    <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                    <th class="text-center align-middle" scope="col">TP</th>
+                                    <th class="text-center align-middle" scope="col" colspan="10">TM</th>
+                                    <th class="text-center align-middle" scope="col" colspan="10">Praktikum</th>
+                                    <th class="text-center align-middle" scope="col">Kehadiran</th>
+                                    <th class="text-center align-middle" scope="col">Presentasi</th>
+                                    <th class="text-center align-middle" scope="col" colspan="2">Kuis</th>
+                                    <th class="text-center align-middle" scope="col">UTS</th>
+                                    <th class="text-center align-middle" scope="col">UAS</th>
+                                    <th class="text-center align-middle" scope="col">Pembicara</th>
+                                    <th class="text-center align-middle" scope="col">Diskusi</th>
+                                    <th class="text-center align-middle" scope="col">Total</th>
+                                    <th class="text-center align-middle" scope="col">Indeks Sementara</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr><?php foreach ($kelas as $kls) :  ?>
-                                    <td class="text-center"><?= $kls['id']; ?></td>
-                                    <td class="text-center"><?= $kls['kelas']; ?></td>
-                                    <td class="text-center"><?= $kls['jumlah']; ?></td>
+                                <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                    <td class="text-center"><?= $kls['nim']; ?></td>
+                                    <td class="text-center" style="min-width: 250px;"><?= $kls['nama']; ?></td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tp']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm1']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm2']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm3']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm4']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm5']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm6']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm7']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm8']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm9']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm10']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p1']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p2']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p3']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p4']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p5']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p6']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p7']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p8']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p9']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p10']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['kehadiran']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['presentasi']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['kuis1']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['kuis2']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['uts']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['uas']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['pembicara']; ?>" class="input" name="nim">
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['diskusi']; ?>" class="input" name="nim">
+                                    </td>
+                                    <?php $kls['total'] = $kls['tp']+$kls['tm1']+$kls['tm2']+$kls['tm3']+$kls['tm4']+
+                                        $kls['tm5']+$kls['tm6']+$kls['tm7']+$kls['tm8']+$kls['tm9']+$kls['tm10']+$kls['p1']+$kls['p2']+$kls['p3']+$kls['p4']+$kls['p5']+$kls['p6']+$kls['p7']+$kls['p8']+$kls['p9']+$kls['p10']+
+                                        $kls['kehadiran']+$kls['presentasi']+$kls['kuis1']+$kls['kuis2']+$kls['uts']+$kls['uas']+$kls['pembicara']+$kls['diskusi']?>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['total']; ?>" class="input" name="nim" readonly>
+                                    </td>
+                                    <td class="text-center">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?php 
+                                        if ($kls['total'] <= 40){
+                                            echo "E";
+                                        } else if ($kls['total'] <= 55 and $kls['total'] > 40){
+                                            echo "D";
+                                        } else if ($kls['total'] <= 65 and $kls['total'] > 55){
+                                            echo "C";
+                                        } else if ($kls['total'] <= 79 and $kls['total'] > 66){
+                                            echo "B";
+                                        } else if ($kls['total'] <= 150 and $kls['total'] > 80){
+                                            echo "A";
+                                        }
+                                        ?>" class="input" name="nim" readonly>
+                                    </td>
                                     <td class="text-center">
                                         <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
                                         <a href="" class="badge badge-success float-center" ?>detail</a>
                                 </td>
                                     </td>
                                 </tr>
-                                <?php endforeach ?> -->
+                                <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>

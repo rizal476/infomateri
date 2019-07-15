@@ -52,4 +52,9 @@ class user extends CI_Model {
         $q = $this->db->count_all('mahasiswa')->where('kelas',$kelas[0]['kelas']);
         return $q->result_array();
     }
+
+    public function get_mhs_by_kelas($kelas){
+        $q = $this->db->select('*')->from('mahasiswa')->where('kelas',$kelas)->get();
+        return $q->result_array();
+    }
 }

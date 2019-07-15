@@ -71,27 +71,33 @@ class admin extends CI_Controller {
 
     public function detail_kelas($id){
         $data['kelas'] = $this->user->get_kelas_by_id($id);
+        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function add_mhs(){
+    public function add_mhs($id){
+        $data['datakelas'] = $this->user->get_kelas_by_id($id);
+        // var_dump($data['datakelas'][0]['kelas']);
         $this->form_validation->set_rules('nama', 'Nama Mahasiswa', 'required');
 
         if ($this->form_validation->run() == FALSE){
-            $this->load->view('detail_kelas');
+            $this->load->view('tambah_mhs',$data);
         }
         else{
-            $data = [
+            $datas = [
                 "kelas" => $this->input->post('kelas', true),
+                "nim" => $this->input->post('nim', true),
                 "nama" => $this->input->post('nama', true)
             ];
-            $this->user->tambah_mhs($data);
-            redirect(base_url('admin/detail_kelas'));
+            $this->user->tambah_mhs($datas);
+            $this->load->view('tambah_mhs',$data);
         }
     }
 
     public function view_tambah_mhs($id){
-        $this->load->view('tambah_mhs',$id);
+        $data['datakelas'] = $this->user->get_kelas_by_id($id);
+        // var_dump($data['datakelas'][0]['kelas']);
+        $this->load->view('tambah_mhs',$data);
     }
 
     public function total_mhs($id){

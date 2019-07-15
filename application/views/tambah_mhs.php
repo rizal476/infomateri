@@ -6,19 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="../assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../assets/css/aos.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
-    <link href="../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 
     <style>
         html, body{
@@ -63,7 +63,7 @@
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
-                <img src="../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
+                <img src="../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
             <div class="mr-auto">
@@ -108,22 +108,26 @@
             </div>
             </div>
         </div>
-        <div class="body" style="margin-top: 100px;"></div>
+        <div class="body" style="margin-top: 50px;"></div>
             <h3 class="text-center">Tambah Mahasiswa</h3>
+            <!-- <?php var_dump($datakelas[0]['kelas'])?> -->
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-2"></div>
                     <div class="col-8">
-                        <form method="post" action="<?php echo base_url()?>admin/add_kelas">
+                        <form method="post" action="<?php echo base_url()?>admin/add_mhs/<?= $datakelas[0]['id']?>">
                             <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;" type="text" value="<?php echo $kelas['nama']?>" class="input" name="kelas">
+                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;height: 50px;" type="text" value="<?php echo $datakelas[0]['kelas']?>" class="input" name="kelas" readonly>
                             </div>
                             <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;" type="text" placeholder="Jumlah Mahasiswa" class="input" name="nama">
+                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78; width: 300px; height: 50px;" type="text" placeholder="NIM" class="input" name="nim">
+                            </div>
+                            <div class="form-group">
+                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78; width: 300px; height: 50px;" type="text" placeholder="Nama Mahasiswa" class="input" name="nama">
                             </div>
                             <br/><br />
-                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
-                            <button type="submit" name="tambah" class="btn btn-secondary" style="background-color: #51be78; border: #51be78; float:left;">Kembali</button>
+                            <button type="submit" class="btn btn-secondary" style="margin-left: 30px;float:right;">Kembali</button>
+                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:right;">Tambah</button>
                         </form>  
                     </div>
                     <div class="col-2"></div>                        
@@ -137,21 +141,21 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
 
-    <script src="../assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../assets/js/jquery-ui.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/owl.carousel.min.js"></script>
-    <script src="../assets/js/jquery.stellar.min.js"></script>
-    <script src="../assets/js/jquery.countdown.min.js"></script>
-    <script src="../assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="../assets/js/jquery.easing.1.3.js"></script>
-    <script src="../assets/js/aos.js"></script>
-    <script src="../assets/js/jquery.fancybox.min.js"></script>
-    <script src="../assets/js/jquery.sticky.js"></script>
-    <script src="../assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../../assets/js/jquery-ui.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/owl.carousel.min.js"></script>
+    <script src="../../assets/js/jquery.stellar.min.js"></script>
+    <script src="../../assets/js/jquery.countdown.min.js"></script>
+    <script src="../../assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../../assets/js/aos.js"></script>
+    <script src="../../assets/js/jquery.fancybox.min.js"></script>
+    <script src="../../assets/js/jquery.sticky.js"></script>
+    <script src="../../assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 
 </html>
