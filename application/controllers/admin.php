@@ -75,10 +75,16 @@ class admin extends CI_Controller {
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function add_mhs($id){
-        $data['datakelas'] = $this->user->get_kelas_by_id($id);
-        // var_dump($data['datakelas'][0]['kelas']);
+    public function add_mhs($id_kelas){
+
+        $id_matkul = $this->input->post('matkul');
+        $data['datakelas'] = $this->user->get_kelas_by_id($id_kelas);
+        $datamatkul = $this->user->get_matkul_by_id($id_matkul);
+        $data['dropdown'] = $this->user->get_matkul_by_kelas($id_kelas);
+
+        $this->form_validation->set_rules('nim', 'NIM Mahasiswa', 'required');
         $this->form_validation->set_rules('nama', 'Nama Mahasiswa', 'required');
+        $this->form_validation->set_rules('matkul', 'Matkul', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $this->load->view('tambah_mhs',$data);
@@ -87,15 +93,18 @@ class admin extends CI_Controller {
             $datas = [
                 "kelas" => $this->input->post('kelas', true),
                 "nim" => $this->input->post('nim', true),
-                "nama" => $this->input->post('nama', true)
+                "nama" => $this->input->post('nama', true),
+                "id_matkul" => $datamatkul[0]['id_matkul'],
+                "matkul" => $datamatkul[0]['nama_matkul']
             ];
             $this->user->tambah_mhs($datas);
-            $this->load->view('tambah_mhs',$data);
         }
+        $this->load->view('tambah_mhs',$data);
     }
 
     public function view_tambah_mhs($id){
         $data['datakelas'] = $this->user->get_kelas_by_id($id);
+        $data['dropdown'] = $this->user->get_matkul_by_kelas($id);
         // var_dump($data['datakelas'][0]['kelas']);
         $this->load->view('tambah_mhs',$data);
     }
@@ -104,6 +113,28 @@ class admin extends CI_Controller {
         $data = $this->user->get_kelas_by_id($id);
         $q = $this->user->get_total_mhs($data);
         return $q;
+    }
+
+    public function view_tambah_matkul($id){
+        $data['datakelas'] = $this->user->get_kelas_by_id($id);
+        $this->load->view('tambah_matkul',$data);
+    }
+
+    public function add_matkul($id_kelas){
+        $this->form_validation->set_rules('matkul', 'Mata Kuliah', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('tambah_matkul');
+        }
+        else{
+            $data = [
+                "id_kelas" => $id_kelas,
+                "nama_matkul" => $this->input->post('matkul', true),
+                "kode" => $this->input->post('kode', true)
+            ];
+            $this->user->tambah_matkul($data);
+            redirect(base_url('admin/view_admin_page'));
+        }
     }
 }
 ?>

@@ -57,4 +57,25 @@ class user extends CI_Model {
         $q = $this->db->select('*')->from('mahasiswa')->where('kelas',$kelas)->get();
         return $q->result_array();
     }
+
+    public function tambah_matkul($data){
+        $this->db->insert('matkul',$data);
+    }
+
+    public function tampil_data_chained($id)
+    {
+        $query = $this->db->query("SELECT * FROM mahasiswa where id_pelanggan = '$id'");
+        return $query;
+    }
+
+    public function get_matkul_by_kelas($id)
+	{
+		$query = $this->db->select('*')->from('matkul')->where('id_kelas',$id)->get();
+		return $query;
+    }
+    
+    public function get_matkul_by_id($id){
+        $q = $this->db->select('*')->from('matkul')->where('id_matkul',$id)->get();
+        return $q->result_array();
+    }
 }

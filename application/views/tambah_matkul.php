@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/jquery-ui.css">
     <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../assets/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap-datepicker.css">
@@ -108,40 +107,21 @@
             </div>
             </div>
         </div>
-        <div class="body" style="margin-top: 50px;"></div>
-            <h3 class="text-center">Tambah Mahasiswa</h3>
-            <!-- <?php var_dump($datakelas)?> -->
-            <!-- <?php var_dump($dropdown)?> -->
+        <div class="body" style="margin-top: 100px;"></div>
+            <h3 class="text-center">Tambah Mata Kuliah</h3>
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-2"></div>
                     <div class="col-8">
-                        <form method="post" action="<?php echo base_url()?>admin/add_mhs/<?= $datakelas[0]['id']?>">
+                        <form method="post" action="<?php echo base_url()?>admin/add_matkul/<?= $datakelas[0]['id']?>">
                             <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;height: 50px;" type="text" value="<?php echo $datakelas[0]['kelas']?>" class="input" name="kelas" readonly>
+                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;" type="text" placeholder="Mata Kuliah" class="input" name="matkul">
                             </div>
                             <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78; width: 300px; height: 50px;" type="text" placeholder="NIM" class="input" name="nim">
+                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;" type="text" placeholder="Kode" class="input" name="kode">
                             </div>
-                            <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78; width: 300px; height: 50px;" type="text" placeholder="Nama Mahasiswa" class="input" name="nama">
-                            </div>
-
-                            <select name="matkul" id="matkul">
-                                <option> - Pilih Matkul -</option>
-                                <?php
-                                    foreach ($dropdown->result() as $baris) {
-                                        echo "<option value='".$baris->id_matkul."'>".$baris->nama_matkul."</option>";
-                                    }
-                                ?>
-                            </select>
-
                             <br/><br />
-                            <!-- <form action="<?php echo base_url()?>admin/detail_kelas/<?= $datakelas[0]['id']?>">
-                                <button type="submit" class="btn btn-secondary" style="margin-left: 30px;float:right;">Kembali</button>  
-                            </form> -->
-                            <a href="<?php echo base_url()?>admin/detail_kelas/<?= $datakelas[0]['id']?>"><div class="btn btn-secondary" style="margin-left: 30px; float:right;">Kembali</div></a>  
-                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:right;">Tambah</button>
+                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
                         </form>  
                     </div>
                     <div class="col-2"></div>                        

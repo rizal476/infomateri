@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../../assets/css/login.css">
     <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../assets/css/style.css">
+    
 
     <style>
         html, body{
@@ -114,8 +115,9 @@
                     <div class="col">
                         <h3 class="text-center">Daftar Mahasiswa</h3>
                         <h3 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                        <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Mahasiswa</div></a>
-                        
+                        <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
+                        <a href="<?php echo base_url()?>admin/view_tambah_matkul/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matkul</div></a>
+
                         <table class="table table-bordered mt-5">
                             <thead>
                                 <tr>
