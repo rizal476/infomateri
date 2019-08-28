@@ -78,4 +78,8 @@ class user extends CI_Model {
         $q = $this->db->select('*')->from('matkul')->where('id_matkul',$id)->get();
         return $q->result_array();
     }
+
+    public function masukkan_nilai(){
+        
+    }
 }

@@ -136,5 +136,39 @@ class admin extends CI_Controller {
             redirect(base_url('admin/view_admin_page'));
         }
     }
+
+    public function insert_nilai(){
+        // $data = [
+        //     "tp" => $this->input->post('tp', true),,
+        //     "tm1" => $this->input->post('tm1', true),
+        //     "tm2" => $this->input->post('tm2', true),
+        //     "tm3" => $this->input->post('tm3', true),
+        //     "tm4" => $this->input->post('tm4', true),
+        //     "tm5" => $this->input->post('tm5', true),
+        //     "tm6" => $this->input->post('tm6', true),
+        //     "tm7" => $this->input->post('tm7', true),
+        //     "tm8" => $this->input->post('tm8', true),
+        //     "tm9" => $this->input->post('tm9', true),
+        //     "tm10" => $this->input->post('tm10', true),
+        //     "p1" => $this->input->post('p1', true),
+        //     "p2" => $this->input->post('p2', true),
+        //     "p3" => $this->input->post('p3', true),
+        //     "p4" => $this->input->post('p4', true),
+        //     "p5" => $this->input->post('p5', true),
+        //     "p6" => $this->input->post('p6', true),
+        //     "p7" => $this->input->post('p7', true),
+        //     "p8" => $this->input->post('p8', true),
+        //     "p9" => $this->input->post('p9', true),
+        //     "p10" => $this->input->post('p10', true),
+        //     "kehadiran" => $this->input->post('kehadiran', true),
+        //     "presentasi" => $this->input->post('presentasi', true),
+        //     "kuis1" => $this->input->post('kuis1', true),
+        //     "kuis2" => $this->input->post('kuis2', true),
+        //     "uts" => $this->input->post('uts', true),
+        //     "uas" => $this->input->post('uas', true),
+        //     "pembicara" => $this->input->post('pembicara', true),
+        //     "diskusi" => $this->input->post('diskusi', true)
+        // ];
+    }
 }
 ?>
