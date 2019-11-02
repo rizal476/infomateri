@@ -42,6 +42,12 @@
             margin:0 auto;
         }
 
+        .nav-tabs > li > a:hover{
+            background-color: #51be78 !important;
+            color: white !important;
+        }
+        
+
     </style>
 </head>
 
@@ -113,158 +119,323 @@
             <div class="container">
                 <div class="row mt-5">
                     <div class="col">
-                        <h3 class="text-center">Daftar Mahasiswa</h3>
-                        <h3 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                        <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
-                        <a href="<?php echo base_url()?>admin/view_tambah_matkul/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matkul</div></a>
-
-                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/detail_kelas/<?= $kelas[0]['id']?>">
-                        <table class="table table-bordered mt-5">
-                            <thead>
-                                <tr>
-                                    <th class="text-center align-middle" scope="col">NIM</th>
-                                    <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
-                                    <th class="text-center align-middle" scope="col">TP</th>
-                                    <th class="text-center align-middle" scope="col" colspan="10">TM</th>
-                                    <th class="text-center align-middle" scope="col" colspan="10">Praktikum</th>
-                                    <th class="text-center align-middle" scope="col">Kehadiran</th>
-                                    <th class="text-center align-middle" scope="col">Presentasi</th>
-                                    <th class="text-center align-middle" scope="col" colspan="2">Kuis</th>
-                                    <th class="text-center align-middle" scope="col">UTS</th>
-                                    <th class="text-center align-middle" scope="col">UAS</th>
-                                    <th class="text-center align-middle" scope="col">Pembicara</th>
-                                    <th class="text-center align-middle" scope="col">Diskusi</th>
-                                    <th class="text-center align-middle" scope="col">Total</th>
-                                    <th class="text-center align-middle" scope="col">Indeks Sementara</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><?php foreach ($mahasiswa as $kls) :  ?>
-                                    <td class="text-center">
-                                        <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
-                                    </td>
-                                    <td class="text-center" style="min-width: 250px;">
-                                        <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tp']; ?>" class="input" name="tp[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm1']; ?>" class="input" name="tm1[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm2']; ?>" class="input" name="tm2[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm3']; ?>" class="input" name="tm3[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm4']; ?>" class="input" name="tm4[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm5']; ?>" class="input" name="tm5[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm6']; ?>" class="input" name="tm6[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm7']; ?>" class="input" name="tm7[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm8']; ?>" class="input" name="tm8[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm9']; ?>" class="input" name="tm9[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm10']; ?>" class="input" name="tm10[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p1']; ?>" class="input" name="p1[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p2']; ?>" class="input" name="p2[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p3']; ?>" class="input" name="p3[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p4']; ?>" class="input" name="p4[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p5']; ?>" class="input" name="p5[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p6']; ?>" class="input" name="p6[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p7']; ?>" class="input" name="p7[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p8']; ?>" class="input" name="p8[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p9']; ?>" class="input" name="p9[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p10']; ?>" class="input" name="p10[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['kehadiran']; ?>" class="input" name="kehadiran[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['presentasi']; ?>" class="input" name="presentasi[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['kuis1']; ?>" class="input" name="kuis1[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['kuis2']; ?>" class="input" name="kuis2[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['uts']; ?>" class="input" name="uts[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['uas']; ?>" class="input" name="uas[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['pembicara']; ?>" class="input" name="pembicara[]">
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['diskusi']; ?>" class="input" name="diskusi[]">
-                                    </td>
-                                    <?php $total_nilai = $kls['tp']+$kls['tm1']+$kls['tm2']+$kls['tm3']+$kls['tm4']+
-                                        $kls['tm5']+$kls['tm6']+$kls['tm7']+$kls['tm8']+$kls['tm9']+$kls['tm10']+$kls['p1']+$kls['p2']+$kls['p3']+$kls['p4']+$kls['p5']+$kls['p6']+$kls['p7']+$kls['p8']+$kls['p9']+$kls['p10']+
-                                        $kls['kehadiran']+$kls['presentasi']+$kls['kuis1']+$kls['kuis2']+$kls['uts']+$kls['uas']+$kls['pembicara']+$kls['diskusi']?>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $total_nilai; ?>" class="input" name="total" readonly>
-                                    </td>
-                                    <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?php 
-                                        if ($total_nilai <= 40){
-                                            echo "E";
-                                        } else if ($total_nilai <= 55 and $total_nilai > 40){
-                                            echo "D";
-                                        } else if ($total_nilai <= 65 and $total_nilai > 55){
-                                            echo "C";
-                                        } else if ($total_nilai <= 79 and $total_nilai > 66){
-                                            echo "B";
-                                        } else if ($total_nilai <= 150 and $total_nilai > 80){
-                                            echo "A";
-                                        }
-                                        ?>" class="input" $total_nilai readonly>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
-                                        <a href="" class="badge badge-success float-center" ?>detail</a>
-                                </td>
-                                    </td>
-                                </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
-                        <button type="submit" name="submit" value="submit"></button>
-                        </form> 
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="text-center" style="margin-top: -50px;">Daftar Mahasiswa</h3>
+                                <h4 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
+                                <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
+                                <a href="<?php echo base_url()?>admin/view_tambah_matkul/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matkul</div></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <ul class="nav nav-tabs justify-content-center">
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link active addressClick" data-toggle="tab" href="#tp">Tugas Pendahuluan</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#tm">Tugas Mandiri</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#p">Praktikum</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#k">Kehadiran</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#pre">Presentasi</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#kuis">Kuis</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#ujian">Ujian</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#aktif">Keaktifan</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tp">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tp/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col">Tugas Pendahuluan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tp']; ?>" class="input" name="tp[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                            <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="tm">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tm/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col" colspan="6">Tugas Mandiri</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm1']; ?>" class="input" name="tm1[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm2']; ?>" class="input" name="tm2[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm3']; ?>" class="input" name="tm3[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm4']; ?>" class="input" name="tm4[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm5']; ?>" class="input" name="tm5[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm6']; ?>" class="input" name="tm6[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="p">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_p/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col" colspan="10">Praktikum</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p1']; ?>" class="input" name="p1[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p2']; ?>" class="input" name="p2[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p3']; ?>" class="input" name="p3[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p4']; ?>" class="input" name="p4[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p5']; ?>" class="input" name="p5[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p6']; ?>" class="input" name="p6[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p7']; ?>" class="input" name="p7[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p8']; ?>" class="input" name="p8[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p9']; ?>" class="input" name="p9[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p10']; ?>" class="input" name="p10[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="k">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_k/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col">Kehadiran</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['kehadiran']; ?>" class="input" name="kehadiran[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="pre">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_pre/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col">Presentasi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['presentasi']; ?>" class="input" name="presentasi[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="kuis">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_kuis/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col" colspan="2">Kuis</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['kuis1']; ?>" class="input" name="kuis1[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['kuis2']; ?>" class="input" name="kuis2[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="ujian">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_ujian/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col">UTS</th>
+                                                        <th class="text-center align-middle" scope="col">UAS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['uts']; ?>" class="input" name="uas[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['uts']; ?>" class="input" name="uas[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="aktif">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_aktif/<?= $kelas[0]['id']?>">
+                                            <table class="table table-bordered mt-5">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center align-middle" scope="col">NIM</th>
+                                                        <th class="text-center align-middle" scope="col" style="width: 400px;">NAMA</th>
+                                                        <th class="text-center align-middle" scope="col">Pembicara</th>
+                                                        <th class="text-center align-middle" scope="col">Diskusi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                        <td class="text-center">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
+                                                        </td>
+                                                        <td class="text-center" style="min-width: 250px;">
+                                                            <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['pembicara']; ?>" class="input" name="pembicara[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['diskusi']; ?>" class="input" name="diskusi[]">
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        <button type="submit" name="submit" value="submit"></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -274,7 +445,14 @@
 
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-
+    <!-- <script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js">
+        $(document).ready(function () {
+            $("").click(function () {
+                var addressValue = $(this).attr("href");
+                alert(addressValue );
+            });
+        });
+    </script> -->
     <script src="../../assets/js/jquery-3.3.1.min.js"></script>
     <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../../assets/js/jquery-ui.js"></script>
