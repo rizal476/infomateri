@@ -79,7 +79,8 @@ class user extends CI_Model {
         return $q->result_array();
     }
 
-    public function masukkan_nilai(){
-        
+    public function masukkan_nilai($data){
+        return $this->db->update_batch('mahasiswa' , $data , 'nim' );;
     }
+    
 }

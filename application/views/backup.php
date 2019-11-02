@@ -118,7 +118,7 @@
                         <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
                         <a href="<?php echo base_url()?>admin/view_tambah_matkul/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matkul</div></a>
 
-                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/detail_kelas/<?= $kelas[0]['id']?>">
+                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/insert_nilai">
                         <table class="table table-bordered mt-5">
                             <thead>
                                 <tr>
@@ -147,100 +147,100 @@
                                         <input style="text-align: center;" readonly type="text" value="<?= $kls['nama']; ?>" class="input" name="nama">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tp']; ?>" class="input" name="tp[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tp']; ?>" class="input" name="tp[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm1']; ?>" class="input" name="tm1[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm1']; ?>" class="input" name="tm1[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm2']; ?>" class="input" name="tm2[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm2']; ?>" class="input" name="tm2[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm3']; ?>" class="input" name="tm3[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm3']; ?>" class="input" name="tm3[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm4']; ?>" class="input" name="tm4[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm4']; ?>" class="input" name="tm4[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm5']; ?>" class="input" name="tm5[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm5']; ?>" class="input" name="tm5[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm6']; ?>" class="input" name="tm6[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm6']; ?>" class="input" name="tm6[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm7']; ?>" class="input" name="tm7[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm7']; ?>" class="input" name="tm7[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm8']; ?>" class="input" name="tm8[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm8']; ?>" class="input" name="tm8[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm9']; ?>" class="input" name="tm9[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm9']; ?>" class="input" name="tm9[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['tm10']; ?>" class="input" name="tm10[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['tm10']; ?>" class="input" name="tm10[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p1']; ?>" class="input" name="p1[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p1']; ?>" class="input" name="p1[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p2']; ?>" class="input" name="p2[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p2']; ?>" class="input" name="p2[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p3']; ?>" class="input" name="p3[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p3']; ?>" class="input" name="p3[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p4']; ?>" class="input" name="p4[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p4']; ?>" class="input" name="p4[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p5']; ?>" class="input" name="p5[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p5']; ?>" class="input" name="p5[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p6']; ?>" class="input" name="p6[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p6']; ?>" class="input" name="p6[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p7']; ?>" class="input" name="p7[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p7']; ?>" class="input" name="p7[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p8']; ?>" class="input" name="p8[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p8']; ?>" class="input" name="p8[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p9']; ?>" class="input" name="p9[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p9']; ?>" class="input" name="p9[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['p10']; ?>" class="input" name="p10[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['p10']; ?>" class="input" name="p10[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['kehadiran']; ?>" class="input" name="kehadiran[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['kehadiran']; ?>" class="input" name="kehadiran[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['presentasi']; ?>" class="input" name="presentasi[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['presentasi']; ?>" class="input" name="presentasi[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['kuis1']; ?>" class="input" name="kuis1[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['kuis1']; ?>" class="input" name="kuis1[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['kuis2']; ?>" class="input" name="kuis2[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['kuis2']; ?>" class="input" name="kuis2[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['uts']; ?>" class="input" name="uts[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['uts']; ?>" class="input" name="uts[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['uas']; ?>" class="input" name="uas[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['uas']; ?>" class="input" name="uas[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['pembicara']; ?>" class="input" name="pembicara[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['pembicara']; ?>" class="input" name="pembicara[]">
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $kls['diskusi']; ?>" class="input" name="diskusi[]">
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?= $kls['diskusi']; ?>" class="input" name="diskusi[]">
                                     </td>
                                     <?php $total_nilai = $kls['tp']+$kls['tm1']+$kls['tm2']+$kls['tm3']+$kls['tm4']+
                                         $kls['tm5']+$kls['tm6']+$kls['tm7']+$kls['tm8']+$kls['tm9']+$kls['tm10']+$kls['p1']+$kls['p2']+$kls['p3']+$kls['p4']+$kls['p5']+$kls['p6']+$kls['p7']+$kls['p8']+$kls['p9']+$kls['p10']+
                                         $kls['kehadiran']+$kls['presentasi']+$kls['kuis1']+$kls['kuis2']+$kls['uts']+$kls['uas']+$kls['pembicara']+$kls['diskusi']?>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?= $total_nilai; ?>" class="input" name="total" readonly>
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?php echo $total_nilai ?>" class="input" readonly>
                                     </td>
                                     <td class="text-center">
-                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" value="<?php 
+                                        <input style="border: 1px solid; border-radius: 5px; width: 30px; text-align: center;" type="text" placeholder="<?php 
                                         if ($total_nilai <= 40){
                                             echo "E";
                                         } else if ($total_nilai <= 55 and $total_nilai > 40){
@@ -252,18 +252,16 @@
                                         } else if ($total_nilai <= 150 and $total_nilai > 80){
                                             echo "A";
                                         }
-                                        ?>" class="input" $total_nilai readonly>
+                                        ?>" class="input" readonly>
                                     </td>
                                     <td class="text-center">
                                         <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
                                         <a href="" class="badge badge-success float-center" ?>detail</a>
-                                </td>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <button type="submit" name="submit" value="submit"></button>
                         </form> 
                     </div>
                 </div>
@@ -271,6 +269,16 @@
         </header>
         
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#form_nilai').keydown(function() {
+                var key = e.which;
+                if (key == 13) {
+                    $('#form_nilai').submit();
+                }
+            });
+        });
+    </script>
 
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
