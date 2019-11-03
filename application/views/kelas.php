@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="../../assets/css/login.css">
     <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
         html, body{
@@ -71,20 +70,20 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                    <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                        <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li class="has-children">
-                    <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
+                        <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
                     <ul class="dropdown">
                         <li><a href="teachers.html">Our Teachers</a></li>
                         <li><a href="about.html">Our School</a></li>
                     </ul>
                     </li>
                     <li>
-                    <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                        <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
-                    <a href="courses.html" class="nav-link text-left">KP & TA</a>
+                        <a href="courses.html" class="nav-link text-left">KP & TA</a>
                     </li>
                     <li>
                         <a href="contact.html" class="nav-link text-left">Kontak</a>
@@ -110,81 +109,52 @@
             </div>
         </div>
         <div class="body" style="margin-top: 100px;"></div>
-            <h3 class="text-center">Tambah Kelas</h3>
             <div class="container">
                 <div class="row mt-5">
-                    <div class="col-2"></div>
-                    <div class="col-8 mx-auto">
-                        <form id="form-euy" method="post" action="">
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Nama Kelas</label>
-                                <div class="col-sm-10">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Pilih Kelas
-                                        </button>
-                                        <ul id="pilih" class="dropdown-menu" aria-labelledby="dropdownMenuButton" name="pp">
-                                        <!-- <?php var_dump($nama_kelas)?> -->
-                                            <?php foreach($nama_kelas as $row):?>
-                                                <li class="dropdown-item"><?php echo $row["kelas"];?></li>
-                                            <?php endforeach;?>
-                                        </ul>
-                                    </div>
-                                </div>
+                    <div class="col">
+                        <h3 class="text-center">Daftar Kelas</h3>
+                        <!-- <?php var_dump($id_matkul);?> -->
+                        <a href="<?php echo base_url()?>admin/view_tambah_kelas/<?= $this->uri->segment(3);?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
+                        <?php if (empty($kelas)) : ?>
+                            <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
+                                Data tidak ditemukan
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID Kelas</label>
-                                <div class="col-sm-10">
-                                    <input id="id" type="text" class="form-control" placeholder="ID Kelas" name="id">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Jumlah Mahasiswa</label>
-                                <div class="col-sm-10">
-                                    <input id="jumlah" type="text" class="form-control" placeholder="Jumlah Mahasiswa" name="jumlah">
-                                </div>
-                            </div>
-                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
-                        </form>  
-                    </div>
-                    <div class="col-2"></div>                        
+                        <?php endif; ?>
+
+                        <table class="table mt-5">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">ID</th>
+                                    <th class="text-center" scope="col">NAMA KELAS</th>
+                                    <th class="text-center" scope="col">JUMLAH MAHASISWA</th>
+                                    <th class="text-center" scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><?php foreach ($kelas as $kls) :  ?>
+                                    <td class="text-center"><?= $kls['id']; ?></td>
+                                    <td class="text-center"><?= $kls['kelas']; ?></td>
+                                    <td class="text-center"><?= $kls['jumlah']; ?></td>
+                                    <td class="text-center">
+                                        
+                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $id_matkul?>/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                        <a href="<?php echo base_url(); ?>admin/detail_kelas/<?= $id_matkul?>/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
+                                </td>
+                                    </td>
+                                </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </header>
         
     </div>
-    
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-    <script type="text/javascript">
-        jQuery.noConflict()(function ($) { // this was missing for me
-            $(document).ready(function() { 
-                // alert('asdasd');
-                $("#pilih").on('click','li',function (){
-                    // alert($(this).text());
-                    var selText = $(this).text();
-                    $.ajax({
-                        url : '<?php echo base_url()?>admin/ajax',
-                        data : 'nama='+selText,
-                        success : function(data){
-                            var json = data,
-                            obj = JSON.parse(json);
-                            // alert(selText);
-                            $("#dropdownMenuButton").text(obj.kelas);
-                            $("#id").val(obj.id);
-                            $("#jumlah").val(obj.jumlah);
-                            $("#form-euy").attr('action', '<?php echo base_url()?>admin/add_kelasMatkul/<?= $this->uri->segment(3);?>/' + obj.id);
-                        }
-                    });
-                });
-            });
-        });
-        
-    </script>
-    
-    
-    <!-- <script src="../../assets/js/jquery-3.3.1.min.js"></script> -->
+
+    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
     <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../../assets/js/jquery-ui.js"></script>
     <script src="../../assets/js/popper.min.js"></script>

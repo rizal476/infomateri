@@ -6,19 +6,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../../assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../assets/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../../assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../../assets/css/aos.css">
-    <link rel="stylesheet" href="../../assets/css/login.css">
-    <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../../assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../../assets/css/login.css">
+    <link href="../../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
         html, body{
@@ -63,7 +64,7 @@
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
-                <img src="../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
+                <img src="../../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
             <div class="mr-auto">
@@ -110,37 +111,32 @@
         </div>
         <div class="body" style="margin-top: 50px;"></div>
             <h3 class="text-center">Tambah Mahasiswa</h3>
-            <!-- <?php var_dump($datakelas)?> -->
-            <!-- <?php var_dump($dropdown)?> -->
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-2"></div>
-                    <div class="col-8">
-                        <form method="post" action="<?php echo base_url()?>admin/add_mhs/<?= $datakelas[0]['id']?>">
-                            <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78;height: 50px;" type="text" value="<?php echo $datakelas[0]['kelas']?>" class="input" name="kelas" readonly>
+                    <div class="col-8 mx-auto">
+                        <form id="form-euy" method="post" action="">
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama Mahasiswa</label>
+                                <div class="col-sm-10">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Pilih Mahasiswa
+                                        </button>
+                                        <ul id="pilih" class="dropdown-menu" aria-labelledby="dropdownMenuButton" name="pp">
+                                            <?php foreach($nama_mhs as $row):?>
+                                                <li class="dropdown-item"><?php echo $row["nama"];?></li>
+                                            <?php endforeach;?>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78; width: 300px; height: 50px;" type="text" placeholder="NIM" class="input" name="nim">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">NIM</label>
+                                <div class="col-sm-10">
+                                    <input id="nim" type="text" class="form-control" placeholder="NIM" name="nim">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input style="border: 1px solid; border-radius: 5px; border-color: #51be78; width: 300px; height: 50px;" type="text" placeholder="Nama Mahasiswa" class="input" name="nama">
-                            </div>
-
-                            <select name="matkul" id="matkul">
-                                <option> - Pilih Matkul -</option>
-                                <?php
-                                    foreach ($dropdown->result() as $baris) {
-                                        echo "<option value='".$baris->id_matkul."'>".$baris->nama_matkul."</option>";
-                                    }
-                                ?>
-                            </select>
-
-                            <br/><br />
-                            <!-- <form action="<?php echo base_url()?>admin/detail_kelas/<?= $datakelas[0]['id']?>">
-                                <button type="submit" class="btn btn-secondary" style="margin-left: 30px;float:right;">Kembali</button>  
-                            </form> -->
-                            <a href="<?php echo base_url()?>admin/detail_kelas/<?= $datakelas[0]['id']?>"><div class="btn btn-secondary" style="margin-left: 30px; float:right;">Kembali</div></a>  
                             <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:right;">Tambah</button>
                         </form>  
                     </div>
@@ -154,22 +150,45 @@
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-
-    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../../assets/js/jquery-ui.js"></script>
-    <script src="../../assets/js/popper.min.js"></script>
-    <script src="../../assets/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/owl.carousel.min.js"></script>
-    <script src="../../assets/js/jquery.stellar.min.js"></script>
-    <script src="../../assets/js/jquery.countdown.min.js"></script>
-    <script src="../../assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../assets/js/jquery.easing.1.3.js"></script>
-    <script src="../../assets/js/aos.js"></script>
-    <script src="../../assets/js/jquery.fancybox.min.js"></script>
-    <script src="../../assets/js/jquery.sticky.js"></script>
-    <script src="../../assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict()(function ($) { // this was missing for me
+            $(document).ready(function() { 
+                // alert('asdasd');
+                $("#pilih").on('click','li',function (){
+                    // alert($(this).text());
+                    var selText = $(this).text();
+                    $.ajax({
+                        url : '<?php echo base_url()?>admin/ajax_mhs',
+                        data : 'nama='+selText,
+                        success : function(data){
+                            var json = data,
+                            obj = JSON.parse(json);
+                            // alert(obj.id);
+                            $("#dropdownMenuButton").text(obj.nama);
+                            $("#nim").val(obj.nim);
+                            $("#form-euy").attr('action', '<?php echo base_url()?>admin/add_mhsKelas/<?= $id_kelas?>/' + obj.id);
+                        }
+                    });
+                });
+            });
+        });
+        
+    </script>
+    <!-- <script src="../../../assets/js/jquery-3.3.1.min.js"></script> -->
+    <script src="../../../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../../../assets/js/jquery-ui.js"></script>
+    <script src="../../../assets/js/popper.min.js"></script>
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/owl.carousel.min.js"></script>
+    <script src="../../../assets/js/jquery.stellar.min.js"></script>
+    <script src="../../../assets/js/jquery.countdown.min.js"></script>
+    <script src="../../../assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../../../assets/js/aos.js"></script>
+    <script src="../../../assets/js/jquery.fancybox.min.js"></script>
+    <script src="../../../assets/js/jquery.sticky.js"></script>
+    <script src="../../../assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
 </body>
 
 </html>

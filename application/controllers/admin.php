@@ -9,9 +9,14 @@ class admin extends CI_Controller {
 	}
 
     public function view_admin_page(){
-        $data['kelas'] = $this->user->get_all_kelas();
-        $this->load->view('admin_page', $data);
+        $data['matkul'] = $this->user->get_all_matkul();
+        $this->load->view('matkul', $data);
     }
+
+    // public function view_admin_page(){
+    //     $data['kelas'] = $this->user->get_all_kelas();
+    //     $this->load->view('matkul', $data);
+    // }
 
     public function aksi_login(){
         $nidn = $this->input->post('nidn');
@@ -43,12 +48,21 @@ class admin extends CI_Controller {
         redirect('welcome');
     }
 
-    public function view_tambah_kelas(){
-        $this->load->view('tambah_kelas');
+    public function view_tambah_kelas($id){
+        $data['nama_kelas'] = $this->user->get_nama_kelas();
+        $this->load->view('tambah_kelas', $data);
     }
 
-    public function add_kelas(){
-        $this->form_validation->set_rules('kelas', 'Nama Kelas', 'required');
+    public function ajax(){
+        $this->load->view('autofill-ajax');
+    }
+
+    public function ajax_mhs(){
+        $this->load->view('autofill_mhs-ajax');
+    }
+
+    public function add_kelasMatkul($id_matkul,$id_kelas){
+        $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('jumlah', 'Jumlah Mahasiswa', 'required');
 
         if ($this->form_validation->run() == FALSE){
@@ -56,10 +70,12 @@ class admin extends CI_Controller {
         }
         else{
             $data = [
-                "kelas" => $this->input->post('kelas', true),
-                "jumlah" => $this->input->post('jumlah', true)
+                "id_matkul" => $id_matkul,
+                "id_kelas" => $id_kelas
             ];
-            $this->user->tambah_kelas($data);
+            // $data2 = [];
+
+            $this->user->tambah_kelasMatkul($data);
             redirect(base_url('admin/view_admin_page'));
         }
     }
@@ -69,43 +85,42 @@ class admin extends CI_Controller {
         redirect('admin/view_admin_page');
     }
 
-    public function detail_kelas($id){
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+    public function detail_kelas($id_matkul,$id_kelas){
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function add_mhs($id_kelas){
+    public function detail_matkul($id){
+        $data['id_matkul'] = $id;
+        $data['kelas'] = $this->user->get_kelas_by_id($id);
+        $this->load->view('kelas',$data);
+    }
 
-        $id_matkul = $this->input->post('matkul');
-        $data['datakelas'] = $this->user->get_kelas_by_id($id_kelas);
-        $datamatkul = $this->user->get_matkul_by_id($id_matkul);
-        $data['dropdown'] = $this->user->get_matkul_by_kelas($id_kelas);
+    public function add_mhsKelas($id_kelas,$id_mhs){
 
+        // var_dump($id_kelas);
+        // var_dump($id_mhs);
         $this->form_validation->set_rules('nim', 'NIM Mahasiswa', 'required');
-        $this->form_validation->set_rules('nama', 'Nama Mahasiswa', 'required');
-        $this->form_validation->set_rules('matkul', 'Matkul', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $this->load->view('tambah_mhs',$data);
         }
         else{
-            $datas = [
-                "kelas" => $this->input->post('kelas', true),
-                "nim" => $this->input->post('nim', true),
-                "nama" => $this->input->post('nama', true),
-                "id_matkul" => $datamatkul[0]['id_matkul'],
-                "matkul" => $datamatkul[0]['nama_matkul']
+            $data = [
+                "id_kelas" => $id_kelas,
+                "id_mhs" => $id_mhs
             ];
-            $this->user->tambah_mhs($datas);
+            $this->user->tambah_mhsKelas($data);
         }
         $this->load->view('tambah_mhs',$data);
     }
 
-    public function view_tambah_mhs($id){
-        $data['datakelas'] = $this->user->get_kelas_by_id($id);
-        $data['dropdown'] = $this->user->get_matkul_by_kelas($id);
-        // var_dump($data['datakelas'][0]['kelas']);
+    public function view_tambah_mhs($id_matkul,$id_kelas){
+        $data['id_matkul'] = $id_matkul;
+        $data['id_kelas'] = $id_kelas;
+        $data['nama_mhs'] = $this->user->get_nama_mhs();
         $this->load->view('tambah_mhs',$data);
     }
 
@@ -137,34 +152,10 @@ class admin extends CI_Controller {
         }
     }
 
-    public function input_tp($id){
+    public function input_tp($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $tp = $this->input->post('tp', true);
-            // $tm1 = $this->input->post('tm1', true);
-            // $tm2 = $this->input->post('tm2', true);
-            // $tm3 = $this->input->post('tm3', true);
-            // $tm4 = $this->input->post('tm4', true);
-            // $tm5 = $this->input->post('tm5', true);
-            // $tm6 = $this->input->post('tm6', true);
-            // $p1 = $this->input->post('p1', true);
-            // $p2 = $this->input->post('p2', true);
-            // $p3 = $this->input->post('p3', true);
-            // $p4 = $this->input->post('p4', true);
-            // $p5 = $this->input->post('p5', true);
-            // $p6 = $this->input->post('p6', true);
-            // $p7 = $this->input->post('p7', true);
-            // $p8 = $this->input->post('p8', true);
-            // $p9 = $this->input->post('p9', true);
-            // $p10 = $this->input->post('p10', true);
-            // $kehadiran = $this->input->post('kehadiran', true);
-            // $presentasi = $this->input->post('presentasi', true);
-            // $kuis1 = $this->input->post('kuis1', true);
-            // $kuis2 = $this->input->post('kuis2', true);
-            // $uts = $this->input->post('uts', true);
-            // $uas = $this->input->post('uas', true);
-            // $pembicara = $this->input->post('pembicara', true);
-            // $diskusi = $this->input->post('diskusi', true);
 
             foreach ($nim as $key => $value){
                 if ($nim[$key] != ''){
@@ -176,12 +167,13 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function input_tm($id){
+    public function input_tm($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $tm1 = $this->input->post('tm1', true);
@@ -206,12 +198,13 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function input_p($id){
+    public function input_p($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $p1 = $this->input->post('p1', true);
@@ -244,12 +237,13 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function input_k($id){
+    public function input_k($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $kehadiran = $this->input->post('kehadiran', true);
@@ -264,12 +258,13 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function input_pre($id){
+    public function input_pre($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $presentasi = $this->input->post('presentasi', true);
@@ -284,12 +279,13 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function input_kuis($id){
+    public function input_kuis($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $kuis1 = $this->input->post('kuis1', true);
@@ -306,12 +302,13 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function input_ujian($id){
+    public function input_ujian($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $uts = $this->input->post('uts', true);
@@ -328,12 +325,13 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 
-    public function input_aktif($id){
+    public function input_aktif($id_matkul,$id_kelas){
         if ($this->input->post('submit', TRUE) == 'submit') {
             $nim = $this->input->post('nim',true);
             $pembicara = $this->input->post('pembicara', true);
@@ -350,8 +348,9 @@ class admin extends CI_Controller {
             $sql = $this->user->masukkan_nilai($data);
             }
         }
-        $data['kelas'] = $this->user->get_kelas_by_id($id);
-        $data['mahasiswa'] = $this->user->get_mhs_by_kelas($data['kelas'][0]['kelas']);
+        $data['id_matkul'] = $id_matkul;
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
 }

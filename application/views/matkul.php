@@ -112,9 +112,9 @@
             <div class="container">
                 <div class="row mt-5">
                     <div class="col">
-                        <h3 class="text-center">Daftar Kelas</h3>
-                        <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
-                        <?php if (empty($kelas)) : ?>
+                        <h3 class="text-center">Daftar Mata Kuliah</h3>
+                        <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matakuliah</div></a>
+                        <?php if (empty($matkul)) : ?>
                             <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
                                 Data tidak ditemukan
                             </div>
@@ -123,21 +123,20 @@
                         <table class="table mt-5">
                             <thead>
                                 <tr>
-                                    <th class="text-center" scope="col">ID</th>
-                                    <th class="text-center" scope="col">NAMA KELAS</th>
-                                    <th class="text-center" scope="col">JUMLAH MAHASISWA</th>
+                                    <th class="text-center" scope="col">ID Matkul</th>
+                                    <th class="text-center" scope="col">Nama Mata Kuliah</th>
+                                    <!-- <th class="text-center" scope="col">JUMLAH MAHASISWA</th> -->
+                                    <th class="text-center" scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><?php foreach ($kelas as $kls) :  ?>
-                                    <td class="text-center"><?= $kls['id']; ?></td>
-                                    <td class="text-center"><?= $kls['kelas']; ?></td>
-                                    <td class="text-center"><?= $kls['jumlah']; ?></td>
+                                <tr><?php foreach ($matkul as $kls) :  ?>
+                                    <td class="text-center"><?= $kls['id_matkul']; ?></td>
+                                    <td class="text-center"><?= $kls['nama_matkul']; ?></td>
+                                    <!-- <td class="text-center"><?= $kls['jumlah']; ?></td> -->
                                     <td class="text-center">
-                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
-                                        <!-- <a href="<?php echo base_url(). 'admin/detail_kelas/' . $kls['id']; ?>" class="badge badge-success float-center" ?>detail</a> -->
-                                        <a href="<?php echo base_url(); ?>admin/detail_kelas/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
-                                        <!-- <a href="<?php echo site_url("admin/detail_kelas/".$kls['id'])?>" class="badge badge-success float-center" ?>detail</a> -->
+                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id_matkul'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                        <a href="<?php echo base_url(); ?>admin/detail_matkul/<?= $kls['id_matkul'] ?>" class="badge badge-success float-center" ?>detail</a>
                                 </td>
                                     </td>
                                 </tr>
@@ -148,46 +147,7 @@
                 </div>
             </div>
         </header>
-        
     </div>
-    <!-- .site-wrap -->
-    <!-- <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="centering text-center">
-                <div class="limiter">
-                    <div class="container-login100">
-                        <div class="wrap-login100 p-t-85 p-b-20">
-                            <form method="post" action="<?php echo base_url()?>admin/aksi_login" class="login100-form validate-form">
-                                <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-                                    <input class="input100" type="text" name="nidn">
-                                    <span class="focus-input100" data-placeholder="NIDN"></span>
-                                </div>
-
-                                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-                                    <input class="input100" type="password" name="password">
-                                    <span class="focus-input100" data-placeholder="Password"></span>
-                                </div>
-
-                                <div class="container-login100-form-btn">
-                                    <button class="login100-form-btn" style="margin-top: 30px;">
-                                        Login
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-4">test</div>
-            <div class="col-4">test</div>
-            <div class="col-4">test</div>
-        </div>        
-    </div> -->
-    
 
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>

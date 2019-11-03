@@ -6,19 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../../assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../assets/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../../assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../../assets/css/aos.css">
-    <link rel="stylesheet" href="../../assets/css/login.css">
-    <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../../assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../../assets/css/login.css">
+    <link href="../../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
     
 
     <style>
@@ -70,7 +70,7 @@
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
-                <img src="../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
+                <img src="../../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
             <div class="mr-auto">
@@ -123,8 +123,7 @@
                             <div class="col">
                                 <h4 class="text-center" style="margin-top: -50px;">Daftar Mahasiswa</h3>
                                 <h4 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                                <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
-                                <a href="<?php echo base_url()?>admin/view_tambah_matkul/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matkul</div></a>
+                                <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $id_matkul?>/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
                             </div>
                         </div>
                         <div class="row">
@@ -157,7 +156,7 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tp">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tp/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tp/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -185,7 +184,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="tm">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tm/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tm/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -228,7 +227,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="p">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_p/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_p/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -283,7 +282,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="k">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_k/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_k/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -311,7 +310,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="pre">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_pre/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_pre/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -339,7 +338,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="kuis">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_kuis/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_kuis/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -370,7 +369,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="ujian">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_ujian/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_ujian/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -402,7 +401,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="aktif">
-                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_aktif/<?= $kelas[0]['id']?>">
+                                        <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_aktif/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
                                             <table class="table table-bordered mt-5">
                                                 <thead>
                                                     <tr>
@@ -453,21 +452,21 @@
             });
         });
     </script> -->
-    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../../assets/js/jquery-ui.js"></script>
-    <script src="../../assets/js/popper.min.js"></script>
-    <script src="../../assets/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/owl.carousel.min.js"></script>
-    <script src="../../assets/js/jquery.stellar.min.js"></script>
-    <script src="../../assets/js/jquery.countdown.min.js"></script>
-    <script src="../../assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../assets/js/jquery.easing.1.3.js"></script>
-    <script src="../../assets/js/aos.js"></script>
-    <script src="../../assets/js/jquery.fancybox.min.js"></script>
-    <script src="../../assets/js/jquery.sticky.js"></script>
-    <script src="../../assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <script src="../../../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../../../assets/js/jquery-ui.js"></script>
+    <script src="../../../assets/js/popper.min.js"></script>
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/owl.carousel.min.js"></script>
+    <script src="../../../assets/js/jquery.stellar.min.js"></script>
+    <script src="../../../assets/js/jquery.countdown.min.js"></script>
+    <script src="../../../assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../../../assets/js/aos.js"></script>
+    <script src="../../../assets/js/jquery.fancybox.min.js"></script>
+    <script src="../../../assets/js/jquery.sticky.js"></script>
+    <script src="../../../assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
 </body>
 
 </html>
