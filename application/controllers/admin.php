@@ -45,9 +45,19 @@ class admin extends CI_Controller {
         redirect('welcome');
     }
 
-    public function view_tambah_kelas($id){
-        $data['nama_kelas'] = $this->user->get_nama_kelas();
+    public function view_tambah_mhs(){
+        $data['id'] = $this->user->get_last_id_mhs();
+        $this->load->view('tambah_mhs', $data);
+    }
+
+    public function view_tambah_kelas(){
+        $data['id'] = $this->user->get_last_id_kelas();
         $this->load->view('tambah_kelas', $data);
+    }
+
+    public function view_tambah_kelasMatkul($id){
+        $data['nama_kelas'] = $this->user->get_nama_kelas();
+        $this->load->view('tambah_kelasMatkul', $data);
     }
 
     public function ajax(){
@@ -82,6 +92,11 @@ class admin extends CI_Controller {
         redirect('admin/view_admin_page');
     }
 
+    public function hapus_matkul($id){
+        $this->user->hapus_matkul($id);
+        redirect('admin/view_admin_page');
+    }
+
     public function detail_kelas($id_matkul,$id_kelas){
         $data['id_matkul'] = $id_matkul;
         $data['kelas'] = $this->user->get_kelas($id_kelas);
@@ -102,7 +117,7 @@ class admin extends CI_Controller {
         $this->form_validation->set_rules('nim', 'NIM Mahasiswa', 'required');
 
         if ($this->form_validation->run() == FALSE){
-            $this->load->view('tambah_mhs',$data);
+            $this->load->view('tambah_mhsKelas',$data);
         }
         else{
             $data = [
@@ -111,14 +126,14 @@ class admin extends CI_Controller {
             ];
             $this->user->tambah_mhsKelas($data);
         }
-        $this->load->view('tambah_mhs',$data);
+        $this->load->view('tambah_mhsKelas',$data);
     }
 
-    public function view_tambah_mhs($id_matkul,$id_kelas){
+    public function view_tambah_mhsKelas($id_matkul,$id_kelas){
         $data['id_matkul'] = $id_matkul;
         $data['id_kelas'] = $id_kelas;
         $data['nama_mhs'] = $this->user->get_nama_mhs();
-        $this->load->view('tambah_mhs',$data);
+        $this->load->view('tambah_mhsKelas',$data);
     }
 
     public function total_mhs($id){
@@ -147,6 +162,42 @@ class admin extends CI_Controller {
             ];
             $this->user->tambah_matkul($data);
             redirect(base_url('admin/view_tambah_matkul'));
+        }
+    }
+
+    public function add_kelas(){
+        $this->form_validation->set_rules('nama', 'Mata Kuliah', 'required');
+        $this->form_validation->set_rules('jumlah', 'Mata Kuliah', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('tambah_kelas');
+        }
+        else{
+            $data = [
+                "id" => $this->input->post('id',true),
+                "kelas" => $this->input->post('nama', true),
+                "jumlah" => $this->input->post('jumlah', true)
+            ];
+            $this->user->tambah_kelas($data);
+            redirect(base_url('admin/view_tambah_kelas'));
+        }
+    }
+
+    public function add_mhs(){
+        $this->form_validation->set_rules('nim', 'Mata Kuliah', 'required');
+        $this->form_validation->set_rules('nama', 'Mata Kuliah', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('tambah_mhs');
+        }
+        else{
+            $data = [
+                "id" => $this->input->post('id',true),
+                "nim" => $this->input->post('nim', true),
+                "nama" => $this->input->post('nama', true)
+            ];
+            $this->user->tambah_mhs($data);
+            redirect(base_url('admin/view_tambah_mhs'));
         }
     }
 

@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <link href="../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
 
     <style>
         html, body{
@@ -45,7 +48,6 @@
             background-color: #51be78 !important;
             color: white !important;
         }
-
     </style>
 </head>
 
@@ -158,17 +160,17 @@
                                             <td class="text-center"><?= $kls['id_matkul']; ?></td>
                                             <td class="text-center"><?= $kls['nama_matkul']; ?></td>
                                             <td class="text-center">
-                                                <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id_matkul'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
-                                                <a href="<?php echo base_url(); ?>admin/detail_matkul/<?= $kls['id_matkul'] ?>" class="badge badge-success float-center" ?>detail</a>
-                                        </td>
+                                                <a href="#myModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id_matkul'] ?>">hapus</a>
+                                                <a href="<?php echo base_url(); ?>admin/detail_matkul/<?= $kls['id_matkul'] ?>" class="badge badge-success float-center" >detail</a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
+                                
                             </div>
                             <div class="tab-pane" id="kelas">
-                                <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matakuliah</div></a>
+                                <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -194,7 +196,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="mhs">
-                                <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matakuliah</div></a>
+                                <a href="<?php echo base_url()?>admin/view_tambah_mhs" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matakuliah</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -224,12 +226,44 @@
                 </div>
             </div>
         </header>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalSayaLabel">Hapus Matakuliah</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Akan menghapus Matakuliah ini?
+                        <!-- <input type="text" name="bookId" value=""/> -->
+                    </div>
+                    <div class="modal-footer">
+                        <a style="color: white;" class="btn btn-secondary" data-dismiss="modal">Tidak</a>
+                        <a name="delete" style="color: white;" class="btn btn-danger">Ya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
+    
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-
-    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict()(function ($) { // this was missing for me
+            $(document).ready(function() { 
+                $('#myModal').on('show.bs.modal', function(e) {
+                    // alert('asdasd');
+                    var bookId = $(e.relatedTarget).data('book-id');
+                    // alert(bookId);
+                    // $(e.currentTarget).find('input[name="bookId"]').val(bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_matkul/' + bookId);
+                });
+            });
+        });
+    </script>
+    <!-- <script src="../assets/js/jquery-3.3.1.min.js"></script> -->
     <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../assets/js/jquery-ui.js"></script>
     <script src="../assets/js/popper.min.js"></script>
@@ -244,6 +278,10 @@
     <script src="../assets/js/jquery.sticky.js"></script>
     <script src="../assets/js/jquery.mb.YTPlayer.min.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/jqeury.js"></script>
+    <script src="../assets/js/popper.js"></script>
+    
 </body>
 
 </html>

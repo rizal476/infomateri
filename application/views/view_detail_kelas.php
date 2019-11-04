@@ -123,7 +123,7 @@
                             <div class="col">
                                 <h4 class="text-center" style="margin-top: -50px;">Daftar Mahasiswa</h3>
                                 <h4 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                                <a href="<?php echo base_url()?>admin/view_tambah_mhs/<?= $id_matkul?>/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
+                                <a href="<?php echo base_url()?>admin/view_tambah_mhsKelas/<?= $id_matkul?>/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
                             </div>
                         </div>
                         <div class="row">

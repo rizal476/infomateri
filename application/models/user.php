@@ -39,6 +39,16 @@ class user extends CI_Model {
         return $data->result_array();
     }
 
+    public function hapus_matkul($id){
+        $q = $this->db->select('*')->from('mengampu');
+        if ($q){
+            $this->db->where('id_matkul',$id);
+            $this->db->delete('mengampu');
+        }
+        $this->db->where('id_matkul',$id);
+		return $this->db->delete('matkul');
+    }
+
     public function hapus_kelas($id){
         $this->db->where('id',$id);
 		return $this->db->delete('kelas');
@@ -86,6 +96,14 @@ class user extends CI_Model {
         $this->db->insert('matkul',$data);
     }
 
+    public function tambah_kelas($data){
+        $this->db->insert('kelas',$data);
+    }
+
+    public function tambah_mhs($data){
+        $this->db->insert('mahasiswa',$data);
+    }
+
     public function tampil_data_chained($id)
     {
         $query = $this->db->query("SELECT * FROM mahasiswa where id_pelanggan = '$id'");
@@ -114,6 +132,11 @@ class user extends CI_Model {
 
     public function get_last_id_matkul(){
         $q = $this->db->select_max('id_matkul')->from('matkul')->get();
+        return $q->result_array();
+    }
+
+    public function get_last_id_mhs(){
+        $q = $this->db->select_max('id')->from('mahasiswa')->get();
         return $q->result_array();
     }
 

@@ -6,20 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../../../assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="../../../assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../../assets/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../../../assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../../../assets/css/aos.css">
-    <link rel="stylesheet" href="../../../assets/css/login.css">
-    <link href="../../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../../assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/aos.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <link href="../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
         html, body{
@@ -64,7 +62,7 @@
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
-                <img src="../../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
+                <img src="../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
             <div class="mr-auto">
@@ -109,26 +107,17 @@
             </div>
             </div>
         </div>
-        <div class="body" style="margin-top: 50px;"></div>
+        <div class="body" style="margin-top: 100px;"></div>
             <h3 class="text-center">Tambah Mahasiswa</h3>
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-2"></div>
-                    <div class="col-8 mx-auto">
-                        <form id="form-euy" method="post" action="">
-                        <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Nama Mahasiswa</label>
+                    <div class="col-8">
+                    <form id="form-euy" method="post" action="<?php echo base_url()?>admin/add_mhs">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">ID Mahasiswa</label>
                                 <div class="col-sm-10">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Pilih Mahasiswa
-                                        </button>
-                                        <ul id="pilih" class="dropdown-menu" aria-labelledby="dropdownMenuButton" name="pp">
-                                            <?php foreach($nama_mhs as $row):?>
-                                                <li class="dropdown-item"><?php echo $row["nama"];?></li>
-                                            <?php endforeach;?>
-                                        </ul>
-                                    </div>
+                                    <input id="id" type="text" class="form-control" value="<?php echo $id[0]["id"]+1;?>" name="id" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -137,8 +126,15 @@
                                     <input id="nim" type="text" class="form-control" placeholder="NIM" name="nim">
                                 </div>
                             </div>
-                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:right;">Tambah</button>
-                        </form>  
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama</label>
+                                <div class="col-sm-10">
+                                    <input id="nama" type="text" class="form-control" placeholder="Nama Mahasiswa" name="nama">
+                                </div>
+                            </div>
+                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
+                        </form>
+                        <button onclick="window.location.href='<?php echo base_url()?>admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:left;">Kembali</button>
                     </div>
                     <div class="col-2"></div>                        
                     </div>
@@ -150,45 +146,22 @@
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-    <script type="text/javascript">
-        jQuery.noConflict()(function ($) { // this was missing for me
-            $(document).ready(function() { 
-                // alert('asdasd');
-                $("#pilih").on('click','li',function (){
-                    // alert($(this).text());
-                    var selText = $(this).text();
-                    $.ajax({
-                        url : '<?php echo base_url()?>admin/ajax_mhs',
-                        data : 'nama='+selText,
-                        success : function(data){
-                            var json = data,
-                            obj = JSON.parse(json);
-                            // alert(obj.id);
-                            $("#dropdownMenuButton").text(obj.nama);
-                            $("#nim").val(obj.nim);
-                            $("#form-euy").attr('action', '<?php echo base_url()?>admin/add_mhsKelas/<?= $id_kelas?>/' + obj.id);
-                        }
-                    });
-                });
-            });
-        });
-        
-    </script>
-    <!-- <script src="../../../assets/js/jquery-3.3.1.min.js"></script> -->
-    <script src="../../../assets/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../../../assets/js/jquery-ui.js"></script>
-    <script src="../../../assets/js/popper.min.js"></script>
-    <script src="../../../assets/js/bootstrap.min.js"></script>
-    <script src="../../../assets/js/owl.carousel.min.js"></script>
-    <script src="../../../assets/js/jquery.stellar.min.js"></script>
-    <script src="../../../assets/js/jquery.countdown.min.js"></script>
-    <script src="../../../assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../../assets/js/jquery.easing.1.3.js"></script>
-    <script src="../../../assets/js/aos.js"></script>
-    <script src="../../../assets/js/jquery.fancybox.min.js"></script>
-    <script src="../../../assets/js/jquery.sticky.js"></script>
-    <script src="../../../assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="../../../assets/js/main.js"></script>
+
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/jquery.stellar.min.js"></script>
+    <script src="../assets/js/jquery.countdown.min.js"></script>
+    <script src="../assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../assets/js/aos.js"></script>
+    <script src="../assets/js/jquery.fancybox.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+    <script src="../assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
