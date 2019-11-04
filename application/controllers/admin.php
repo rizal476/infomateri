@@ -10,13 +10,10 @@ class admin extends CI_Controller {
 
     public function view_admin_page(){
         $data['matkul'] = $this->user->get_all_matkul();
-        $this->load->view('matkul', $data);
+        $data['kelas'] = $this->user->get_all_kelas();
+        $data['mhs'] = $this->user->get_all_mhs();
+        $this->load->view('dashboard', $data);
     }
-
-    // public function view_admin_page(){
-    //     $data['kelas'] = $this->user->get_all_kelas();
-    //     $this->load->view('matkul', $data);
-    // }
 
     public function aksi_login(){
         $nidn = $this->input->post('nidn');
@@ -130,25 +127,26 @@ class admin extends CI_Controller {
         return $q;
     }
 
-    public function view_tambah_matkul($id){
-        $data['datakelas'] = $this->user->get_kelas_by_id($id);
-        $this->load->view('tambah_matkul',$data);
+    public function view_tambah_matkul(){
+        $data['id'] = $this->user->get_last_id_matkul();
+        $this->load->view('tambah_matkul', $data);
     }
 
-    public function add_matkul($id_kelas){
-        $this->form_validation->set_rules('matkul', 'Mata Kuliah', 'required');
+    public function add_matkul(){
+        $this->form_validation->set_rules('nama', 'Mata Kuliah', 'required');
+        $this->form_validation->set_rules('kode', 'Mata Kuliah', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $this->load->view('tambah_matkul');
         }
         else{
             $data = [
-                "id_kelas" => $id_kelas,
-                "nama_matkul" => $this->input->post('matkul', true),
+                "id_matkul" => $this->input->post('id',true),
+                "nama_matkul" => $this->input->post('nama', true),
                 "kode" => $this->input->post('kode', true)
             ];
             $this->user->tambah_matkul($data);
-            redirect(base_url('admin/view_admin_page'));
+            redirect(base_url('admin/view_tambah_matkul'));
         }
     }
 

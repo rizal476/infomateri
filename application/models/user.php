@@ -112,6 +112,11 @@ class user extends CI_Model {
         return $q->result_array();
     }
 
+    public function get_last_id_matkul(){
+        $q = $this->db->select_max('id_matkul')->from('matkul')->get();
+        return $q->result_array();
+    }
+
     public function get_nama_kelas(){
         $this->db->select('kelas');
         $data = $this->db->get('kelas');
