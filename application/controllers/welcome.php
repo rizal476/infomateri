@@ -24,28 +24,8 @@ class welcome extends CI_Controller {
 
     public function search_nilai(){
         $nim = $this->input->post('nim');
-        $where = array(
-            'nim' => $nim
-        );
-        $cek = $this->user->cek_mhs($where)->num_rows();
-        if($cek > 0){
-            $hasil = $this->user->get_nilai($nim);
-            $data_session = array(
-                'nama' => $hasil[0]['name'],
-                'nim' => $hasil[0]['nim'],
-                'nilai' => $hasil[0]['nilai']
-            );
-            $this->session->set_userdata($data_session);
-            redirect(base_url('welcome/hasil_nilai'));
-            // echo "halo ",$this->session->userdata("nama");
-        }
-        else {
-            echo "<script>
-                    alert('NIM tidak terdaftar, segera lapor admin!');
-                    window.location.href='view_nilai';
-                </script>";
-            // redirect(base_url("welcome"));
-        }
+        $hasil = $this->user->cek_mhs($nim);
+        var_dump($hasil);
     }
 }
 ?>

@@ -11,8 +11,20 @@ class user extends CI_Model {
         return $hasil->result_array();
     }
 
+    public function cek_jumlah_data($table,$id_matkul){
+        if ($id_matkul == 'none'){
+            return $this->db->count_all_results($table);
+        }
+        else{
+            $this->db->where('id_matkul',$id_matkul);
+            return $this->db->count_all_results($table);
+        }
+        
+    }
+
     public function cek_mhs($nim){
-        return $this->db->get_where('mahasiswa',$nim); 
+        $hasil = $this->db->select('*')->from('mahasiswa')->where('nim',$nim)->get();
+        return $hasil->result_array();
     }
 
     public function get_nilai($nim){
@@ -34,7 +46,15 @@ class user extends CI_Model {
         $this->db->insert('kelas',$data);
     }
 
+    public function tambah_buka_kelas($data){
+        $this->db->insert('buka_kelas',$data);
+    }
+
     public function tambah_kelasMatkul($data){
+        $this->db->insert_batch('mengampu',$data);
+    }
+
+    public function tambah_mhsKelasBaru($data){
         $this->db->insert('mengampu',$data);
     }
 
@@ -78,6 +98,14 @@ class user extends CI_Model {
 		return $this->db->delete('mengampu');
     }
 
+    public function cek_kelas($id_kelas){
+        $this->db->select('*');
+        $this->db->from('buka_kelas');
+        $this->db->where('id_kelas', $id_kelas);
+        $q = $this->db->get();
+        return $q->result_array();
+    }
+
     public function tambah_mhsKelas($data){
         $this->db->insert('terdiri',$data);
     }
@@ -85,7 +113,7 @@ class user extends CI_Model {
     public function get_kelas_by_id($id){
         $this->db->select('*');
         $this->db->from('kelas');
-        $this->db->join('mengampu', 'kelas.id = mengampu.id_kelas');
+        $this->db->join('buka_kelas', 'kelas.id = buka_kelas.id_kelas');
         $this->db->where('id_matkul', $id);
         $q = $this->db->get();
         return $q->result_array();
@@ -96,11 +124,21 @@ class user extends CI_Model {
         return $hasil->result_array();
     }
 
-    public function get_mhs_by_id_kelas($id){
+    public function get_mhs_by_id_kelas($id_matkul,$id_kelas){
+        $this->db->select('*');
+        $this->db->from('mahasiswa');
+        $this->db->join('mengampu', 'mahasiswa.id = mengampu.id_mhs');
+        $this->db->where('id_kelas', $id_kelas);
+        $this->db->where('id_matkul', $id_matkul);
+        $q = $this->db->get();
+        return $q->result_array();
+    }
+
+    public function get_mhs_by_id_kelas2($id_kelas){
         $this->db->select('*');
         $this->db->from('mahasiswa');
         $this->db->join('terdiri', 'mahasiswa.id = terdiri.id_mhs');
-        $this->db->where('id_kelas', $id);
+        $this->db->where('id_kelas', $id_kelas);
         $q = $this->db->get();
         return $q->result_array();
     }
@@ -141,8 +179,18 @@ class user extends CI_Model {
         return $q->result_array();
     }
 
-    public function masukkan_nilai($data){
-        return $this->db->update_batch('mahasiswa' , $data , 'nim' );;
+    public function masukkan_nilai($data,$id_matkul){
+        // echo "<pre>"; 
+        // var_dump($data);
+        // echo "</pre>";
+        for ($i = 0; $i < count($data); $i++){
+            // print_r($data[$i]["id_mhs"]);
+            $this->db->where('id_mhs', $data[$i]["id_mhs"]);
+            $this->db->where('id_matkul', $id_matkul);
+            $this->db->update('mengampu',$data[$i]);
+
+        }
+        // return $this->db->update_batch('mengampu' , $data , 'id_mhs' );
     }
     
     public function get_last_id_kelas(){
@@ -183,6 +231,15 @@ class user extends CI_Model {
 
     public function get_mhs_by_nama($nama){
         $q = $this->db->select('*')->from('mahasiswa')->where('nama',$nama)->get();
+        return $q->result_array();
+    }
+
+    public function get_last_mhs(){
+        $this->db->select('*');
+        $this->db->from('mahasiswa');
+        $this->db->limit(1);
+        $this->db->order_by('id', 'DESC');
+        $q = $this->db->get();
         return $q->result_array();
     }
 }

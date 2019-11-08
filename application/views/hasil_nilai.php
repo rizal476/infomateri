@@ -118,75 +118,39 @@
         </div>
         
         <div class="container">
-            <table style="margin-top: 50px;">
-                <tr>
-                    <th>Nama : </th>
-                </tr>
-                <tr>
-                    <th>NIM : </th>
-                </tr>
-                <tr>
-                    <th>Jurusan : </th>
-                </tr>
-                <tr>
-                    <th>Mata Kuliah : </th>
-                </tr>
-            </table>
-        </div>
-        <div class="container-fluid">
-            <table class="table" style="text-align: center;">
-                <thead>
-                    <tr>
-                        <th scope="col">TP</th>
-                        <th scope="col" colspan="10">TM</th>
-                        <th scope="col" colspan="10">Praktikum</th>
-                        <th scope="col">Kehadiran</th>
-                        <th scope="col">Presentasi</th>
-                        <th scope="col" colspan="2">Kuis</th>
-                        <th scope="col">UTS</th>
-                        <th scope="col">UAS</th>
-                        <th scope="col">Pembicara</th>
-                        <th scope="col">Diskusi</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Indeks Sementara</th>
-                    </tr>
-                </thead>    
-                <tbody>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col">
+                    
+                </div>
+                <div class="col">
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link active addressClick" data-toggle="tab" href="#tp">Tugas Pendahuluan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#tm">Tugas Mandiri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#p">Praktikum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#k">Kehadiran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#pre">Presentasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#kuis">Kuis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#ujian">Ujian</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#aktif">Keaktifan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         
         </header>

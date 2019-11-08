@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../../assets/css/login.css">
     <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
         html, body{
@@ -136,10 +137,8 @@
                                     <td class="text-center"><?= $kls['kelas']; ?></td>
                                     <td class="text-center"><?= $kls['jumlah']; ?></td>
                                     <td class="text-center">
-                                        
-                                        <a href="<?php echo base_url(); ?>admin/hapus_kelasMatkul/<?= $kls['id']?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                        <a href="#kelasModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
                                         <a href="<?php echo base_url(); ?>admin/detail_kelas/<?= $id_matkul?>/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
-                                </td>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>
@@ -150,12 +149,48 @@
                 </div>
             </div>
         </header>
-        
+        <div class="modal fade" id="kelasModal" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalSayaLabel">Hapus Matakuliah</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Hapus kelas ini?
+                        <!-- <input type="text" name="bookId" value=""/> -->
+                    </div>
+                    <div class="modal-footer">
+                        <a style="color: white;" class="btn btn-secondary" data-dismiss="modal">Tidak</a>
+                        <a name="delete" style="color: white;" class="btn btn-danger">Ya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-
-    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict()(function ($) {
+            $(document).ready(function() { 
+                $('#matkulModal').on('show.bs.modal', function(e) {
+                    var bookId = $(e.relatedTarget).data('book-id');
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_matkul/' + bookId);
+                });
+                $('#kelasModal').on('show.bs.modal', function(e) {
+                    var bookId = $(e.relatedTarget).data('book-id');
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_kelas/' + bookId);
+                });
+                $('#mhsModal').on('show.bs.modal', function(e) {
+                    var bookId = $(e.relatedTarget).data('book-id');
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_mhs/' + bookId);
+                });
+            });
+        });
+    </script>
+    <!-- <script src="../../assets/js/jquery-3.3.1.min.js"></script> -->
     <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../../assets/js/jquery-ui.js"></script>
     <script src="../../assets/js/popper.min.js"></script>

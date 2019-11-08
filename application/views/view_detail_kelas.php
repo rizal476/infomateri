@@ -165,6 +165,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
@@ -193,6 +194,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
@@ -204,18 +206,6 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm2']; ?>" class="input" name="tm2[]">
-                                                </td>
-                                                <td class="text-center">
-                                                    <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm3']; ?>" class="input" name="tm3[]">
-                                                </td>
-                                                <td class="text-center">
-                                                    <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm4']; ?>" class="input" name="tm4[]">
-                                                </td>
-                                                <td class="text-center">
-                                                    <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm5']; ?>" class="input" name="tm5[]">
-                                                </td>
-                                                <td class="text-center">
-                                                    <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tm6']; ?>" class="input" name="tm6[]">
                                                 </td>
                                             </tr>
                                             <?php endforeach ?>
@@ -236,6 +226,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
@@ -266,12 +257,6 @@
                                                 <td class="text-center">
                                                     <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p8']; ?>" class="input" name="p8[]">
                                                 </td>
-                                                <td class="text-center">
-                                                    <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p9']; ?>" class="input" name="p9[]">
-                                                </td>
-                                                <td class="text-center">
-                                                    <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['p10']; ?>" class="input" name="p10[]">
-                                                </td>
                                             </tr>
                                             <?php endforeach ?>
                                         </tbody>
@@ -291,6 +276,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
@@ -319,6 +305,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
@@ -347,6 +334,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
@@ -379,6 +367,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
@@ -411,6 +400,7 @@
                                         </thead>
                                         <tbody>
                                             <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                                <input style="text-align: center;" readonly type="hidden" style="display: hidden;" value="<?= $kls['id']; ?>" class="input" name="id[]">
                                                 <td class="text-center">
                                                     <input style="text-align: center;" readonly type="text" value="<?= $kls['nim']; ?>" class="input" name="nim[]">
                                                 </td>
