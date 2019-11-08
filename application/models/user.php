@@ -30,6 +30,10 @@ class user extends CI_Model {
         return $data->result_array();
     }
 
+    public function tambah_kelas($data){
+        $this->db->insert('kelas',$data);
+    }
+
     public function tambah_kelasMatkul($data){
         $this->db->insert('mengampu',$data);
     }
@@ -37,6 +41,11 @@ class user extends CI_Model {
     public function get_all_kelas(){
         $data = $this->db->get('kelas');
         return $data->result_array();
+    }
+
+    public function hapus_mhs($id){
+        $this->db->where('id',$id);
+		return $this->db->delete('mahasiswa');
     }
 
     public function hapus_matkul($id){
@@ -50,8 +59,23 @@ class user extends CI_Model {
     }
 
     public function hapus_kelas($id){
+        $q = $this->db->select('*')->from('mengampu');
+        if ($q){
+            $this->db->where('id_kelas',$id);
+            $this->db->delete('mengampu');
+        }
+        $q = $this->db->select('*')->from('terdiri');
+        if ($q){
+            $this->db->where('id_kelas',$id);
+            $this->db->delete('terdiri');
+        }
         $this->db->where('id',$id);
 		return $this->db->delete('kelas');
+    }
+
+    public function hapus_kelasMatkul($id){
+        $this->db->where('id_kelas',$id);
+		return $this->db->delete('mengampu');
     }
 
     public function tambah_mhsKelas($data){
@@ -94,10 +118,6 @@ class user extends CI_Model {
 
     public function tambah_matkul($data){
         $this->db->insert('matkul',$data);
-    }
-
-    public function tambah_kelas($data){
-        $this->db->insert('kelas',$data);
     }
 
     public function tambah_mhs($data){

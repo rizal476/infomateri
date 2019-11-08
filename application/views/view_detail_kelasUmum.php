@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="../../assets/css/login.css">
     <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
 
     <style>
         html, body{
@@ -41,6 +44,10 @@
             margin:0 auto;
         }
 
+        .nav-tabs > li > a:hover{
+            background-color: #51be78 !important;
+            color: white !important;
+        }
     </style>
 </head>
 
@@ -110,35 +117,31 @@
         </div>
         <div class="body" style="margin-top: 100px;"></div>
             <div class="container">
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col">
-                        <h3 class="text-center">Daftar Kelas</h3>
-                        <!-- <?php var_dump($id_matkul);?> -->
-                        <a href="<?php echo base_url()?>admin/view_tambah_kelasMatkul/<?= $this->uri->segment(3);?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
-                        <?php if (empty($kelas)) : ?>
-                            <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
-                                Data tidak ditemukan
-                            </div>
-                        <?php endif; ?>
-
+                        <h4 class="text-center" style="margin-top: -50px;">List Mahasiswa</h3>
+                        <h4 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
+                        <a href="<?php echo base_url()?>admin/view_tambah_mhsKelas/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
                         <table class="table mt-5">
                             <thead>
                                 <tr>
                                     <th class="text-center" scope="col">ID</th>
-                                    <th class="text-center" scope="col">NAMA KELAS</th>
-                                    <th class="text-center" scope="col">JUMLAH MAHASISWA</th>
+                                    <th class="text-center" scope="col">NIM</th>
+                                    <th class="text-center" scope="col">Nama Mahasiswa</th>
                                     <th class="text-center" scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><?php foreach ($kelas as $kls) :  ?>
+                                <tr><?php foreach ($mahasiswa as $kls) :  ?>
                                     <td class="text-center"><?= $kls['id']; ?></td>
-                                    <td class="text-center"><?= $kls['kelas']; ?></td>
-                                    <td class="text-center"><?= $kls['jumlah']; ?></td>
+                                    <td class="text-center"><?= $kls['nim']; ?></td>
+                                    <td class="text-center"><?= $kls['nama']; ?></td>
                                     <td class="text-center">
-                                        
-                                        <a href="<?php echo base_url(); ?>admin/hapus_kelasMatkul/<?= $kls['id']?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
-                                        <a href="<?php echo base_url(); ?>admin/detail_kelas/<?= $id_matkul?>/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
+                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
                                 </td>
                                     </td>
                                 </tr>
@@ -150,12 +153,11 @@
                 </div>
             </div>
         </header>
-        
     </div>
+    
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-
-    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="../assets/js/jquery-3.3.1.min.js"></script> -->
     <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../../assets/js/jquery-ui.js"></script>
     <script src="../../assets/js/popper.min.js"></script>
@@ -170,6 +172,10 @@
     <script src="../../assets/js/jquery.sticky.js"></script>
     <script src="../../assets/js/jquery.mb.YTPlayer.min.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/jqeury.js"></script>
+    <script src="../../assets/js/popper.js"></script>
+    
 </body>
 
 </html>

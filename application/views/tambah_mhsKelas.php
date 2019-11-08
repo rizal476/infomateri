@@ -6,19 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../../../assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="../../../assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../../assets/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../../../assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../../../assets/css/aos.css">
-    <link rel="stylesheet" href="../../../assets/css/login.css">
-    <link href="../../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../assets/css/aos.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link href="../../assets/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
@@ -64,7 +64,7 @@
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>welcome" class="d-block">
-                <img src="../../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
+                <img src="../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
             <div class="mr-auto">
@@ -137,8 +137,9 @@
                                     <input id="nim" type="text" class="form-control" placeholder="NIM" name="nim">
                                 </div>
                             </div>
-                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:right;">Tambah</button>
-                        </form>  
+                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
+                        </form> 
+                        <button onclick="window.location.href='<?php echo base_url()?>admin/detail_kelasUmum/<?php echo $this->uri->segment(3);?>'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:left;">Kembali</button> 
                     </div>
                     <div class="col-2"></div>                        
                     </div>
@@ -175,20 +176,20 @@
         
     </script>
     <!-- <script src="../../../assets/js/jquery-3.3.1.min.js"></script> -->
-    <script src="../../../assets/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../../../assets/js/jquery-ui.js"></script>
-    <script src="../../../assets/js/popper.min.js"></script>
-    <script src="../../../assets/js/bootstrap.min.js"></script>
-    <script src="../../../assets/js/owl.carousel.min.js"></script>
-    <script src="../../../assets/js/jquery.stellar.min.js"></script>
-    <script src="../../../assets/js/jquery.countdown.min.js"></script>
-    <script src="../../../assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../../assets/js/jquery.easing.1.3.js"></script>
-    <script src="../../../assets/js/aos.js"></script>
-    <script src="../../../assets/js/jquery.fancybox.min.js"></script>
-    <script src="../../../assets/js/jquery.sticky.js"></script>
-    <script src="../../../assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="../../../assets/js/main.js"></script>
+    <script src="../../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../../assets/js/jquery-ui.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/owl.carousel.min.js"></script>
+    <script src="../../assets/js/jquery.stellar.min.js"></script>
+    <script src="../../assets/js/jquery.countdown.min.js"></script>
+    <script src="../../assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../../assets/js/aos.js"></script>
+    <script src="../../assets/js/jquery.fancybox.min.js"></script>
+    <script src="../../assets/js/jquery.sticky.js"></script>
+    <script src="../../assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 
 </html>

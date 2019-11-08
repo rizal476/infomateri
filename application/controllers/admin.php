@@ -68,20 +68,36 @@ class admin extends CI_Controller {
         $this->load->view('autofill_mhs-ajax');
     }
 
+    public function add_kelas(){
+        $this->form_validation->set_rules('nama', 'Mata Kuliah', 'required');
+        $this->form_validation->set_rules('jumlah', 'Mata Kuliah', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('tambah_kelas');
+        }
+        else{
+            $data = [
+                "id" => $this->input->post('id',true),
+                "kelas" => $this->input->post('nama', true),
+                "jumlah" => $this->input->post('jumlah', true)
+            ];
+            $this->user->tambah_kelas($data);
+            redirect(base_url('admin/view_tambah_kelas'));
+        }
+    }
+
     public function add_kelasMatkul($id_matkul,$id_kelas){
         $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('jumlah', 'Jumlah Mahasiswa', 'required');
 
         if ($this->form_validation->run() == FALSE){
-            $this->load->view('view_tambah_kelas');
+            $this->load->view('tambah_kelasMatkul');
         }
         else{
             $data = [
                 "id_matkul" => $id_matkul,
                 "id_kelas" => $id_kelas
             ];
-            // $data2 = [];
-
             $this->user->tambah_kelasMatkul($data);
             redirect(base_url('admin/view_admin_page'));
         }
@@ -92,8 +108,18 @@ class admin extends CI_Controller {
         redirect('admin/view_admin_page');
     }
 
+    public function hapus_kelasMatkul($id){
+        $this->user->hapus_kelasMatkul($id);
+        redirect('admin/view_admin_page');
+    }
+
     public function hapus_matkul($id){
         $this->user->hapus_matkul($id);
+        redirect('admin/view_admin_page');
+    }
+
+    public function hapus_mhs($id){
+        $this->user->hapus_mhs($id);
         redirect('admin/view_admin_page');
     }
 
@@ -104,6 +130,12 @@ class admin extends CI_Controller {
         $this->load->view('view_detail_kelas',$data);
     }
 
+    public function detail_kelasUmum($id_kelas){
+        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_kelas);
+        $this->load->view('view_detail_kelasUmum',$data);
+    }
+
     public function detail_matkul($id){
         $data['id_matkul'] = $id;
         $data['kelas'] = $this->user->get_kelas_by_id($id);
@@ -111,13 +143,10 @@ class admin extends CI_Controller {
     }
 
     public function add_mhsKelas($id_kelas,$id_mhs){
-
-        // var_dump($id_kelas);
-        // var_dump($id_mhs);
         $this->form_validation->set_rules('nim', 'NIM Mahasiswa', 'required');
 
         if ($this->form_validation->run() == FALSE){
-            $this->load->view('tambah_mhsKelas',$data);
+            $this->view_tambah_mhsKelas($id_kelas);
         }
         else{
             $data = [
@@ -126,11 +155,10 @@ class admin extends CI_Controller {
             ];
             $this->user->tambah_mhsKelas($data);
         }
-        $this->load->view('tambah_mhsKelas',$data);
+        redirect(base_url('admin/view_tambah_mhsKelas/'.$id_kelas));
     }
 
-    public function view_tambah_mhsKelas($id_matkul,$id_kelas){
-        $data['id_matkul'] = $id_matkul;
+    public function view_tambah_mhsKelas($id_kelas){
         $data['id_kelas'] = $id_kelas;
         $data['nama_mhs'] = $this->user->get_nama_mhs();
         $this->load->view('tambah_mhsKelas',$data);
@@ -162,24 +190,6 @@ class admin extends CI_Controller {
             ];
             $this->user->tambah_matkul($data);
             redirect(base_url('admin/view_tambah_matkul'));
-        }
-    }
-
-    public function add_kelas(){
-        $this->form_validation->set_rules('nama', 'Mata Kuliah', 'required');
-        $this->form_validation->set_rules('jumlah', 'Mata Kuliah', 'required');
-
-        if ($this->form_validation->run() == FALSE){
-            $this->load->view('tambah_kelas');
-        }
-        else{
-            $data = [
-                "id" => $this->input->post('id',true),
-                "kelas" => $this->input->post('nama', true),
-                "jumlah" => $this->input->post('jumlah', true)
-            ];
-            $this->user->tambah_kelas($data);
-            redirect(base_url('admin/view_tambah_kelas'));
         }
     }
 

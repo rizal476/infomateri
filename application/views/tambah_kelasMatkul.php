@@ -145,10 +145,12 @@
                                 </div>
                             </div>
                             <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
-                        </form>  
+                        </form> 
+                        <button onclick="window.location.href='<?php echo base_url()?>admin/detail_matkul/<?php echo $this->uri->segment(3);?>'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:left;">Kembali</button> 
                     </div>
                     <div class="col-2"></div>                        
                     </div>
+                    
                 </div>
             </div>
         </header>
