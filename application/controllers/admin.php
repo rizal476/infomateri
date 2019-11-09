@@ -89,7 +89,7 @@ class admin extends CI_Controller {
     public function add_kelasMatkul($id_matkul,$id_kelas){
         $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('jumlah', 'Jumlah Mahasiswa', 'required');
-
+        $data[] = array();
         if ($this->form_validation->run() == FALSE){
             $this->load->view('tambah_kelasMatkul');
         }
@@ -117,9 +117,9 @@ class admin extends CI_Controller {
         redirect('admin/view_admin_page');
     }
 
-    public function hapus_kelasMatkul($id){
-        $this->user->hapus_kelasMatkul($id);
-        redirect('admin/view_admin_page');
+    public function hapus_kelasMatkul($id_matkul,$id_kelas){
+        $this->user->hapus_kelasMatkul($id_matkul,$id_kelas);
+        redirect('admin/detail_matkul/'.$id_matkul);
     }
 
     public function hapus_matkul($id){
@@ -151,6 +151,8 @@ class admin extends CI_Controller {
         $this->load->view('kelas',$data);
     }
 
+    
+
     public function add_mhsKelas($id_kelas,$id_mhs){
         $this->form_validation->set_rules('nim', 'NIM Mahasiswa', 'required');
 
@@ -164,19 +166,27 @@ class admin extends CI_Controller {
             ];
             $this->user->tambah_mhsKelas($data);
             $hasil = $this->user->cek_kelas($id_kelas);
+            // echo "<pre>";
+            // var_dump($hasil);
+            // print_r($hasil[0]["id_matkul"]);
+            // print_r($hasil[1]["id_matkul"]);
+            // echo "</pre>";
             if ($hasil){
                 $last = $this->user->get_last_mhs();
                 for ($i = 0; $i < count($hasil); $i++){
-                    $result = array(
+                    $result[] = array(
                         "id_matkul" => $hasil[$i]["id_matkul"],
                         "id_kelas" => $id_kelas,
                         "id_mhs" => $id_mhs
                     );
                 }
+                // echo "<pre>";
+                // var_dump($result);
+                // echo "</pre>";
                 $this->user->tambah_mhsKelasBaru($result);
             }
         }
-        // redirect(base_url('admin/view_tambah_mhsKelas/'.$id_kelas));
+        redirect(base_url('admin/view_tambah_mhsKelas/'.$id_kelas));
     }
 
     public function view_tambah_mhsKelas($id_kelas){

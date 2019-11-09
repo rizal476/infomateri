@@ -181,7 +181,7 @@
                 });
                 $('#kelasModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');
-                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_kelas/' + bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_kelasMatkul/<?php echo $this->uri->segment(3);?>/' + bookId);
                 });
                 $('#mhsModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');

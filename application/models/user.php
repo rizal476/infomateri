@@ -19,7 +19,6 @@ class user extends CI_Model {
             $this->db->where('id_matkul',$id_matkul);
             return $this->db->count_all_results($table);
         }
-        
     }
 
     public function cek_mhs($nim){
@@ -55,7 +54,10 @@ class user extends CI_Model {
     }
 
     public function tambah_mhsKelasBaru($data){
-        $this->db->insert('mengampu',$data);
+        // echo "<pre>";
+        // var_dump($data);
+        // echo "</pre>";
+        $this->db->insert_batch('mengampu',$data,'id_matkul');
     }
 
     public function get_all_kelas(){
@@ -93,9 +95,15 @@ class user extends CI_Model {
 		return $this->db->delete('kelas');
     }
 
-    public function hapus_kelasMatkul($id){
-        $this->db->where('id_kelas',$id);
-		return $this->db->delete('mengampu');
+    public function hapus_kelasMatkul($id_matkul,$id_kelas){
+        $this->db->where('id_matkul',$id_matkul);
+        $this->db->where('id_kelas',$id_kelas);
+        $this->db->delete('mengampu');
+
+        $this->db->where('id_matkul',$id_matkul);
+        $this->db->where('id_kelas',$id_kelas);
+        $this->db->delete('buka_kelas');
+        
     }
 
     public function cek_kelas($id_kelas){
