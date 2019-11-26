@@ -250,4 +250,9 @@ class user extends CI_Model {
         $q = $this->db->get();
         return $q->result_array();
     }
+    
+    public function get_all_materiByMatkul($matkul){
+        $q = $this->db->select('*')->from('materi')->where('matkul', $matkul)->get();
+        return $q->result_array();
+    }
 }

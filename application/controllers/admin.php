@@ -434,7 +434,12 @@ class admin extends CI_Controller {
     }
 
     public function view_materi(){
-        $this->load->view('materi');
+        $data['matkul'] = $this->user->get_all_matkul();
+        $this->load->view('materi',$data);
+    }
+
+    public function ajax2(){
+        $this->load->view('autofill2-ajax');
     }
 }
 ?>
