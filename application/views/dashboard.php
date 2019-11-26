@@ -79,12 +79,8 @@
                     <li class="active">
                         <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
                     </li>
-                    <li class="has-children">
-                        <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
-                    <ul class="dropdown">
-                        <li><a href="teachers.html">Our Teachers</a></li>
-                        <li><a href="about.html">Our School</a></li>
-                    </ul>
+                    <li>
+                        <a href="<?php echo base_url()?>admin/view_materi" class="nav-link text-left">Materi Kuliah</a>
                     </li>
                     <li>
                         <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>

@@ -432,5 +432,9 @@ class admin extends CI_Controller {
         $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_matkul,$id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
+
+    public function view_materi(){
+        $this->load->view('materi');
+    }
 }
 ?>
