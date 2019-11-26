@@ -124,10 +124,6 @@
                             <?php endforeach;?>
                             <!-- <li class="dropdown-item">awsdasdasd</li> -->
                         </ul>
-                        <!-- <?php if ($this->session->userdata('name') != ''){
-                                echo '<a href="'.base_url("admin/tambah_materi").'" style="color: white;"><div style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>';                             
-                            }
-                        ?> -->
                     </div>
                     <div id="target" class="row">
                     </div>

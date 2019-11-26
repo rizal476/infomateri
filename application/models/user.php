@@ -292,4 +292,22 @@ class user extends CI_Model {
         $q = $this->db->select('*')->from('tugas')->where('matkul', $matkul)->get();
         return $q->result_array();
     }
+
+    public function get_all_matkul_mhs($data){
+        $this->db->select('*');
+        $this->db->from('matkul');
+        $this->db->join('mengampu', 'matkul.id_matkul = mengampu.id_matkul');
+        $this->db->where('nim', $data[0]["nim"]);
+        $q = $this->db->get();
+        return $q->result_array();
+    }
+
+    public function get_all_nilai_by_matkul($matkul){
+        $this->db->select('*');
+        $this->db->from('mengampu');
+        $this->db->join('matkul', 'matkul.id_matkul = mengampu.id_matkul');
+        $this->db->where('nama_matkul', $matkul);
+        $q = $this->db->get();
+        return $q->result_array();
+    }
 }

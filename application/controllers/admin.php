@@ -97,7 +97,7 @@ class admin extends CI_Controller {
             $this->load->view('tambah_kelasMatkul');
         }
         else{
-            $mahasiswa = $this->user->get_mhs_by_id_kelas2($id_matkul,$id_kelas);
+            $mahasiswa = $this->user->get_mhs_by_id_kelas2($id_kelas);
             
             for ($i = 0; $i < count($mahasiswa); $i++){
                 // var_dump($mahasiswa[$i]["id"]);
@@ -143,7 +143,7 @@ class admin extends CI_Controller {
     public function detail_kelas($id_matkul,$id_kelas){
         // var_dump($id_kelas);
         $data['id_matkul'] = $id_matkul;
-        $data['kelas'] = $this->user->get_kelas($id_kelas);
+        $data['kelas'] = $this->user->get_kelas_by_id($id_kelas);
         $data['mahasiswa'] = $this->user->get_mhs_by_id_kelas($id_matkul,$id_kelas);
         $this->load->view('view_detail_kelas',$data);
     }
@@ -156,7 +156,7 @@ class admin extends CI_Controller {
 
     public function detail_matkul($id){
         $data['id_matkul'] = $id;
-        $data['kelas'] = $this->user->get_kelas($id);
+        $data['kelas'] = $this->user->get_kelas_by_id($id);
         $this->load->view('kelas',$data);
     }
 
