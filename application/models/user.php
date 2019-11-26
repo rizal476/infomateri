@@ -255,4 +255,9 @@ class user extends CI_Model {
         $q = $this->db->select('*')->from('materi')->where('matkul', $matkul)->get();
         return $q->result_array();
     }
+
+    public function tambahMateri($data){
+        $this->db->insert('materi',$data);
+    }
+    
 }

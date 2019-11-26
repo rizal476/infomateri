@@ -441,5 +441,32 @@ class admin extends CI_Controller {
     public function ajax2(){
         $this->load->view('autofill2-ajax');
     }
+
+    public function tambah_materi(){
+        $data['matkul'] = $this->user->get_all_matkul();
+        $this->load->view('tambah_materi',$data);
+    }
+
+    public function tambahMateri(){
+
+        $this->form_validation->set_rules('id', 'Mata Kuliah', 'required');
+        $this->form_validation->set_rules('judul', 'Mata Kuliah', 'required');
+        $this->form_validation->set_rules('detail', 'Mata Kuliah', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->load->view('tambah_materi');
+        }
+        else{
+            $data = [
+                "matkul" => $this->input->post('id',true),
+                "judul" => $this->input->post('judul', true),
+                "detail" => $this->input->post('detail', true)
+            ];
+            $this->user->tambahMateri($data);
+            redirect(base_url('admin/tambah_materi'));
+        }
+
+
+    }
 }
 ?>
