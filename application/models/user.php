@@ -259,5 +259,37 @@ class user extends CI_Model {
     public function tambahMateri($data){
         $this->db->insert('materi',$data);
     }
+
+    public function get_allNilaiMhs($nim){
+        $q = $this->db->select('*')->from('mengampu')->where('nim', $nim)->get();
+        return $q->result_array();
+    }
+
+    public function get_all_materi(){
+        $q = $this->db->select('*')->from('materi')->get();
+        return $q->result_array();
+    }
+
+    public function tambahInfo($data){
+        $this->db->insert('info',$data);
+    }
     
+    public function get_all_info(){
+        $q = $this->db->select('*')->from('info')->get();
+        return $q->result_array();
+    }
+
+    public function tambahTugas($data){
+        $this->db->insert('tugas',$data);
+    }
+    
+    public function get_all_tugas(){
+        $q = $this->db->select('*')->from('tugas')->get();
+        return $q->result_array();
+    }
+
+    public function get_all_tugasByMatkul($matkul){
+        $q = $this->db->select('*')->from('tugas')->where('matkul', $matkul)->get();
+        return $q->result_array();
+    }
 }

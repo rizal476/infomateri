@@ -71,20 +71,20 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                    <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                        <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li class="has-children">
-                    <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
+                        <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
                     <ul class="dropdown">
                         <li><a href="teachers.html">Our Teachers</a></li>
                         <li><a href="about.html">Our School</a></li>
                     </ul>
                     </li>
                     <li>
-                    <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                        <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
-                    <a href="courses.html" class="nav-link text-left">KP & TA</a>
+                        <a href="courses.html" class="nav-link text-left">KP & TA</a>
                     </li>
                     <li>
                         <a href="contact.html" class="nav-link text-left">Kontak</a>
@@ -109,54 +109,32 @@
             </div>
             </div>
         </div>
-        <div class="body" style="margin-top: 100px;"></div>
-            <h3 class="text-center">Tambah Materi</h3>
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="col-2"></div>
-                    <div class="col-8 mx-auto">
-                        <form id="form-euy" method="post" action="<?php echo base_url()?>admin/tambahMateri">
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Nama Matkul</label>
-                                <div class="col-sm-10">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Pilih Matkul
-                                        </button>
-                                        <ul id="pilih" class="dropdown-menu" aria-labelledby="dropdownMenuButton" name="pp">
-                                            <?php foreach($matkul as $row):?>
-                                                <li class="dropdown-item"><?php echo $row["nama_matkul"];?></li>
-                                            <?php endforeach;?>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <input id="id" readonly hidden type="text" class="form-control" placeholder="Judul materi" name="id">
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Judul Materi</label>
-                                <div class="col-sm-10">
-                                    <input id="judul" type="text" class="form-control" placeholder="Judul materi" name="judul">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Detail Materi</label>
-                                <div class="col-sm-10">
-                                    <input id="detail" type="text" class="form-control" placeholder="Detail Materi" name="detail">
-                                </div>
-                            </div>
-                            <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
-                        </form> 
-                        <button onclick="window.location.href='<?php echo base_url()?>admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:left;">Kembali</button> 
+        <div class="body" style=""></div>
+            <div class="site-section">
+                <div class="container">
+                    <h2 align="center">Tugas Perkuliahan</h2>
+                    <div style="margin-bottom: 20px; margin-top: 50px;" class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Matakuliah
+                        </button>
+                        <ul id="pilih" class="dropdown-menu" aria-labelledby="dropdownMenuButton" name="pp">
+                        <!-- <?php var_dump($matkul)?> -->
+                            <?php foreach($matkul as $row):?>
+                                <li class="dropdown-item"><?php echo $row["nama_matkul"];?></li>
+                            <?php endforeach;?>
+                            <!-- <li class="dropdown-item">awsdasdasd</li> -->
+                        </ul>
+                        <!-- <?php if ($this->session->userdata('name') != ''){
+                                echo '<a href="'.base_url("admin/tambah_materi").'" style="color: white;"><div style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>';                             
+                            }
+                        ?> -->
                     </div>
-                    <div class="col-2"></div>                        
+                    <div id="target" class="row">
                     </div>
-                    
                 </div>
             </div>
         </header>
-        
     </div>
-    
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
     <script type="text/javascript">
@@ -164,15 +142,43 @@
             $(document).ready(function() { 
                 // alert('asdasd');
                 $("#pilih").on('click','li',function (){
-                    $("#dropdownMenuButton").text($(this).text());
-                    $("#id").val($(this).text());
+                    // alert($(this).text());
+                    var selText = $(this).text();
+                    $.ajax({
+                        url : '<?php echo base_url()?>admin/ajax3',
+                        data : 'matkul='+selText,
+                        success : function(data){
+                            obj = JSON.parse(data);
+                            console.log(obj);
+                            var length = 0;
+                            var tambah = '';
+                            for(var k in obj) if(obj.hasOwnProperty(k)) length++;
+                            // alert(length);
+                            for (i = 0; i < length; i++) {
+                                // alert(i);
+                                tambah = tambah + '\
+                                <div class="col-lg-4 col-md-6 mb-4">\
+                                    <div class="course-1-item">\
+                                        <figure class="thumnail">\
+                                        <a href="course-single.html"><img src="../assets/images/modules.png" alt="Image" class="img-fluid"></a>\
+                                        <div class="category"><h3>Materi ' + (i+1) + '</h3></div>\
+                                        </figure>\
+                                        <div class="course-1-content pb-4">\
+                                        <h2>'+obj[i].judul+'</h2>\
+                                        <p style="font-family: Muli;" class="desc mb-4">'+obj[i].detail+'</p>\
+                                        <p style="font-family: Muli;" ><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Download</a></p>\
+                                        </div>\
+                                    </div>\
+                                </div>';
+                            }
+                            $("#target").html(tambah);
+                            $("#dropdownMenuButton").text(obj[0].matkul);
+                        }
+                    });
                 });
             });
         });
-        
     </script>
-    
-    
     <!-- <script src="../../assets/js/jquery-3.3.1.min.js"></script> -->
     <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../assets/js/jquery-ui.js"></script>

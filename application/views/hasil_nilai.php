@@ -120,8 +120,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    
+                    asd
                 </div>
+                <div class="w-100"></div>
                 <div class="col">
                     <ul class="nav nav-tabs justify-content-center">
                         <li class="nav-item">

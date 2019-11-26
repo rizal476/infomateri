@@ -24,8 +24,9 @@ class welcome extends CI_Controller {
 
     public function search_nilai(){
         $nim = $this->input->post('nim');
-        $hasil = $this->user->cek_mhs($nim);
+        $hasil = $this->user->get_allNilaiMhs($nim);
         var_dump($hasil);
+        $this->load->view('hasil_nilai');
     }
 }
 ?>

@@ -86,10 +86,10 @@
                         <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
-                        <a href="courses.html" class="nav-link text-left">KP & TA</a>
+                        <a href="<?php echo base_url()?>admin/view_info" class="nav-link text-left">KP & TA</a>
                     </li>
                     <li>
-                        <a href="contact.html" class="nav-link text-left">Kontak</a>
+                        <a href="<?php echo base_url()?>admin/view_tugas" class="nav-link text-left">Tugas</a>
                     </li>
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
@@ -209,6 +209,89 @@
                                             <td class="text-center">
                                                 <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
                                                 <a href="<?php echo base_url(); ?>admin/detail_matkul/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
+                                        </td>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="materi">
+                                <a href="<?php echo base_url()?>admin/tambah_materi" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>
+                                <table class="table mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" scope="col">ID Materi</th>
+                                            <th class="text-center" scope="col">Matakuliah</th>
+                                            <th class="text-center" scope="col">Judul</th>
+                                            <th class="text-center" scope="col">Detail</th>
+                                            <th class="text-center" scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><?php foreach ($materi as $kls) :  ?>
+                                            <td class="text-center"><?= $kls['id_materi']; ?></td>
+                                            <td class="text-center"><?= $kls['matkul']; ?></td>
+                                            <td class="text-center"><?= $kls['judul']; ?></td>
+                                            <td class="text-center"><?= $kls['detail']; ?></td>
+                                            <td class="text-center">
+                                                <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id_materi'] ?>">hapus</a>
+                                        </td>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="info">
+                                <a href="<?php echo base_url()?>admin/tambah_info" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Info</div></a>
+                                <table class="table mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" scope="col">ID Info</th>
+                                            <th class="text-center" scope="col">Judul</th>
+                                            <th class="text-center" scope="col">Detail</th>
+                                            <th class="text-center" scope="col">Link</th>
+                                            <th class="text-center" scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><?php foreach ($info as $kls) :  ?>
+                                            <td class="text-center"><?= $kls['id']; ?></td>
+                                            <td class="text-center"><?= $kls['judul']; ?></td>
+                                            <td class="text-center"><?= $kls['detail']; ?></td>
+                                            <td class="text-center"><?= $kls['link']; ?></td>
+                                            <td class="text-center">
+                                                <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
+                                        </td>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tugas">
+                                <a href="<?php echo base_url()?>admin/tambah_tugas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Tugas</div></a>
+                                <table class="table mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" scope="col">ID</th>
+                                            <th class="text-center" scope="col">Matkul</th>
+                                            <th class="text-center" scope="col">Judul</th>
+                                            <th class="text-center" scope="col">Detail</th>
+                                            <th class="text-center" scope="col">Link</th>
+                                            <th class="text-center" scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><?php foreach ($tugas as $kls) :  ?>
+                                            <td class="text-center"><?= $kls['id']; ?></td>
+                                            <td class="text-center"><?= $kls['matkul']; ?></td>
+                                            <td class="text-center"><?= $kls['judul']; ?></td>
+                                            <td class="text-center"><?= $kls['detail']; ?></td>
+                                            <td class="text-center"><?= $kls['link']; ?></td>
+                                            <td class="text-center">
+                                                <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
                                         </td>
                                             </td>
                                         </tr>

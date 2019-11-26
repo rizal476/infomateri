@@ -109,10 +109,11 @@
             </div>
             </div>
         </div>
-        <div class="body" style="margin-top: 100px;"></div>
+        <div class="body" style=""></div>
             <div class="site-section">
                 <div class="container">
-                    <div style="margin-bottom: 20px;" class="dropdown">
+                    <h2 align="center">Materi Perkuliahan</h2>
+                    <div style="margin-bottom: 20px; margin-top: 50px;" class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Matakuliah
                         </button>
@@ -123,10 +124,10 @@
                             <?php endforeach;?>
                             <!-- <li class="dropdown-item">awsdasdasd</li> -->
                         </ul>
-                        <?php if ($this->session->userdata('name') != ''){
+                        <!-- <?php if ($this->session->userdata('name') != ''){
                                 echo '<a href="'.base_url("admin/tambah_materi").'" style="color: white;"><div style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>';                             
                             }
-                        ?>
+                        ?> -->
                     </div>
                     <div id="target" class="row">
                     </div>

@@ -110,12 +110,12 @@
             </div>
         </div>
         <div class="body" style="margin-top: 100px;"></div>
-            <h3 class="text-center">Tambah Materi</h3>
+            <h3 class="text-center">Tambah Tugas</h3>
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-2"></div>
                     <div class="col-8 mx-auto">
-                        <form id="form-euy" method="post" action="<?php echo base_url()?>admin/tambahMateri">
+                        <form id="form-euy" method="post" action="<?php echo base_url()?>admin/tambahTugas">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Nama Matkul</label>
                                 <div class="col-sm-10">
@@ -131,17 +131,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <input id="id" readonly hidden type="text" class="form-control" placeholder="Judul materi" name="id">
+                            <input id="id" readonly hidden type="text" class="form-control" placeholder="Judul materi" name="matkul">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Judul Materi</label>
+                                <label class="col-sm-2 col-form-label">Judul Tugas</label>
                                 <div class="col-sm-10">
-                                    <input id="judul" type="text" class="form-control" placeholder="Judul materi" name="judul">
+                                    <input id="judul" type="text" class="form-control" placeholder="Judul Tugas" name="judul">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Detail Materi</label>
+                                <label class="col-sm-2 col-form-label">Detail Tugas</label>
                                 <div class="col-sm-10">
-                                    <input id="detail" type="text" class="form-control" placeholder="Detail Materi" name="detail">
+                                    <input id="detail" type="text" class="form-control" placeholder="Detail Tugas" name="detail">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Link Download</label>
+                                <div class="col-sm-10">
+                                    <input id="detail" type="text" class="form-control" placeholder="Link Download" name="link">
                                 </div>
                             </div>
                             <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
