@@ -124,8 +124,8 @@
                             <!-- <li class="dropdown-item">awsdasdasd</li> -->
                         </ul>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mb-4">
+                    <div id="target" class="row">
+                        <!-- <div class="col-lg-4 col-md-6 mb-4">
                             <div class="course-1-item">
                                 <figure class="thumnail">
                                 <a href="course-single.html"><img src="../assets/images/modules.png" alt="Image" class="img-fluid"></a>
@@ -137,7 +137,7 @@
                                 <p style="font-family: Muli;" ><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Download</a></p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -178,7 +178,21 @@
                         success : function(data){
                             obj = JSON.parse(data);
                             console.log(obj);
-                            alert(obj[0].matkul);
+                            var tambah = '\
+                            <div class="col-lg-4 col-md-6 mb-4">\
+                                <div class="course-1-item">\
+                                    <figure class="thumnail">\
+                                    <a href="course-single.html"><img src="../assets/images/modules.png" alt="Image" class="img-fluid"></a>\
+                                    <div class="category"><h3>Materi'+obj[0].id_materi+'</h3></div>\
+                                    </figure>\
+                                    <div class="course-1-content pb-4">\
+                                    <h2>'+obj[0].judul+'</h2>\
+                                    <p style="font-family: Muli;" class="desc mb-4">'+obj[0].detail+'</p>\
+                                    <p style="font-family: Muli;" ><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Download</a></p>\
+                                    </div>\
+                                </div>\
+                            </div>';
+                            $("#target").html(tambah);
                         }
                     });
                 });
