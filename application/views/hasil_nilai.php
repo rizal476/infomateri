@@ -124,19 +124,19 @@
                     <div class="form-group row">
                         <label class="col-sm-1 col-form-label">NIM</label>
                         <div class="col-sm-3">
-                            <input readonly id="judul" type="text" class="form-control" name="judul" value="<?php echo $mhs[0]["nim"]?>">
+                            <input readonly id="nim" type="text" class="form-control" name="judul" value="<?php echo $mhs[0]["nim"]?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-1 col-form-label">Nama</label>
                         <div class="col-sm-3">
-                            <input readonly id="judul" type="text" class="form-control" name="judul" value="<?php echo $mhs[0]["nama"]?>">
+                            <input readonly id="nama" type="text" class="form-control" name="judul" value="<?php echo $mhs[0]["nama"]?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-1 col-form-label">Index</label>
                         <div class="col-sm-3">
-                            <input readonly id="judul" type="text" class="form-control" name="judul" value="">
+                            <input readonly id="index" type="text" class="form-control" name="judul" value="">
                         </div>
                     </div>
                     <div style="margin-bottom: 20px;" class="dropdown">
@@ -168,9 +168,6 @@
                             <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#k">Kehadiran</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#pre">Presentasi</a>
-                        </li>
-                        <li class="nav-item">
                             <a style="color: #51be78" class="nav-link addressClick" data-toggle="tab" href="#kuis">Kuis</a>
                         </li>
                         <li class="nav-item">
@@ -190,15 +187,169 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><?php foreach ($mahasiswa as $kls) :  ?>
+                                        <tr>
                                             <td class="text-center">
-                                                <input style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="<?= $kls['tp']; ?>" class="input" name="tp[]">
+                                                <input id="nilaitp" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tp[]">
                                             </td>
                                         </tr>
-                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
-                                <button type="submit" name="submit" value="submit"></button>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="tm">
+                            <form id="form_nilai" method="post" action="">
+                                <table class="table table-bordered mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center align-middle" scope="col">Tugas Mandiri 1</th>
+                                            <th class="text-center align-middle" scope="col">Tugas Mandiri 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input id="nilaitm1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaitm2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="p">
+                            <form id="form_nilai" method="post" action="">
+                                <table class="table table-bordered mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center align-middle" scope="col">Praktikum 1</th>
+                                            <th class="text-center align-middle" scope="col">Praktikum 2</th>
+                                            <th class="text-center align-middle" scope="col">Praktikum 3</th>
+                                            <th class="text-center align-middle" scope="col">Praktikum 4</th>
+                                            <th class="text-center align-middle" scope="col">Praktikum 5</th>
+                                            <th class="text-center align-middle" scope="col">Praktikum 6</th>
+                                            <th class="text-center align-middle" scope="col">Praktikum 7</th>
+                                            <th class="text-center align-middle" scope="col">Praktikum 8</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input id="nilaip1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaip2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaip3" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaip4" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaip5" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaip6" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaip7" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaip8" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="k">
+                            <form id="form_nilai" method="post" action="">
+                                <table class="table table-bordered mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center align-middle" scope="col">Kehadiran</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input id="nilaikehadiran" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="kuis">
+                            <form id="form_nilai" method="post" action="">
+                                <table class="table table-bordered mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center align-middle" scope="col">Kuis 1</th>
+                                            <th class="text-center align-middle" scope="col">Kuis 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input id="nilaik1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaik2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="ujian">
+                            <form id="form_nilai" method="post" action="">
+                                <table class="table table-bordered mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center align-middle" scope="col">UTS</th>
+                                            <th class="text-center align-middle" scope="col">UAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input id="nilaiuts" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaiuas" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="aktif">
+                            <form id="form_nilai" method="post" action="">
+                                <table class="table table-bordered mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center align-middle" scope="col">Diskusi</th>
+                                            <th class="text-center align-middle" scope="col">Pembicara</th>
+                                            <th class="text-center align-middle" scope="col">Presentasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input id="nilaidiskusi" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaipembicara" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                            <td class="text-center">
+                                                <input id="nilaipresentasi" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </form>
                         </div>
                     </div>
@@ -222,36 +373,51 @@
                 $("#pilih").on('click','li',function (){
                     // alert($(this).text());
                     var selText = $(this).text();
-                    var nim = 0;
+                    var nim = $("#nim").val();
+                    // alert(nim);
                     $.ajax({
                         url : '<?php echo base_url()?>welcome/ajax',
                         data : {matkul: selText, nim: nim},
                         success : function(data){
                             obj = JSON.parse(data);
-                            console.log(obj);
-                            var length = 0;
-                            var tambah = '';
-                            for(var k in obj) if(obj.hasOwnProperty(k)) length++;
-                            // alert(length);
-                            for (i = 0; i < length; i++) {
-                                // alert(i);
-                                tambah = tambah + '\
-                                <div class="col-lg-4 col-md-6 mb-4">\
-                                    <div class="course-1-item">\
-                                        <figure class="thumnail">\
-                                        <a href="course-single.html"><img src="../assets/images/modules.png" alt="Image" class="img-fluid"></a>\
-                                        <div class="category"><h3>Materi ' + (i+1) + '</h3></div>\
-                                        </figure>\
-                                        <div class="course-1-content pb-4">\
-                                        <h2>'+obj[i].judul+'</h2>\
-                                        <p style="font-family: Muli;" class="desc mb-4">'+obj[i].detail+'</p>\
-                                        <p style="font-family: Muli;" ><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Download</a></p>\
-                                        </div>\
-                                    </div>\
-                                </div>';
+                            console.log(data);
+                            total = parseInt(obj.tp) + parseInt(obj.tm1) + parseInt(obj.tm2) + parseInt(obj.p1) + parseInt(obj.p2) + parseInt(obj.p3) + parseInt(obj.p4) + parseInt(obj.p5) + parseInt(obj.p6) + parseInt(obj.p7) + parseInt(obj.p8);
+                            total2 = total + parseInt(obj.kuis1) + parseInt(obj.kuis2) + parseInt(obj.kehadiran) + parseInt(obj.presentasi) + parseInt(obj.uts) + parseInt(obj.uas) + parseInt(obj.pembicara) + parseInt(obj.diskusi);
+                            console.log(total2);
+                            if (total >= 80){
+                                $("#index").val("A");
                             }
-                            $("#target").html(tambah);
-                            $("#dropdownMenuButton").text(obj[0].matkul);
+                            else if (total >=66 && total <= 79){
+                                $("#index").val("B");
+                            }
+                            else if (total >=56 && total <= 65){
+                                $("#index").val("C");
+                            }
+                            else if (total >=41 && total <= 55){
+                                $("#index").val("D");
+                            }
+                            else if (total >=0 && total <= 40){
+                                $("#index").val("E");
+                            }
+                            $("#nilaitp").val(obj.tp);
+                            $("#nilaitm1").val(obj.tm1);
+                            $("#nilaitm2").val(obj.tm2);
+                            $("#nilaip1").val(obj.p1);
+                            $("#nilaip2").val(obj.p2);
+                            $("#nilaip3").val(obj.p3);
+                            $("#nilaip4").val(obj.p4);
+                            $("#nilaip5").val(obj.p5);
+                            $("#nilaip6").val(obj.p6);
+                            $("#nilaip7").val(obj.p7);
+                            $("#nilaip8").val(obj.p8);
+                            $("#nilaikehadiran").val(obj.kehadiran);
+                            $("#nilaik1").val(obj.kuis1);
+                            $("#nilaik2").val(obj.kuis2);
+                            $("#nilaiuts").val(obj.uts);
+                            $("#nilaiuas").val(obj.uas);
+                            $("#nilaidiskusi").val(obj.diskusi);
+                            $("#nilaipembicara").val(obj.pembicara);
+                            $("#nilaipresentasi").val(obj.presentasi);
                         }
                     });
                 });

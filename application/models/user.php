@@ -302,11 +302,12 @@ class user extends CI_Model {
         return $q->result_array();
     }
 
-    public function get_all_nilai_by_matkul($matkul){
+    public function get_all_nilai_by_matkul($matkul, $nim){
         $this->db->select('*');
         $this->db->from('mengampu');
         $this->db->join('matkul', 'matkul.id_matkul = mengampu.id_matkul');
         $this->db->where('nama_matkul', $matkul);
+        $this->db->where('nim', $nim);
         $q = $this->db->get();
         return $q->result_array();
     }
