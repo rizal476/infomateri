@@ -68,7 +68,7 @@
         <div class="container" >
             <div class="d-flex align-items-center">
             <div class="site-logo">
-                <a href="<?php echo base_url()?>welcome" class="d-block">
+                <a href="<?php echo base_url()?>Welcome" class="d-block">
                 <img src="../../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
@@ -76,7 +76,7 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                        <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                        <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li class="has-children">
                         <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
@@ -86,7 +86,7 @@
                     </ul>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                        <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                         <a href="courses.html" class="nav-link text-left">KP & TA</a>
@@ -97,9 +97,9 @@
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
-                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href="<?php echo base_url()?>Admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
                             <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                            <li><a href="<?php echo base_url()?>Admin/logout">Log out</a></li>
                         </ul>
                     </li>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
@@ -121,7 +121,7 @@
                         <h4 class="text-center" style="margin-top: -50px;">List Mahasiswa</h3>
                         <!-- <?php var_dump($kelas[0]["id"]);?> -->
                         <h4 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                        <a href="<?php echo base_url()?>admin/view_tambah_mhsKelas/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
+                        <a href="<?php echo base_url()?>Admin/view_tambah_mhsKelas/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
                     </div>
                 </div>
                 <div class="row">
@@ -154,7 +154,7 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tp">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tp/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_tp/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -183,7 +183,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="tm">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_tm/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_tm/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -215,7 +215,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="p">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_p/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_p/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -265,7 +265,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="k">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_k/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_k/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -294,7 +294,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="pre">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_pre/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_pre/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -323,7 +323,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="kuis">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_kuis/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_kuis/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -355,7 +355,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="ujian">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_ujian/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_ujian/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -388,7 +388,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="aktif">
-                                <form id="form_nilai" method="post" action="<?php echo base_url()?>admin/input_aktif/<?= $id_matkul?>/<?= $kelas[0]['id']?>">
+                                <form id="form_nilai" method="post" action="<?php echo base_url()?>Admin/input_aktif/<?= $id_matkul?>/<?= $kelas[0]['id_kelas']?>">
                                     <table class="table table-bordered mt-5">
                                         <thead>
                                             <tr>
@@ -424,7 +424,7 @@
                     </div>
                     
                 </div>
-                <button onclick="window.location.href='<?php echo base_url()?>admin/detail_matkul/<?php echo $this->uri->segment(3);?>'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:right;">Kembali</button>
+                <button onclick="window.location.href='<?php echo base_url()?>Admin/detail_matkul/<?php echo $this->uri->segment(3);?>'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:right;">Kembali</button>
             </div>
         </header>
     </div>

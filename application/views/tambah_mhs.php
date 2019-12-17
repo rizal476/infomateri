@@ -61,7 +61,7 @@
         <div class="container" >
             <div class="d-flex align-items-center">
             <div class="site-logo">
-                <a href="<?php echo base_url()?>welcome" class="d-block">
+                <a href="<?php echo base_url()?>Welcome" class="d-block">
                 <img src="../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
@@ -69,7 +69,7 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                    <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                    <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li class="has-children">
                     <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
@@ -79,7 +79,7 @@
                     </ul>
                     </li>
                     <li>
-                    <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                    <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                     <a href="courses.html" class="nav-link text-left">KP & TA</a>
@@ -90,9 +90,9 @@
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
-                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href="<?php echo base_url()?>Admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
                             <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                            <li><a href="<?php echo base_url()?>Admin/logout">Log out</a></li>
                         </ul>
                     </li>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
@@ -113,7 +113,7 @@
                 <div class="row mt-5">
                     <div class="col-2"></div>
                     <div class="col-8">
-                    <form id="form-euy" method="post" action="<?php echo base_url()?>admin/add_mhs">
+                    <form id="form-euy" method="post" action="<?php echo base_url()?>Admin/add_mhs">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">ID Mahasiswa</label>
                                 <div class="col-sm-10">
@@ -134,7 +134,7 @@
                             </div>
                             <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
                         </form>
-                        <button onclick="window.location.href='<?php echo base_url()?>admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:left;">Kembali</button>
+                        <button onclick="window.location.href='<?php echo base_url()?>Admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:left;">Kembali</button>
                     </div>
                     <div class="col-2"></div>                        
                     </div>

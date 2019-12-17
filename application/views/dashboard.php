@@ -69,7 +69,7 @@
         <div class="container" >
             <div class="d-flex align-items-center">
             <div class="site-logo">
-                <a href="<?php echo base_url()?>welcome" class="d-block">
+                <a href="<?php echo base_url()?>Welcome" class="d-block">
                 <img src="../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
@@ -77,26 +77,26 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                        <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                        <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>admin/view_materi" class="nav-link text-left">Materi Kuliah</a>
+                        <a href="<?php echo base_url()?>Admin/view_materi" class="nav-link text-left">Materi Kuliah</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                        <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>admin/view_info" class="nav-link text-left">KP & TA</a>
+                        <a href="<?php echo base_url()?>Admin/view_info" class="nav-link text-left">KP & TA</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>admin/view_tugas" class="nav-link text-left">Tugas</a>
+                        <a href="<?php echo base_url()?>Admin/view_tugas" class="nav-link text-left">Tugas</a>
                     </li>
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
-                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href="<?php echo base_url()?>Admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
                             <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                            <li><a href="<?php echo base_url()?>Admin/logout">Log out</a></li>
                         </ul>
                     </li>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
@@ -142,7 +142,7 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="matkul">
-                                <a href="<?php echo base_url()?>admin/view_tambah_matkul" style="color: white;"><div style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matakuliah</div></a>
+                                <a href="<?php echo base_url()?>Admin/view_tambah_matkul" style="color: white;"><div style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Matakuliah</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -157,7 +157,7 @@
                                             <td class="text-center"><?= $kls['nama_matkul']; ?></td>
                                             <td class="text-center">
                                                 <a href="#matkulModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id_matkul'] ?>">hapus</a>
-                                                <a href="<?php echo base_url(); ?>admin/detail_matkul/<?= $kls['id_matkul'] ?>" class="badge badge-success float-center" >detail</a>
+                                                <a href="<?php echo base_url(); ?>Admin/detail_matkul/<?= $kls['id_matkul'] ?>" class="badge badge-success float-center" >detail</a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>
@@ -166,7 +166,7 @@
                                 
                             </div>
                             <div class="tab-pane" id="kelas">
-                                <a href="<?php echo base_url()?>admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
+                                <a href="<?php echo base_url()?>Admin/view_tambah_kelas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -183,7 +183,7 @@
                                             <td class="text-center"><?= $kls['jumlah']; ?></td>
                                             <td class="text-center">
                                                 <a href="#kelasModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
-                                                <a href="<?php echo base_url(); ?>admin/detail_kelasUmum/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
+                                                <a href="<?php echo base_url(); ?>Admin/detail_kelasUmum/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>
@@ -191,7 +191,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="mhs">
-                                <a href="<?php echo base_url()?>admin/view_tambah_mhs" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Mahasiswa</div></a>
+                                <a href="<?php echo base_url()?>Admin/view_tambah_mhs" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Mahasiswa</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -208,7 +208,7 @@
                                             <td class="text-center"><?= $kls['nama']; ?></td>
                                             <td class="text-center">
                                                 <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
-                                                <a href="<?php echo base_url(); ?>admin/detail_matkul/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
+                                                <a href="<?php echo base_url(); ?>Admin/detail_matkul/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
                                         </td>
                                             </td>
                                         </tr>
@@ -217,7 +217,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="materi">
-                                <a href="<?php echo base_url()?>admin/tambah_materi" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>
+                                <a href="<?php echo base_url()?>Admin/tambah_materi" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -244,7 +244,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="info">
-                                <a href="<?php echo base_url()?>admin/tambah_info" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Info</div></a>
+                                <a href="<?php echo base_url()?>Admin/tambah_info" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Info</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -271,7 +271,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="tugas">
-                                <a href="<?php echo base_url()?>admin/tambah_tugas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Tugas</div></a>
+                                <a href="<?php echo base_url()?>Admin/tambah_tugas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Tugas</div></a>
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -373,15 +373,15 @@
             $(document).ready(function() { 
                 $('#matkulModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');
-                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_matkul/' + bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>Admin/hapus_matkul/' + bookId);
                 });
                 $('#kelasModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');
-                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_kelas/' + bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>Admin/hapus_kelas/' + bookId);
                 });
                 $('#mhsModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');
-                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_mhs/' + bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>Admin/hapus_mhs/' + bookId);
                 });
             });
         });

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2019 at 11:38 AM
+-- Generation Time: Nov 29, 2019 at 06:18 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -50,6 +50,7 @@ INSERT INTO `admin` (`id`, `nidn`, `pass`, `name`, `role`) VALUES
 --
 
 CREATE TABLE `buka_kelas` (
+  `id` int(11) NOT NULL,
   `id_matkul` int(3) NOT NULL,
   `id_kelas` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -58,9 +59,32 @@ CREATE TABLE `buka_kelas` (
 -- Dumping data for table `buka_kelas`
 --
 
-INSERT INTO `buka_kelas` (`id_matkul`, `id_kelas`) VALUES
-(1, 1),
-(2, 1);
+INSERT INTO `buka_kelas` (`id`, `id_matkul`, `id_kelas`) VALUES
+(4, 1, 1),
+(6, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `info`
+--
+
+CREATE TABLE `info` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `detail` varchar(100) NOT NULL,
+  `link` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `info`
+--
+
+INSERT INTO `info` (`id`, `judul`, `detail`, `link`) VALUES
+(1, 'ABC', 'KEREN BANGETSSSSSSS', 'www.google.com'),
+(2, 'TOP', 'KEREN', 'www.google.com'),
+(3, '12312', '123', 'qasd'),
+(4, '123', 'asd', '123');
 
 -- --------------------------------------------------------
 
@@ -79,8 +103,7 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id`, `kelas`, `jumlah`) VALUES
-(1, 'IF 41 09', 39),
-(2, 'IF 41 10', 123);
+(1, 'IF-41-09', 39);
 
 -- --------------------------------------------------------
 
@@ -99,10 +122,35 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `nim`, `nama`) VALUES
-(1, '1', 'Rizal Kusuma Putra'),
-(2, '2', 'Rizal Kusuma Putraa'),
-(3, '3', 'Rizal Kusuma Putraaaa'),
-(4, '4', 'RKP');
+(1, '1301174067', 'Rizal Kusuma Putra'),
+(2, '1501180061', 'Nadilla');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `materi`
+--
+
+CREATE TABLE `materi` (
+  `id_materi` int(11) NOT NULL,
+  `matkul` varchar(100) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `detail` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `materi`
+--
+
+INSERT INTO `materi` (`id_materi`, `matkul`, `judul`, `detail`) VALUES
+(1, 'DCS Engineering', 'A', 'ini keren'),
+(2, 'DCS Engineering', 'B', 'ini keren'),
+(3, 'DCS Engineering', 'C', 'ini keren'),
+(4, 'DCS Engineering', 'D', 'ini keren'),
+(5, 'DCS Engineering', 'E', 'ini keren'),
+(6, 'Mikroprosesor', 'A', 'ini keren'),
+(7, 'Mikroprosesor', 'ABC', 'KEREN BANGETSSSSSSS'),
+(8, 'Mikroprosesor', 'TOP', 'KEREN');
 
 -- --------------------------------------------------------
 
@@ -131,9 +179,11 @@ INSERT INTO `matkul` (`id_matkul`, `nama_matkul`, `kode`) VALUES
 --
 
 CREATE TABLE `mengampu` (
+  `id` int(11) NOT NULL,
   `id_matkul` int(3) NOT NULL,
   `id_kelas` int(3) NOT NULL,
   `id_mhs` int(11) NOT NULL,
+  `nim` char(10) NOT NULL,
   `tp` int(11) NOT NULL,
   `tm1` int(11) NOT NULL,
   `tm2` int(11) NOT NULL,
@@ -159,17 +209,11 @@ CREATE TABLE `mengampu` (
 -- Dumping data for table `mengampu`
 --
 
-INSERT INTO `mengampu` (`id_matkul`, `id_kelas`, `id_mhs`, `tp`, `tm1`, `tm2`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `kuis1`, `kuis2`, `kehadiran`, `presentasi`, `uts`, `uas`, `pembicara`, `diskusi`) VALUES
-(1, 1, 1, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(1, 1, 2, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(1, 1, 3, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 1, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(1, 1, 4, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `mengampu` (`id`, `id_matkul`, `id_kelas`, `id_mhs`, `nim`, `tp`, `tm1`, `tm2`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `kuis1`, `kuis2`, `kehadiran`, `presentasi`, `uts`, `uas`, `pembicara`, `diskusi`) VALUES
+(6, 1, 1, 1, '1301174067', 100, 10, 3, 0, 1, 0, 0, 0, 3, 0, 0, 0, 1, 10, 3, 2, 2, 2, 1),
+(7, 1, 1, 2, '1501180061', 50, 5, 2, 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 2, 0, 2, 5, 0, 2),
+(10, 2, 1, 1, '1301174067', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(11, 2, 1, 2, '1501180061', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -178,6 +222,7 @@ INSERT INTO `mengampu` (`id_matkul`, `id_kelas`, `id_mhs`, `tp`, `tm1`, `tm2`, `
 --
 
 CREATE TABLE `terdiri` (
+  `id` int(11) NOT NULL,
   `id_kelas` int(3) NOT NULL,
   `id_mhs` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -186,12 +231,31 @@ CREATE TABLE `terdiri` (
 -- Dumping data for table `terdiri`
 --
 
-INSERT INTO `terdiri` (`id_kelas`, `id_mhs`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(2, 4);
+INSERT INTO `terdiri` (`id`, `id_kelas`, `id_mhs`) VALUES
+(1, 1, 1),
+(2, 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tugas`
+--
+
+CREATE TABLE `tugas` (
+  `id` int(11) NOT NULL,
+  `matkul` varchar(100) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `detail` varchar(100) NOT NULL,
+  `link` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tugas`
+--
+
+INSERT INTO `tugas` (`id`, `matkul`, `judul`, `detail`, `link`) VALUES
+(1, 'DCS Engineering', 'ABC', 'KEREN BANGETSSSSSSS', 'www.google.com'),
+(2, 'Mikroprosesor', '12312', 'KEREN BANGETSSSSSSS', 'www.google.com');
 
 --
 -- Indexes for dumped tables
@@ -201,6 +265,18 @@ INSERT INTO `terdiri` (`id_kelas`, `id_mhs`) VALUES
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buka_kelas`
+--
+ALTER TABLE `buka_kelas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `info`
+--
+ALTER TABLE `info`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -216,10 +292,34 @@ ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `materi`
+--
+ALTER TABLE `materi`
+  ADD PRIMARY KEY (`id_materi`);
+
+--
 -- Indexes for table `matkul`
 --
 ALTER TABLE `matkul`
   ADD PRIMARY KEY (`id_matkul`);
+
+--
+-- Indexes for table `mengampu`
+--
+ALTER TABLE `mengampu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `terdiri`
+--
+ALTER TABLE `terdiri`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tugas`
+--
+ALTER TABLE `tugas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -230,6 +330,18 @@ ALTER TABLE `matkul`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `buka_kelas`
+--
+ALTER TABLE `buka_kelas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `info`
+--
+ALTER TABLE `info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kelas`
@@ -244,10 +356,34 @@ ALTER TABLE `mahasiswa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `materi`
+--
+ALTER TABLE `materi`
+  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `matkul`
 --
 ALTER TABLE `matkul`
   MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `mengampu`
+--
+ALTER TABLE `mengampu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `terdiri`
+--
+ALTER TABLE `terdiri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tugas`
+--
+ALTER TABLE `tugas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

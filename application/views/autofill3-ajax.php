@@ -1,7 +1,7 @@
 <?php
     $this->load->database(); 
     $matkul = $this->input->get('matkul');
-    $data =  $this->user->get_all_tugasByMatkul($matkul);
+    $data =  $this->User->get_all_tugasByMatkul($matkul);
     
     for ($i = 0; $i < count($data); $i++){
         $dt[] = [

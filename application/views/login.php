@@ -61,7 +61,7 @@
         <div class="container">
             <div class="d-flex align-items-center">
             <div class="site-logo">
-                <a href="<?php echo base_url()?>welcome" class="d-block">
+                <a href="<?php echo base_url()?>Welcome" class="d-block">
                 <img src="../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
@@ -69,32 +69,28 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                    <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
-                    </li>
-                    <li class="has-children">
-                    <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
-                    <ul class="dropdown">
-                        <li><a href="teachers.html">Our Teachers</a></li>
-                        <li><a href="about.html">Our School</a></li>
-                    </ul>
+                        <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li>
-                    <a href="<?php base_url()?>view_nilai" class="nav-link text-left">Nilai</a>
+                        <a href="<?php echo base_url()?>Admin/view_materi" class="nav-link text-left">Materi Kuliah</a>
                     </li>
                     <li>
-                    <a href="courses.html" class="nav-link text-left">KP & TA</a>
+                        <a href="<?php base_url()?>view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
-                        <a href="contact.html" class="nav-link text-left">Kontak</a>
+                        <a href="<?php echo base_url()?>Admin/view_info" class="nav-link text-left">KP & TA</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>Admin/view_tugas" class="nav-link text-left">Tugas</a>
                     </li>
 
                     <?php if ($this->session->userdata("name") != "") { ?>
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
-                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href="<?php echo base_url()?>Admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
                             <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                            <li><a href="<?php echo base_url()?>Admin/logout">Log out</a></li>
                         </ul>
                     </li>
                     <?php } ?>
@@ -128,7 +124,7 @@
             <div class="limiter">
                     <div class="container-login100">
                         <div class="wrap-login100 p-t-85 p-b-20">
-                            <form method="post" action="<?php echo base_url()?>admin/aksi_login" class="login100-form validate-form">
+                            <form method="post" action="<?php echo base_url()?>Admin/aksi_login" class="login100-form validate-form">
                                 <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
                                     <input class="input100" type="text" name="nidn">
                                     <span class="focus-input100" data-placeholder="Username"></span>

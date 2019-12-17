@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class welcome extends CI_Controller {
+class Welcome extends CI_Controller {
     public function __construct(){
 		parent::__construct();
-		$this->load->model('user');
+		$this->load->model('User');
 	}
 
     public function index(){
@@ -24,11 +24,11 @@ class welcome extends CI_Controller {
 
     public function search_nilai(){
         $nim = $this->input->post('nim');
-        $cek = $this->user->get_allNilaiMhs($nim);
+        $cek = $this->User->get_allNilaiMhs($nim);
         // var_dump($hasil);
         if ($cek){
-            $data["matkul"] = $this->user->get_all_matkul_mhs($cek);
-            $data["mhs"] = $this->user->cek_mhs($nim);
+            $data["matkul"] = $this->User->get_all_matkul_mhs($cek);
+            $data["mhs"] = $this->User->cek_mhs($nim);
             $this->load->view('hasil_nilai', $data);
         }
         else{

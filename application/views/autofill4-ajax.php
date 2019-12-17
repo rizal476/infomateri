@@ -3,7 +3,7 @@
     $matkul = $this->input->get('matkul');
     $nim = $this->input->get('nim');
     // var_dump($matkul);
-    $data =  $this->user->get_all_nilai_by_matkul($matkul,$nim);
+    $data =  $this->User->get_all_nilai_by_matkul($matkul,$nim);
     // echo "<pre>";
     // var_dump($data);
     // echo "</pre>";

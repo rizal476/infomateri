@@ -62,7 +62,7 @@
         <div class="container">
             <div class="d-flex align-items-center">
             <div class="site-logo">
-                <a href="<?php echo base_url()?>welcome" class="d-block">
+                <a href="<?php echo base_url()?>Welcome" class="d-block">
                 <img src="../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
@@ -70,7 +70,7 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                    <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                    <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li class="has-children">
                     <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
@@ -94,7 +94,7 @@
                     <ul class="dropdown">
                         <li><a href=""><?php echo $this->session->userdata("name")?></a></li>
                         <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                        <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                        <li><a href="<?php echo base_url()?>Admin/logout">Log out</a></li>
                     </ul>
                     </li>
                     <?php } ?>
@@ -189,7 +189,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">
-                                                <input id="nilaitp" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tp[]">
+                                                <input readonly id="nilaitp" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tp[]">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -208,10 +208,10 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">
-                                                <input id="nilaitm1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaitm1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaitm2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaitm2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -236,28 +236,28 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">
-                                                <input id="nilaip1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaip1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaip2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaip2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaip3" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaip3" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaip4" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaip4" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaip5" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaip5" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaip6" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaip6" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaip7" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaip7" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaip8" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
+                                                <input readonly id="nilaip8" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm2[]">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -275,7 +275,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">
-                                                <input id="nilaikehadiran" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaikehadiran" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -294,10 +294,10 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">
-                                                <input id="nilaik1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaik1" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaik2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaik2" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -316,10 +316,10 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">
-                                                <input id="nilaiuts" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaiuts" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaiuas" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaiuas" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -339,13 +339,13 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">
-                                                <input id="nilaidiskusi" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaidiskusi" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaipembicara" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaipembicara" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                             <td class="text-center">
-                                                <input id="nilaipresentasi" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
+                                                <input readonly id="nilaipresentasi" style="border: 1px solid; border-radius: 5px; width: 40px; text-align: center;" type="text" value="" class="input" name="tm1[]">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -376,7 +376,7 @@
                     var nim = $("#nim").val();
                     // alert(nim);
                     $.ajax({
-                        url : '<?php echo base_url()?>welcome/ajax',
+                        url : '<?php echo base_url()?>Welcome/ajax',
                         data : {matkul: selText, nim: nim},
                         success : function(data){
                             obj = JSON.parse(data);

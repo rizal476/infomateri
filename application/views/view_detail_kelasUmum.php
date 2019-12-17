@@ -69,7 +69,7 @@
         <div class="container" >
             <div class="d-flex align-items-center">
             <div class="site-logo">
-                <a href="<?php echo base_url()?>welcome" class="d-block">
+                <a href="<?php echo base_url()?>Welcome" class="d-block">
                 <img src="../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
@@ -77,7 +77,7 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                        <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                        <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li class="has-children">
                         <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
@@ -87,7 +87,7 @@
                     </ul>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                        <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                         <a href="courses.html" class="nav-link text-left">KP & TA</a>
@@ -98,9 +98,9 @@
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
-                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href="<?php echo base_url()?>Admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
                             <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                            <li><a href="<?php echo base_url()?>Admin/logout">Log out</a></li>
                         </ul>
                     </li>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
@@ -121,7 +121,7 @@
                     <div class="col">
                         <h4 class="text-center" style="margin-top: -50px;">List Mahasiswa</h3>
                         <h4 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                        <a href="<?php echo base_url()?>admin/view_tambah_mhsKelas/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
+                        <a href="<?php echo base_url()?>Admin/view_tambah_mhsKelas/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
                     </div>
                 </div>
                 <div class="row">
@@ -141,14 +141,14 @@
                                     <td class="text-center"><?= $kls['nim']; ?></td>
                                     <td class="text-center"><?= $kls['nama']; ?></td>
                                     <td class="text-center">
-                                        <a href="<?php echo base_url(); ?>admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
+                                        <a href="<?php echo base_url(); ?>Admin/hapus_kelas/<?= $kls['id'] ?>" class="badge badge-danger float-center" onclick="return confirm('Apakah anda yakin menghapus data ini?');" ?>hapus</a>
                                 </td>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <button onclick="window.location.href='<?php echo base_url()?>admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:right;">Kembali</button>
+                        <button onclick="window.location.href='<?php echo base_url()?>Admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:right;">Kembali</button>
                     </div>
                 </div>
             </div>

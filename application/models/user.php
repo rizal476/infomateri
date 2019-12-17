@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class user extends CI_Model {
+class User extends CI_Model {
     public function cek_login($data){
         return $this->db->get_where('admin',$data); 
     }
@@ -36,7 +36,17 @@ class user extends CI_Model {
         return $data->result_array();
     }
 
-    public function get_all_matkul(){
+    public function get_all_matkul($nidn){
+        $this->db->select('matkul.id_matkul, nama_matkul, kode');
+        $this->db->from('mengajar');
+        $this->db->join('matkul', 'matkul.kode = mengajar.kode_mk');
+        $this->db->where('nidn', $nidn);
+        $q = $this->db->get();
+        return $q->result_array();
+    }
+
+    public function get_nama_matkul(){
+        $this->db->select('nama_matkul');
         $data = $this->db->get('matkul');
         return $data->result_array();
     }
@@ -163,7 +173,7 @@ class user extends CI_Model {
     }
 
     public function tambah_matkul($data){
-        $this->db->insert('matkul',$data);
+        $this->db->insert('mengajar',$data);
     }
 
     public function tambah_mhs($data){
@@ -184,6 +194,11 @@ class user extends CI_Model {
     
     public function get_matkul_by_id($id){
         $q = $this->db->select('*')->from('matkul')->where('id_matkul',$id)->get();
+        return $q->result_array();
+    }
+
+    public function get_matkul_by_nama($nama){
+        $q = $this->db->select('*')->from('matkul')->where('nama_matkul',$nama)->get();
         return $q->result_array();
     }
 

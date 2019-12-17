@@ -63,7 +63,7 @@
         <div class="container" >
             <div class="d-flex align-items-center">
             <div class="site-logo">
-                <a href="<?php echo base_url()?>welcome" class="d-block">
+                <a href="<?php echo base_url()?>Welcome" class="d-block">
                 <img src="../../assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
                 </a>
             </div>
@@ -71,7 +71,7 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
-                        <a href="<?php echo base_url()?>welcome" class="nav-link text-left">Beranda</a>
+                        <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
                     <li class="has-children">
                         <a href="about.html" class="nav-link text-left">Materi Kuliah</a>
@@ -81,7 +81,7 @@
                     </ul>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                        <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                         <a href="courses.html" class="nav-link text-left">KP & TA</a>
@@ -92,9 +92,9 @@
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
                         <ul class="dropdown">
-                            <li><a href="<?php echo base_url()?>admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
+                            <li><a href="<?php echo base_url()?>Admin/view_admin_page"><?php echo $this->session->userdata("name")?></a></li>
                             <li><a href=""><?php echo $this->session->userdata("nidn")?></a></li>
-                            <li><a href="<?php echo base_url()?>admin/logout">Log out</a></li>
+                            <li><a href="<?php echo base_url()?>Admin/logout">Log out</a></li>
                         </ul>
                     </li>
                 </ul>                                                                                                                                                                                                                                                                                          </ul>
@@ -115,7 +115,7 @@
                     <div class="col">
                         <h3 class="text-center">Daftar Kelas</h3>
                         <!-- <?php var_dump($id_matkul);?> -->
-                        <a href="<?php echo base_url()?>admin/view_tambah_kelasMatkul/<?= $this->uri->segment(3);?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
+                        <a href="<?php echo base_url()?>Admin/view_tambah_kelasMatkul/<?= $this->uri->segment(3);?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
                         <?php if (empty($kelas)) : ?>
                             <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
                                 Data tidak ditemukan
@@ -138,13 +138,13 @@
                                     <td class="text-center"><?= $kls['jumlah']; ?></td>
                                     <td class="text-center">
                                         <a href="#kelasModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id_kelas'] ?>">hapus</a>
-                                        <a href="<?php echo base_url(); ?>admin/detail_kelas/<?= $id_matkul?>/<?= $kls['id_kelas'] ?>" class="badge badge-success float-center" ?>detail</a>
+                                        <a href="<?php echo base_url(); ?>Admin/detail_kelas/<?= $id_matkul?>/<?= $kls['id_kelas'] ?>" class="badge badge-success float-center" ?>detail</a>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <button onclick="window.location.href='<?php echo base_url()?>admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:right;">Kembali</button>
+                        <button onclick="window.location.href='<?php echo base_url()?>Admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:right;">Kembali</button>
                     </div>
                 </div>
             </div>
@@ -177,15 +177,15 @@
             $(document).ready(function() { 
                 $('#matkulModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');
-                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_matkul/' + bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>Admin/hapus_matkul/' + bookId);
                 });
                 $('#kelasModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');
-                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_kelasMatkul/<?php echo $this->uri->segment(3);?>/' + bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>Admin/hapus_kelasMatkul/<?php echo $this->uri->segment(3);?>/' + bookId);
                 });
                 $('#mhsModal').on('show.bs.modal', function(e) {
                     var bookId = $(e.relatedTarget).data('book-id');
-                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>admin/hapus_mhs/' + bookId);
+                    $(e.currentTarget).find('a[name="delete"]').attr('href','<?php echo base_url()?>Admin/hapus_mhs/' + bookId);
                 });
             });
         });
