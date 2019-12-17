@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 	}
 
     public function view_admin_page(){
-        $data['matkul'] = $this->User->get_all_matkul($this->session->userdata("nidn"));
+        $data['matkul'] = $this->User->get_all_matkul2($this->session->userdata("nidn"));
         $data['kelas'] = $this->User->get_all_kelas();
         $data['mhs'] = $this->User->get_all_mhs();
         $data['materi'] = $this->User->get_all_materi();
@@ -39,7 +39,10 @@ class Admin extends CI_Controller {
             // echo "halo ",$this->session->userdata("name");
         }
         else {
-            echo "NIDN atau password salah!";
+            echo "<script>
+                alert('NIDN atau password salah');
+                window.location.href='" . base_url('Welcome/view_login') . "';
+                </script>";
         }
     }
 

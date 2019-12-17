@@ -8,7 +8,8 @@
             'id' => $data[$i]['id'],
             'matkul' => $data[$i]['matkul'],
             'judul' => $data[$i]['judul'],
-            'detail' => $data[$i]['detail']
+            'detail' => $data[$i]['detail'],
+            'link' => $data[$i]['link']
         ];
     };
     echo json_encode($dt, JSON_FORCE_OBJECT);

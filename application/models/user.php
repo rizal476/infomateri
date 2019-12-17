@@ -36,13 +36,18 @@ class User extends CI_Model {
         return $data->result_array();
     }
 
-    public function get_all_matkul($nidn){
+    public function get_all_matkul2($nidn){
         $this->db->select('matkul.id_matkul, nama_matkul, kode');
         $this->db->from('mengajar');
         $this->db->join('matkul', 'matkul.kode = mengajar.kode_mk');
         $this->db->where('nidn', $nidn);
         $q = $this->db->get();
         return $q->result_array();
+    }
+
+    public function get_all_matkul(){
+        $data = $this->db->get('matkul');
+        return $data->result_array();
     }
 
     public function get_nama_matkul(){

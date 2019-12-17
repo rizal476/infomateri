@@ -32,7 +32,10 @@ class Welcome extends CI_Controller {
             $this->load->view('hasil_nilai', $data);
         }
         else{
-            echo "gada euy nimnya";
+            echo "<script>
+                alert('NIM tidak terdaftar, segera lapor ke dosen bersangkutan');
+                window.location.href='" . base_url('Welcome/view_nilai') . "';
+                </script>";
         }
     }
 
