@@ -146,24 +146,25 @@
         <div class="body" style=""></div>
             <div class="site-section">
                 <div class="container">
-                    <h2 align="center">Tugas Perkuliahan</h2>
-                    <div style="margin-bottom: 20px; margin-top: 50px;" class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Matakuliah
-                        </button>
-                        <ul id="pilih" class="dropdown-menu" aria-labelledby="dropdownMenuButton" name="pp">
-                        <!-- <?php var_dump($matkul)?> -->
-                            <?php foreach($matkul as $row):?>
-                                <li class="dropdown-item"><?php echo $row["nama_matkul"];?></li>
-                            <?php endforeach;?>
-                            <!-- <li class="dropdown-item">awsdasdasd</li> -->
-                        </ul>
-                        <!-- <?php if ($this->session->userdata('name') != ''){
-                                echo '<a href="'.base_url("Admin/tambah_materi").'" style="color: white;"><div style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>';                             
-                            }
-                        ?> -->
-                    </div>
-                    <div id="target" class="row">
+                    <h2 align="center">D3 Teknik Instrumentasi Elektronika Migas</h2>
+                    <div class="row">
+                        <div class="col text-center" style="margin: 20px 20px;"><img src="../assets/images/profilprodi.jpg">
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <h5>Visi Program Studi</h5>
+                            <p><span style="visibility: hidden;">_____</span>Menjadi program studi unggulan pada bidang Instrumentasi Elektronika Migas dan Energi Baru Terbarukan di Kalimantan tahun 2025</p>
+                            <br>
+                            <h5>Misi Program Studi</h5>
+                            <p><span style="visibility: hidden;">_____</span>Untuk mewujudkan visi dan sejaian dengan realisasi Tri Dharma Perguruan Tinggi, maka ditetapkan Misi Program Studi Teknik Instrumentasi</p>
+                            <p><span style="visibility: hidden;">_____</span>elektronika migas, STT Migas Balikpapan sebagai berikut:</p><br>
+                            <ol style="margin-left: 60px; list-style-type: decimal; color: #666666;">
+                                <li style="list-style-type: decimal; font-family: Poppins-Regular; font-size: 1.1rem;">Menyelenggarakan manajemen pendidikan dan pengajaran di bidang Teknik Instrumentasi elektronika yang berlandaskan kompetensi secara efektif dan efisien.</li>
+                                <li style="list-style-type: decimal; font-family: Poppins-Regular; font-size: 1.1rem;">Menyelenggarakan kurikulum yang relevan dengan keilmuan bidang teknik instrumentasi elektronika migas dan energi baru terbarukan yang didukung oleh substansi moral, jiwa keteknikan dan professional dibidangnya.</li>
+                                <li style="list-style-type: decimal; font-family: Poppins-Regular; font-size: 1.1rem;">Menyelenggarakan ilmu pengetahuan dan teknologi instrumentasi elektronika migas dan energi baru terbarukan melaiui penelitian sesuai dengan kebutuhan perkembangan teknologi industri saat ini.</li>
+                                <li style="list-style-type: decimal; font-family: Poppins-Regular; font-size: 1.1rem;">Memanfaatkan dan mengambangkan IPTEK yang relevan pada industri migas dan energi baru terbarukan.</li>
+                            </ol> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,48 +172,6 @@
     </div>
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
-    <script type="text/javascript">
-        jQuery.noConflict()(function ($) { // this was missing for me
-            $(document).ready(function() { 
-                // alert('asdasd');
-                $("#pilih").on('click','li',function (){
-                    // alert($(this).text());
-                    var selText = $(this).text();
-                    $.ajax({
-                        url : '<?php echo base_url()?>Admin/ajax3',
-                        data : 'matkul='+selText,
-                        success : function(data){
-                            obj = JSON.parse(data);
-                            console.log(obj);
-                            var length = 0;
-                            var tambah = '';
-                            for(var k in obj) if(obj.hasOwnProperty(k)) length++;
-                            // alert(length);
-                            for (i = 0; i < length; i++) {
-                                // alert(i);
-                                tambah = tambah + '\
-                                <div class="col-lg-4 col-md-6 mb-4">\
-                                    <div class="course-1-item">\
-                                        <figure class="thumnail">\
-                                        <a href="https://'+obj[i].link+'"><img src="../assets/images/modules.png" alt="Image" class="img-fluid"></a>\
-                                        <div class="category"><h3>Materi ' + (i+1) + '</h3></div>\
-                                        </figure>\
-                                        <div class="course-1-content pb-4">\
-                                        <h2>'+obj[i].judul+'</h2>\
-                                        <p style="font-family: Muli;" class="desc mb-4">'+obj[i].detail+'</p>\
-                                        <p style="font-family: Muli;" ><a href="https://'+obj[i].link+'" class="btn btn-primary rounded-0 px-4">Download</a></p>\
-                                        </div>\
-                                    </div>\
-                                </div>';
-                            }
-                            $("#target").html(tambah);
-                            $("#dropdownMenuButton").text(obj[0].matkul);
-                        }
-                    });
-                });
-            });
-        });
-    </script>
     <script>
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";

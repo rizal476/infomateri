@@ -434,6 +434,10 @@ class Admin extends CI_Controller {
         $this->load->view('materi',$data);
     }
 
+    public function view_prodi(){
+        $this->load->view('prodi');
+    }
+
     public function ajax2(){
         $this->load->view('autofill2-ajax');
     }

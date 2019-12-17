@@ -42,21 +42,52 @@
             margin:0 auto;
         }
 
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: absolute;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            background-color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: black;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #51be78;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
     </style>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
+        <a href="<?php echo base_url()?>Admin/view_materi" class="nav-link text-left">Materi Kuliah</a>
+        <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
+        <a href="<?php echo base_url()?>Admin/view_info" class="nav-link text-left">KP & TA</a>
+        <a href="<?php echo base_url()?>Admin/view_tugas" class="nav-link text-left">Tugas</a>
+    </div>
     <div class="site-wrap">
-
-        <div class="site-mobile-menu site-navbar-target">
-            <div class="site-mobile-menu-header">
-                <div class="site-mobile-menu-close mt-3">
-                    <span class="icon-close2 js-menu-toggle"></span>
-                </div>
-            </div>
-            <div class="site-mobile-menu-body"></div>
-        </div>
 
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
@@ -85,6 +116,9 @@
                     <li>
                         <a href="<?php echo base_url()?>Admin/view_tugas" class="nav-link text-left">Tugas</a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url()?>Admin/view_prodi" class="nav-link text-left">Prodi</a>
+                    </li>
                     <?php if ($this->session->userdata("name") != "") { ?>
                     <li class="has-children">
                         <a href="" class="nav-link text-left">Profil</a>
@@ -99,9 +133,11 @@
                 </nav>
             </div>
             <div class="ml-auto">
-                <div class="social-wrap">
-
-                <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                <div style="width: 150px;" class="social-wrap">
+                <a href="#"><span class="icon-facebook"></span></a>
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-linkedin"></span></a>
+                <a onclick="openNav()" href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
                     class="icon-menu h3"></span></a>
                 </div>
             </div>
@@ -172,6 +208,15 @@
                 });
             });
         });
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     </script>
     <!-- <script src="../../assets/js/jquery-3.3.1.min.js"></script> -->
     <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>

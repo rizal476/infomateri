@@ -90,12 +90,12 @@
             <div class="d-flex align-items-center">
             <div class="site-logo">
                 <a href="<?php echo base_url()?>Welcome" class="d-block">
-                <img src="assets/images/logo.png" alt="Image" class="img-fluid" style="width: 50%">
+                <img src="assets/images/logo.png" alt="Image" class="img-fluid" style="width: 70%">
                 </a>
             </div>
             <div class="mr-auto">
                 <nav class="site-navigation position-relative text-right" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <ul style="width: 740px;" class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                     <li class="active">
                     <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
                     </li>
@@ -110,6 +110,9 @@
                     </li>
                     <li>
                         <a href="<?php echo base_url()?>Admin/view_tugas" class="nav-link text-left">Tugas</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>Admin/view_prodi" class="nav-link text-left">Prodi</a>
                     </li>
                     <?php if ($this->session->userdata("name") != "") { ?>
                     <li class="has-children">
@@ -128,7 +131,7 @@
 
             <?php if ($this->session->userdata("name") == "") { ?>
             <div class="ml-auto">
-                <div class="social-wrap">
+                <div style="width: 150px;" class="social-wrap">
                 <a href="#"><span class="icon-facebook"></span></a>
                 <a href="#"><span class="icon-twitter"></span></a>
                 <a href="#"><span class="icon-linkedin"></span></a>
@@ -186,7 +189,54 @@
             </div>
         </div>
         
-        <div></div>
+        <div class="container">
+            <div class="row">
+                <div class="col" style="margin: 20px 20px; font-size: 40px;">
+                    Berita
+                    <div style="background: #51be78; width: 80%; height: 4px; border-radius: 2px;"></div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai DCS TIEM : <span><a href="https://drive.google.com/open?id=1nXEYLrvN1ZC9rwqSJPVzmydBSPbZgr82hb7QNhwkNKo">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Mikroprosesor TIEM : <span><a href="https://drive.google.com/open?id=10EpTVMjLvQKDebhd2q6gIZ4qOOl7QRxc1snv8OzmAeA">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Menggambar Teknik TPM-A : <span><a href="https://drive.google.com/open?id=1B-P__qq1lPp3XN_sEhsiKa3V_LGGuAMPj4pHnY0hl7U">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Menggambar Teknik TPM-B : <span><a href="https://drive.google.com/open?id=1LPFyJ1cj2as15AUedhBsz8pzvPACD-5YyHjSo6ZH-b8">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Mekanika Fluida TP-A : <span><a href="https://drive.google.com/open?id=1U-WSOG64MTvN7kCNvGtWEKknpUREaZghx7co-1zi5w0">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Mekanika Fluida TP-B : <span><a href="https://drive.google.com/open?id=1QqLXp0UrmdzhDdfv7iIQ9zJ5CEFuwVrnwSrCx0nKtAQ">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Mekanika Fluida TP-C : <span><a href="https://drive.google.com/open?id=1YHfTpi4zPtdYIhP3PYGFt8GfXP5GhTLHchlOlKP-J2Y">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Mekanika Fluida TP-D : <span><a href="https://drive.google.com/open?id=1c8SrrBDUfh2T785SQwnYM11DQrZB4wDxV59hYp7Ds8s">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Mekanika Fluida TP-E : <span><a href="https://drive.google.com/open?id=1CefEVHU-7nphShKXVuScIlfY99OCbmqBNZZznh0Xrf4">klik disini</a></span>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" style="margin: 20px 20px; font-size: 20px;">
+                    Nilai Pemrograman Komputer TI-D & TI-F : <span><a href="https://drive.google.com/open?id=1MstIk59juBrxD0HameYUJS9-1BX7w9RODU0uTN251oo">klik disini</a></span>
+                </div>
+            </div>
+        </div>
 
         <!-- // 05 - Block -->
 
