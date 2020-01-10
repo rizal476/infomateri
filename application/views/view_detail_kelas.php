@@ -121,7 +121,6 @@
                         <h4 class="text-center" style="margin-top: -50px;">List Mahasiswa</h3>
                         <!-- <?php var_dump($kelas[0]["id"]);?> -->
                         <h4 class="text-center"><?php echo $kelas[0]['kelas']?></h3>
-                        <a href="<?php echo base_url()?>Admin/view_tambah_mhsKelas/<?= $kelas[0]['id']?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px; margin-left: 5px;">+ Tambah Mahasiswa</div></a>
                     </div>
                 </div>
                 <div class="row">

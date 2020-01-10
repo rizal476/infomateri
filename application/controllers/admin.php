@@ -15,7 +15,29 @@ class Admin extends CI_Controller {
         $data['materi'] = $this->User->get_all_materi();
         $data['info'] = $this->User->get_all_info();
         $data['tugas'] = $this->User->get_all_tugas();
+        if($this->session->userdata("nidn") == "1114019201"){
+            $this->load->view('choice', $data);
+        }
+        else{
+            $this->load->view('dashboard', $data);
+        }
+        
+    }
+    public function view_admin_page2(){
+        $data['matkul'] = $this->User->get_all_matkul2($this->session->userdata("nidn"));
+        $data['kelas'] = $this->User->get_all_kelas();
+        $data['mhs'] = $this->User->get_all_mhs();
+        $data['materi'] = $this->User->get_all_materi();
+        $data['info'] = $this->User->get_all_info();
+        $data['tugas'] = $this->User->get_all_tugas();
         $this->load->view('dashboard', $data);
+    }
+
+    public function view_dashboard_admin(){
+        $data['matkul'] = $this->User->get_all_matkul();
+        $data['kelas'] = $this->User->get_all_kelas();
+        $data['mhs'] = $this->User->get_all_mhs();
+        $this->load->view('dashboard_admin', $data);
     }
 
     public function aksi_login(){
@@ -57,12 +79,13 @@ class Admin extends CI_Controller {
     }
 
     public function view_tambah_kelas(){
-        $data['id'] = $this->user->get_last_id_kelas();
+        $data['id'] = $this->User->get_last_id_kelas();
         $this->load->view('tambah_kelas', $data);
     }
 
     public function view_tambah_kelasMatkul($id){
         $data['nama_kelas'] = $this->User->get_nama_kelas();
+        $data['nama_dosen'] = $this->User->get_nama_dosen();
         $this->load->view('tambah_kelasMatkul', $data);
     }
 
@@ -78,6 +101,10 @@ class Admin extends CI_Controller {
         $this->load->view('autofill5-ajax');
     }
 
+    public function ajax_dosen(){
+        $this->load->view('autofill6-ajax');
+    }
+
     public function add_kelas(){
         $this->form_validation->set_rules('nama', 'Mata Kuliah', 'required');
         $this->form_validation->set_rules('jumlah', 'Mata Kuliah', 'required');
@@ -91,7 +118,7 @@ class Admin extends CI_Controller {
                 "kelas" => $this->input->post('nama', true),
                 "jumlah" => $this->input->post('jumlah', true)
             ];
-            $this->user->tambah_kelas($data);
+            $this->User->tambah_kelas($data);
             redirect(base_url('Admin/view_tambah_kelas'));
         }
     }
@@ -124,6 +151,12 @@ class Admin extends CI_Controller {
             // var_dump($dataBuka);
             $this->User->tambah_kelasMatkul($data);
             $this->User->tambah_buka_kelas($dataBuka);
+            $data = [
+                "nidn" => $this->input->post('nidn'),
+                "kode_mk" => $id_matkul,
+                "kode_kelas" => $id_kelas
+            ];
+            $this->User->tambah_matkul($data);
             redirect(base_url('Admin/view_admin_page'));
         }
     }
@@ -165,8 +198,15 @@ class Admin extends CI_Controller {
 
     public function detail_matkul($id){
         $data['id_matkul'] = $id;
-        $data['kelas'] = $this->User->get_kelas_by_id($id);
-        $this->load->view('kelas',$data);
+        
+        if($this->session->userdata("nidn") == "1114019201"){
+            $data['kelas'] = $this->User->get_kelas_by_id2();
+            $this->load->view('kelas2', $data);
+        }
+        else{
+            $data['kelas'] = $this->User->get_kelas_by_id($id,$this->session->userdata("nidn"));
+            $this->load->view('kelas', $data);
+        }
     }
 
     public function add_mhsKelas($id_kelas,$id_mhs){
@@ -226,7 +266,7 @@ class Admin extends CI_Controller {
         $this->load->view('tambah_matkul', $data);
     }
 
-    public function add_matkul($nidn){
+    public function add_matkul($id_matkul,$id_kelas){
         // $this->form_validation->set_rules('nama', 'Mata Kuliah', 'required');
         $this->form_validation->set_rules('kode', 'Mata Kuliah', 'required');
 
@@ -236,10 +276,11 @@ class Admin extends CI_Controller {
         else{
             $data = [
                 "nidn" => $this->session->userdata("nidn"),
-                "kode_mk" => $this->input->post('kode', true)
+                "kode_mk" => $id_matkul,
+                "kode_kelas" => $id_kelas
             ];
             $this->User->tambah_matkul($data);
-            redirect(base_url('Admin/view_tambah_matkul'));
+            // redirect(base_url('Admin/view_tambah_matkul'));
         }
     }
 

@@ -36,12 +36,10 @@
         .row-fluid{
             height: 100%; display:table-cell; vertical-align: middle;
         }
-
         .centering{
             float:none;
             margin:0 auto;
         }
-
     </style>
 </head>
 
@@ -115,6 +113,7 @@
                     <div class="col">
                         <h3 class="text-center">Daftar Kelas</h3>
                         <!-- <?php var_dump($id_matkul);?> -->
+                        <a href="<?php echo base_url()?>Admin/view_tambah_kelasMatkul/<?= $this->uri->segment(3);?>" style="color: white;"><div id="kelas" style="background-color: #51be78; width: 200px; height 30px; float: right; text-align: center; border-radius: 5px;">+ Tambah Kelas</div></a>
                         <?php if (empty($kelas)) : ?>
                             <div class="alert alert-danger" role="alert" style="margin-top: 40px;">
                                 Data tidak ditemukan
@@ -127,6 +126,7 @@
                                     <th class="text-center" scope="col">ID</th>
                                     <th class="text-center" scope="col">NAMA KELAS</th>
                                     <th class="text-center" scope="col">JUMLAH MAHASISWA</th>
+                                    <th class="text-center" scope="col">DOSEN PENGAMPU</th>
                                     <th class="text-center" scope="col"></th>
                                 </tr>
                             </thead>
@@ -135,7 +135,9 @@
                                     <td class="text-center"><?= $kls['id']; ?></td>
                                     <td class="text-center"><?= $kls['kelas']; ?></td>
                                     <td class="text-center"><?= $kls['jumlah']; ?></td>
+                                    <td class="text-center"><?= $kls['name']; ?></td>
                                     <td class="text-center">
+                                        <a href="#kelasModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
                                         <a href="<?php echo base_url(); ?>Admin/detail_kelas/<?= $id_matkul?>/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
                                     </td>
                                 </tr>

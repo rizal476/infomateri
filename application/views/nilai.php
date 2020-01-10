@@ -82,9 +82,10 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="<?php echo base_url()?>Welcome" class="nav-link text-left">Beranda</a>
         <a href="<?php echo base_url()?>Admin/view_materi" class="nav-link text-left">Materi Kuliah</a>
-        <a href="<?php base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
+        <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
         <a href="<?php echo base_url()?>Admin/view_info" class="nav-link text-left">KP & TA</a>
         <a href="<?php echo base_url()?>Admin/view_tugas" class="nav-link text-left">Tugas</a>
+        <a href="<?php echo base_url()?>Admin/view_prodi" class="nav-link text-left">Prodi</a>
     </div>
     <div class="site-wrap">
 
@@ -107,7 +108,7 @@
                     <a href="<?php echo base_url()?>Admin/view_materi" class="nav-link text-left">Materi Kuliah</a>
                     </li>
                     <li>
-                    <a href="<?php base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
+                    <a href="<?php echo base_url()?>Welcome/view_nilai" class="nav-link text-left">Nilai</a>
                     </li>
                     <li>
                     <a href="<?php echo base_url()?>Admin/view_info" class="nav-link text-left">KP & TA</a>

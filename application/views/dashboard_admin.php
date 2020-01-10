@@ -115,7 +115,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h4 class="text-center" style="margin-top: -50px;">Dashboard Dosen</h3>
+                        <h4 class="text-center" style="margin-top: -50px;">Dashboard Admin</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -127,17 +127,8 @@
                             <li class="nav-item">
                                 <a style="color: #51be78" class="nav-link" data-toggle="tab" href="#kelas">Kelas</a>
                             </li>
-                            <!-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a style="color: #51be78" class="nav-link" data-toggle="tab" href="#mhs">Mahasiswa</a>
-                            </li> -->
-                            <li class="nav-item">
-                                <a style="color: #51be78" class="nav-link" data-toggle="tab" href="#materi">Materi</a>
-                            </li>
-                            <li class="nav-item">
-                                <a style="color: #51be78" class="nav-link" data-toggle="tab" href="#tugas">Tugas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a style="color: #51be78" class="nav-link" data-toggle="tab" href="#info">KP & TA</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -186,7 +177,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- <div class="tab-pane" id="mhs">
+                            <div class="tab-pane" id="mhs">
                                 <table class="table mt-5">
                                     <thead>
                                         <tr>
@@ -208,152 +199,12 @@
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
-                            </div> -->
-                            <div class="tab-pane" id="materi">
-                                <a href="<?php echo base_url()?>Admin/tambah_materi" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Materi</div></a>
-                                <table class="table mt-5">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" scope="col">ID Materi</th>
-                                            <th class="text-center" scope="col">Matakuliah</th>
-                                            <th class="text-center" scope="col">Judul</th>
-                                            <th class="text-center" scope="col">Detail</th>
-                                            <th class="text-center" scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr><?php foreach ($materi as $kls) :  ?>
-                                            <td class="text-center"><?= $kls['id_materi']; ?></td>
-                                            <td class="text-center"><?= $kls['matkul']; ?></td>
-                                            <td class="text-center"><?= $kls['judul']; ?></td>
-                                            <td class="text-center"><?= $kls['detail']; ?></td>
-                                            <td class="text-center">
-                                                <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id_materi'] ?>">hapus</a>
-                                        </td>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane" id="info">
-                                <a href="<?php echo base_url()?>Admin/tambah_info" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Info</div></a>
-                                <table class="table mt-5">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" scope="col">ID Info</th>
-                                            <th class="text-center" scope="col">Judul</th>
-                                            <th class="text-center" scope="col">Detail</th>
-                                            <th class="text-center" scope="col">Link</th>
-                                            <th class="text-center" scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr><?php foreach ($info as $kls) :  ?>
-                                            <td class="text-center"><?= $kls['id']; ?></td>
-                                            <td class="text-center"><?= $kls['judul']; ?></td>
-                                            <td class="text-center"><?= $kls['detail']; ?></td>
-                                            <td class="text-center"><?= $kls['link']; ?></td>
-                                            <td class="text-center">
-                                                <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
-                                        </td>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane" id="tugas">
-                                <a href="<?php echo base_url()?>Admin/tambah_tugas" style="color: white;"><div id="kelas" style="margin: 10px; background-color: #51be78; width: 200px; height 50px; float: right; text-align: center; border-radius: 5px;">+ Tambah Tugas</div></a>
-                                <table class="table mt-5">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" scope="col">ID</th>
-                                            <th class="text-center" scope="col">Matkul</th>
-                                            <th class="text-center" scope="col">Judul</th>
-                                            <th class="text-center" scope="col">Detail</th>
-                                            <th class="text-center" scope="col">Link</th>
-                                            <th class="text-center" scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr><?php foreach ($tugas as $kls) :  ?>
-                                            <td class="text-center"><?= $kls['id']; ?></td>
-                                            <td class="text-center"><?= $kls['matkul']; ?></td>
-                                            <td class="text-center"><?= $kls['judul']; ?></td>
-                                            <td class="text-center"><?= $kls['detail']; ?></td>
-                                            <td class="text-center"><?= $kls['link']; ?></td>
-                                            <td class="text-center">
-                                                <a href="#mhsModal" class="badge badge-danger float-center" data-toggle="modal" data-book-id="<?php echo $kls['id'] ?>">hapus</a>
-                                        </td>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach ?>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- <div class="modal fade" id="matkulModal" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalSayaLabel">Hapus Matakuliah</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Hapus matakuliah ini?
-                    </div>
-                    <div class="modal-footer">
-                        <a style="color: white;" class="btn btn-secondary" data-dismiss="modal">Tidak</a>
-                        <a name="delete" style="color: white;" class="btn btn-danger">Ya</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="kelasModal" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalSayaLabel">Hapus Matakuliah</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Hapus kelas ini?
-                    </div>
-                    <div class="modal-footer">
-                        <a style="color: white;" class="btn btn-secondary" data-dismiss="modal">Tidak</a>
-                        <a name="delete" style="color: white;" class="btn btn-danger">Ya</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="mhsModal" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalSayaLabel">Hapus Matakuliah</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Hapus mahasiswa ini?
-                    </div>
-                    <div class="modal-footer">
-                        <a style="color: white;" class="btn btn-secondary" data-dismiss="modal">Tidak</a>
-                        <a name="delete" style="color: white;" class="btn btn-danger">Ya</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
     
     <!-- loader -->

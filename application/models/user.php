@@ -56,6 +56,17 @@ class User extends CI_Model {
         return $data->result_array();
     }
 
+    public function get_nama_dosen(){
+        $this->db->select('name');
+        $data = $this->db->get('admin');
+        return $data->result_array();
+    }
+
+    public function get_dosen_by_nama($nama){
+        $q = $this->db->select('*')->from('admin')->where('name',$nama)->get();
+        return $q->result_array();
+    }
+
     public function tambah_kelas($data){
         $this->db->insert('kelas',$data);
     }
@@ -133,12 +144,29 @@ class User extends CI_Model {
         $this->db->insert('terdiri',$data);
     }
 
-    public function get_kelas_by_id($id){
+    public function get_kelas_by_id($id,$nidn){
         $this->db->select('*');
-        $this->db->from('kelas');
-        $this->db->join('buka_kelas', 'kelas.id = buka_kelas.id_kelas');
-        $this->db->where('id_matkul', $id);
+        $this->db->from('mengajar');
+        $this->db->join('kelas', 'kelas.id = mengajar.kode_kelas');
+        $this->db->join('admin', 'admin.nidn = mengajar.nidn');
+        $this->db->where('kode_mk', $id);
+        $this->db->where('mengajar.nidn', $nidn);
         $q = $this->db->get();
+        // echo "<pre>";
+        // var_dump($q->result_array());
+        // echo "<pre>";
+        return $q->result_array();
+    }
+
+    public function get_kelas_by_id2(){
+        $this->db->select('*');
+        $this->db->from('mengajar');
+        $this->db->join('kelas', 'kelas.id = mengajar.kode_kelas');
+        $this->db->join('admin', 'admin.nidn = mengajar.nidn');
+        $q = $this->db->get();
+        // echo "<pre>";
+        // var_dump($q->result_array());
+        // echo "<pre>";
         return $q->result_array();
     }
 

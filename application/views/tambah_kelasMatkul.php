@@ -109,7 +109,7 @@
             </div>
             </div>
         </div>
-        <div class="body" style="margin-top: 100px;"></div>
+        <div class="body" style="margin-top: 50px;"></div>
             <h3 class="text-center">Tambah Kelas</h3>
             <div class="container">
                 <div class="row mt-5">
@@ -142,6 +142,28 @@
                                 <label class="col-sm-2 col-form-label">Jumlah Mahasiswa</label>
                                 <div class="col-sm-10">
                                     <input id="jumlah" type="text" class="form-control" placeholder="Jumlah Mahasiswa" name="jumlah">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dosen Pengampu</label>
+                                <div class="col-sm-10">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Pilih Dosen
+                                        </button>
+                                        <ul id="pilih2" class="dropdown-menu" aria-labelledby="dropdownMenuButton" name="pp">
+                                        <!-- <?php var_dump($nama_kelas)?> -->
+                                            <?php foreach($nama_dosen as $row):?>
+                                                <li class="dropdown-item"><?php echo $row["name"];?></li>
+                                            <?php endforeach;?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">NIDN</label>
+                                <div class="col-sm-10">
+                                    <input id="nidn" type="text" class="form-control" placeholder="ID Kelas" name="nidn">
                                 </div>
                             </div>
                             <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
@@ -177,6 +199,20 @@
                             $("#id").val(obj.id);
                             $("#jumlah").val(obj.jumlah);
                             $("#form-euy").attr('action', '<?php echo base_url()?>Admin/add_kelasMatkul/<?= $this->uri->segment(3);?>/' + obj.id);
+                        }
+                    });
+                });
+                $("#pilih2").on('click','li',function (){
+                    $("#dropdownMenuButton2").text($(this).text());
+                    var selText = $(this).text();
+                    $.ajax({
+                        url : '<?php echo base_url()?>Admin/ajax_dosen',
+                        data : 'nama='+selText,
+                        success : function(data){
+                            var json = data,
+                            obj = JSON.parse(json);
+                            // alert(selText);
+                            $("#nidn").val(obj.nidn);
                         }
                     });
                 });

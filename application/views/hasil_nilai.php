@@ -134,6 +134,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-sm-1 col-form-label">Nilai Akhir</label>
+                        <div class="col-sm-3">
+                            <input readonly id="akhir" type="text" class="form-control" name="judul" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-sm-1 col-form-label">Index</label>
                         <div class="col-sm-3">
                             <input readonly id="index" type="text" class="form-control" name="judul" value="">
@@ -384,19 +390,20 @@
                             total = parseInt(obj.tp) + parseInt(obj.tm1) + parseInt(obj.tm2) + parseInt(obj.p1) + parseInt(obj.p2) + parseInt(obj.p3) + parseInt(obj.p4) + parseInt(obj.p5) + parseInt(obj.p6) + parseInt(obj.p7) + parseInt(obj.p8);
                             total2 = total + parseInt(obj.kuis1) + parseInt(obj.kuis2) + parseInt(obj.kehadiran) + parseInt(obj.presentasi) + parseInt(obj.uts) + parseInt(obj.uas) + parseInt(obj.pembicara) + parseInt(obj.diskusi);
                             console.log(total2);
-                            if (total >= 80){
+                            $("#akhir").val(total2);
+                            if (total2 >= 80){
                                 $("#index").val("A");
                             }
-                            else if (total >=66 && total <= 79){
+                            else if (total2 >=66 && total2 <= 79){
                                 $("#index").val("B");
                             }
-                            else if (total >=56 && total <= 65){
+                            else if (total2 >=56 && total2 <= 65){
                                 $("#index").val("C");
                             }
-                            else if (total >=41 && total <= 55){
+                            else if (total2 >=41 && total2 <= 55){
                                 $("#index").val("D");
                             }
-                            else if (total >=0 && total <= 40){
+                            else if (total2 >=0 && total2 <= 40){
                                 $("#index").val("E");
                             }
                             $("#nilaitp").val(obj.tp);
