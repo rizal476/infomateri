@@ -182,11 +182,14 @@ class Admin extends CI_Controller {
     }
 
     public function detail_kelas($id_matkul,$id_kelas){
+        // var_dump($id_matkul);
         // var_dump($id_kelas);
         $data['id_matkul'] = $id_matkul;
-        $data['kelas'] = $this->User->get_kelas_by_id($id_kelas);
+        $data['kelas'] = $this->User->get_kelas_terpilih($id_matkul,$id_kelas);
         $data['mahasiswa'] = $this->User->get_mhs_by_id_kelas($id_matkul,$id_kelas);
+        // echo "<pre>";
         // var_dump($data['kelas']);
+        // echo "</pre>";
         $this->load->view('view_detail_kelas',$data);
     }
 
@@ -205,6 +208,9 @@ class Admin extends CI_Controller {
         }
         else{
             $data['kelas'] = $this->User->get_kelas_by_id($id,$this->session->userdata("nidn"));
+            // echo "<pre>";
+            // var_dump($data['kelas']);
+            // echo "</pre>";
             $this->load->view('kelas', $data);
         }
     }

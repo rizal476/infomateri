@@ -132,11 +132,11 @@
                             </thead>
                             <tbody>
                                 <tr><?php foreach ($kelas as $kls) :  ?>
-                                    <td class="text-center"><?= $kls['id']; ?></td>
+                                    <td class="text-center"><?= $kls['kode_kelas']; ?></td>
                                     <td class="text-center"><?= $kls['kelas']; ?></td>
                                     <td class="text-center"><?= $kls['jumlah']; ?></td>
                                     <td class="text-center">
-                                        <a href="<?php echo base_url(); ?>Admin/detail_kelas/<?= $id_matkul?>/<?= $kls['id'] ?>" class="badge badge-success float-center" ?>detail</a>
+                                        <a href="<?php echo base_url(); ?>Admin/detail_kelas/<?= $id_matkul?>/<?= $kls['kode_kelas'] ?>" class="badge badge-success float-center" ?>detail</a>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>

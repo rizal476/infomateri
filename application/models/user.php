@@ -37,6 +37,7 @@ class User extends CI_Model {
     }
 
     public function get_all_matkul2($nidn){
+        $this->db->distinct();
         $this->db->select('matkul.id_matkul, nama_matkul, kode');
         $this->db->from('mengajar');
         $this->db->join('matkul', 'matkul.kode = mengajar.kode_mk');
@@ -167,6 +168,16 @@ class User extends CI_Model {
         // echo "<pre>";
         // var_dump($q->result_array());
         // echo "<pre>";
+        return $q->result_array();
+    }
+
+    public function get_kelas_terpilih($id_matkul, $id_kelas){
+        $this->db->select('*');
+        $this->db->from('kelas');
+        $this->db->join('buka_kelas', 'kelas.id = buka_kelas.id_kelas');
+        $this->db->where('id_matkul', $id_matkul);
+        $this->db->where('id_kelas', $id_kelas);
+        $q = $this->db->get();
         return $q->result_array();
     }
 
