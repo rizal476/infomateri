@@ -197,7 +197,7 @@
                                         <div class="course-1-content pb-4">\
                                         <h2>'+obj[i].judul+'</h2>\
                                         <p style="font-family: Muli;" class="desc mb-4">'+obj[i].detail+'</p>\
-                                        <p style="font-family: Muli;" ><a href="https://'+obj[i].link+'" class="btn btn-primary rounded-0 px-4">Download</a></p>\
+                                        <p style="font-family: Muli;" ><a href="'+obj[i].link+'" class="btn btn-primary rounded-0 px-4">Download</a></p>\
                                         </div>\
                                     </div>\
                                 </div>';

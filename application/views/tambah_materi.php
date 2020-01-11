@@ -144,6 +144,12 @@
                                     <input id="detail" type="text" class="form-control" placeholder="Detail Materi" name="detail">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Link Materi</label>
+                                <div class="col-sm-10">
+                                    <input id="link" type="text" class="form-control" placeholder="Detail Materi" name="link">
+                                </div>
+                            </div>
                             <button type="submit" name="tambah" class="btn btn-primary" style="background-color: #51be78; border: #51be78; float:left;">Tambah</button>
                         </form> 
                         <button onclick="window.location.href='<?php echo base_url()?>Admin/view_admin_page'" type="text" name="tambah" class="btn btn-secondary" style="margin-left: 20px; float:left;">Kembali</button> 

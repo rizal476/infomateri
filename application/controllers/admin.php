@@ -507,7 +507,8 @@ class Admin extends CI_Controller {
             $data = [
                 "matkul" => $this->input->post('id',true),
                 "judul" => $this->input->post('judul', true),
-                "detail" => $this->input->post('detail', true)
+                "detail" => $this->input->post('detail', true),
+                "link" => $this->input->post('link', true)
             ];
             $this->User->tambahMateri($data);
             redirect(base_url('Admin/tambah_materi'));
